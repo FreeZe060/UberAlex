@@ -19,8 +19,8 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'assets')));
-app.use(express.static(path.join(__dirname, 'static')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/static', express.static(path.join(__dirname, 'static'), { 'Content-Type': 'text/css' }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

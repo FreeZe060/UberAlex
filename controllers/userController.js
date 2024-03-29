@@ -4,7 +4,7 @@ const userModel = require('../models/userModel');
 
 // Routes
 router.get('/home', (req, res) => {
-    res.send('home');
+    res.render('home');
 });
 
 module.exports = router;

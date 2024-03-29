@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="icon" href="img/photo.jpg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css">
 </head>
 <body>
 
     <header class="header">
         <div class="header_content">
             <div class="header_profile-container">
-                <div class="header_profile-img-cont">
+                <!-- <div class="header_profile-img-cont">
                     <img src="img/photo.jpg" alt="ImgProfile" class="header_logo-img" />
-                </div>
-                <span class="header_profile-span">Tim VANNSON</span><br>
+                </div> -->
+                <span class="header_profile-span">UberAlex</span><br>
             </div>
 
             <div class="header_main">
+                <div class="search_container">
+                    <form action="" class="search-bar" id="searchForm">
+                        <input type="search" class="search" id="search" name="searchTerm" placeholder="Nom de la case" pattern=".*\S.*" required>
+                        <button class="button" id="button"><span>Search</span></button>
+                    </form>
+                </div>
                 <ul class="header_links">
                     <li class="header_link-li">
                         <a href="./#home" class="header_link"> Home </a>
@@ -23,9 +28,7 @@
                     <li class="header_link-li">
                         <a href="./#about" class="header_link"> Infos </a>
                     </li>
-                    <li class="header_link-li">
-                        <a href="./#projects" class="header_link"> Projets </a>
-                    </li>
+                    <img src="/assets/paniers.png" alt="ImgProfile" class="header_logo-img" />
                     <li class="header_link-li">
                         <a href="./contact" class="header_link"> Contact </a>
                     </li>
