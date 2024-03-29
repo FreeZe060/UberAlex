@@ -6,7 +6,7 @@ const dbConfig = {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'UberAlexDB'
+    database: 'uberalex'
 };
 
 const connection = mysql.createConnection(dbConfig);
