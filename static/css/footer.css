@@ -54,3 +54,23 @@ footer p {
     display: none;
     color: blue;
 }
+
+.newsletter {
+    text-align: center; /* Centrer le contenu */
+}
+
+.newsletter form {
+    margin-top: 20px; /* Espacement entre le contenu et le formulaire */
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column; /* Afficher les liens verticalement */
+    align-items: center; /* Centrer horizontalement */
+}
+
+.social-links a {
+    display: block;
+    margin-bottom: 10px; /* Espacement entre les liens */
+}
+

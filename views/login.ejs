@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+        <script src="/static/js/popup.js" defer></script>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <input type="text" placeholder="Nom de votre boutique" />
+                    <input type="text" placeholder="Adresse de votre boutique" />
+                    <details class="custom-select">
+                        <summary class="radios">
+                            <input type="radio" name="item" id="default" title="Auswählen..." checked>
+                            <input type="radio" name="item" id="item1" title="Item 1">
+                            <input type="radio" name="item" id="item2" title="Item 2">
+                            <input type="radio" name="item" id="item3" title="Item 3">
+                        </summary>
+                        <ul class="list">
+                            <li>
+                                <label for="item1">
+                                    Restaurant
+                                    <span></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="item2">Boulangerie</label>
+                            </li>
+                            <li>
+                                <label for="item3">Courses</label>
+                            </li>
+                        </ul>
+                    </details>
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input type="email" placeholder="Email / Username" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Connectez vous!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <%- include('./partials/footer.ejs') %>         
+    </body>
+</html>
+    
