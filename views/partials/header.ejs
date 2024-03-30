@@ -16,25 +16,28 @@
 
             <div class="header_main">
                 <ul class="header_links">
-                    <li>
+                    <!-- <li class="header_link-li">
                         <div class="search_container">
                             <form action="" class="search-bar" id="searchForm">
                                 <input type="search" class="search" id="search" name="searchTerm" placeholder="Nom de la case" pattern=".*\S.*" required>
                                 <button class="button" id="button"><span>Search</span></button>
                             </form>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="header_link-li">
                         <a href="./#home" class="header_link"> Home </a>
                     </li>
                     <li class="header_link-li">
                         <a href="./#about" class="header_link"> Infos </a>
                     </li>
-                    <li>
-                        <img src="/assets/img/paniers.png" alt="ImgProfile" class="header_logo-img" />
-                    </li>
                     <li class="header_link-li">
+                        <img src="/static/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
+                    </li>
+                    <!-- <li class="header_link-li">
                         <a href="./contact" class="header_link"> Contact </a>
+                    </li> -->
+                    <li class="header_link-li">
+                        <a href="" class="header_link"><img src="/static/assets/img/no_profile.png" alt="ImgProfile"/>Log In</a>
                     </li>
                     <!-- if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']) {
                         echo '<li class="header_link-li">
