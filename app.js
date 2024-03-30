@@ -9,6 +9,8 @@ const routes = require('./routes');
 const app = express();
 const port = 8080;
 
+/*Encodage de l'url*/
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,14 +21,8 @@ app.use(session({
 }));
 
 // Configuration de la base de données
-const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'uberalex'
-};
 
-const dbManager = new DbManager(dbConfig);
+const dbManager = new DbManager();
 dbManager.connect();
 
 // Autres configurations et middlewares

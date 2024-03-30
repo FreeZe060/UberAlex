@@ -24,6 +24,28 @@
             <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="searchbar_button" />
         </div>
     </section>
+
+    <section id="list-structure" class="list-structure sec-pad">
+        <div class="main-container">
+            <h3 class="heading heading-sec heading-sec__mb-med">
+                <span class="heading-sec__main">Listes des restaurants</span>
+            </h3>
+            <div class="structures">
+                <% structures.forEach(function(structure) { %>
+                    <div class="structures__structure">
+                        <div class="structures__structure-details">
+                            <li><%= structure.name %></li>
+                            <li><%= structure.desc %></li>
+                            <li><%= structure.img %></li>
+                            <li><%= structure.address %></li>
+                            <li><%= structure.rating %></li>
+                            <li><%= structure.like %></li>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
     
 </body>
 

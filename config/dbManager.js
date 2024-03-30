@@ -1,9 +1,14 @@
 const mysql = require('mysql');
 
 class DbManager {
-    constructor(dbConfig) {
-        this.dbConfig = dbConfig;
-        this.connection = mysql.createConnection(dbConfig);
+    constructor() {
+        this.dbConfig = {
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'uberalex'
+        };
+        this.connection = mysql.createConnection(this.dbConfig);
     }
 
     connect() {
@@ -21,6 +26,17 @@ class DbManager {
         console.log('Connexion à la base de données fermée');
     }
 
+    query(sql, values) {
+        return new Promise((resolve, reject) => {
+            this.connection.query(sql, values, (error, results) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    }
 }
 
 module.exports = DbManager;
