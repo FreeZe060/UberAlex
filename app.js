@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
-const dbConfig = require('./config/dbConfig');
+const DbManager = require('./config/dbManager');
 const routes = require('./routes');
 
 const app = express();
@@ -18,6 +18,18 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Configuration de la base de données
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'uberalex'
+};
+
+const dbManager = new DbManager(dbConfig);
+dbManager.connect();
+
+// Autres configurations et middlewares
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'static')));
