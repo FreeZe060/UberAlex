@@ -42,8 +42,10 @@
 }
 
 .home-presentation {
-    background: linear-gradient(to right, rgba(245, 245, 245, .8), rgba(245, 245, 245, .8)), url('../assets/img/fond_minimaliste.jpg');
+    background: linear-gradient(to right, rgba(245, 245, 245, .4), rgba(245, 245, 245, .4)), url('../assets/img/fond_minimaliste.jpg');
     background-position: center;
+    background-size: x;
+    background-attachment: fixed;
     height: 50vh;
     min-height: 50rem;
     max-height: 120rem;
