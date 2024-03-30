@@ -1,3 +1,5 @@
+@import url(./set.css);
+
 .header {
     position: fixed;
     top:0;
@@ -39,8 +41,8 @@
 }
 
 .header_logo-img {
-    width: 100%;
-    height: 100%;
+    width: 3%;
+    height: 3%;
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: center;
@@ -66,4 +68,82 @@
     font-weight: 700;
     transition: color .3s;
     text-decoration: none;
+}
+
+.search_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    /* top: 16%; */
+    width: 100%;
+    margin: 0 auto;
+}
+
+:root {
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #fff;
+    --color-light: #eeeeee;
+    --color-brand: #2980b9;
+    --font-fam: 'Lato', sans-serif;
+    --height: 3rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+.search-bar {
+    position: relative;
+    width: 25rem;
+    border-radius: var(--rad);
+}
+
+.search, .button {
+    height: var(--height);
+    font-family: var(--font-fam);
+    border: 0;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+}
+
+input[type="search"] {
+    outline: 0; 
+    width: 100%;
+    background: var(--color-light);
+    padding: 0 1.6rem;
+    border-radius: var(--rad);
+    appearance: none; 
+    transition: all var(--dur) var(--bez);
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+}
+
+.button {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--btn-width);
+    font-weight: bold;
+    background: var(--color-brand);
+    border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+.search:not(:placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: calc(100% - var(--btn-width));
+    + button {
+        display: block;
+    }
+}
+
+label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
 }
