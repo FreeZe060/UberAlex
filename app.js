@@ -3,11 +3,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
-const dbConfig = require('./config/dbConfig');
+const DbManager = require('./config/dbManager');
 const routes = require('./routes');
 
 const app = express();
 const port = 8080;
+
+/*Encodage de l'url*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +20,12 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Configuration de la base de données
+
+const dbManager = new DbManager();
+dbManager.connect();
+
+// Autres configurations et middlewares
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/static', express.static(path.join(__dirname, 'static'), { 'Content-Type': 'text/css' }));

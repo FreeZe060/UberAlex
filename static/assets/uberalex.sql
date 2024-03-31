@@ -79,6 +79,25 @@ CREATE TABLE IF NOT EXISTS `restaurateur` (
 -- Listage des données de la table uberalex.restaurateur : ~0 rows (environ)
 DELETE FROM `restaurateur`;
 
+-- Listage de la structure de table uberalex. structures
+DROP TABLE IF EXISTS `structures`;
+CREATE TABLE IF NOT EXISTS `structures` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `img` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'defaultlogo',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `desc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `rating` double DEFAULT NULL,
+  `like` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Listage des données de la table uberalex.structures : ~0 rows (environ)
+DELETE FROM `structures`;
+INSERT INTO `structures` (`id`, `img`, `name`, `desc`, `address`, `rating`, `like`) VALUES
+	(1, 'defaultlogo', 'dzsdq', 'qzdq', '10 re', 0, 20),
+	(2, 'defaultlogo', 'fsfe', 'esfsef', '25 ru', 5, 1);
+
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
