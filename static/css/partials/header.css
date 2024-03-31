@@ -40,17 +40,6 @@
     background: #0071c2;
 }
 
-.header_logo-img {
-    width: 2%;
-    height: 2%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-    display: block;
-    margin-right: 10px;
-}
-
 .header_link-li {
     margin: 0;
     transition: 0.3s transform ease-in-out;
@@ -111,66 +100,50 @@
     height: 100%;
     width: 0;
     position: fixed;
-}
-.search,
-.button {
-    height: var(--height);
-    font-family: var(--font-fam);
-    border: 0;
-    color: var(--color-dark);
-    font-size: 1.2rem;
-}
-
-input[type="search"] {
-    outline: 0;
-    width: 100%;
-    background: var(--color-light);
-    padding: 0 1.6rem;
-    border-radius: var(--rad);
-    appearance: none;
-    transition: all var(--dur) var(--bez);
-    transition-property: width, border-radius;
-    z-index: 1;
-    position: relative;
-} 
-
-.button {
-    display: none;
-    position: absolute;
     top: 0;
-    right: 0;
-    background-color: #111;
+    right: 0;   
+    background-color: #dadada;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     z-index: 10;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
 }
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
+.sidenav a,
+.sidenav button {
+    padding: 8px 16px; 
     text-decoration: none;
-    font-size: 25px;
+    font-size: 16px; 
     color: #818181;
-    display: block;
+    display: inline-block;
+    margin: 0 10px; 
     transition: 0.3s;
 }
-.search:not(:placeholder-shown) {
-    border-radius: var(--rad) 0 0 var(--rad);
-    width: calc(100% - var(--btn-width));
 
-    +button {
-        display: block;
-    }
-}
-
-.sidenav a:hover {
+.sidenav a:hover,
+.sidenav button:hover {
     color: #f1f1f1;
 }
 
-.sidenav .closebtn {
-    position: absolute;
+.sidenav button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sidenav a:nth-child(3) {
+    margin-top: 20px; 
+}
+
+.closebtn {
+    color: #fff; 
+    font-size: 36px; 
+    cursor: pointer;
+    margin-right: 10px; 
+    display: flex;
+    justify-content: flex-end;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
 }

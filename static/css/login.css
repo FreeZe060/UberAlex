@@ -15,140 +15,43 @@ body {
 	margin: -20px 0 50px;
 }
 
-details {
-	position: relative;
-	width: 300px;
-	margin-right: 1rem;
+.custom-select {
+    position: relative;
+    width: 100%;
 }
 
-details[open] {
-	z-index: 1;
+.custom-select select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-color: #eee;
+    font-family: inherit; 
 }
 
-summary {
-	padding: 1rem;
-	cursor: pointer;
-	border-radius: 5px;
-	background-color: #ddd;
-	list-style: none;
+.custom-select select:focus {
+    outline: none;
+    border-color: #FF4B2B;
 }
 
-summary::-webkit-details-marker {
-	display: none;
+.custom-select:after {
+    content: '\25BC'; 
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    right: 10px;
+    pointer-events: none;
 }
 
-details[open] summary:before {
-	content: '';
-	display: block;
-	width: 100vw;
-	height: 100vh;
-	background: transparent;
-	position: fixed;
-	top: 0;
-	left: 0;
-}
 
-summary:after {
-	content: '';
-	display: inline-block;
-	float: right;
-	width: .5rem;
-	height: .5rem;
-	border-bottom: 1px solid currentColor;
-	border-left: 1px solid currentColor;
-	border-bottom-left-radius: 2px;
-	transform: rotate(45deg) translate(50%, 0%);
-	transform-origin: center center;
-	transition: transform ease-in-out 100ms
-}
-
-summary:focus {
-	outline: none;
-}
-
-details[open] summary:after {
-	transform: rotate(-45deg) translate(0%, 0%);
-}
-
-details ul {
-	width: 100%;
-	background: #ddd;
-	position: absolute;
-	top: calc(100% + .5rem);
-	left: 0;
-	padding: 1rem;
-	margin: 0;
-	box-sizing: border-box;
-	border-radius: 5px;
-	max-height: 200px;
-	overflow-y: auto;
-}
-
-details li {
-	margin: 0;
-	padding: 1rem 0;
-	border-bottom: 1px solid #ccc;
-}
-
-details li:first-child {
-	padding-top: 0;
-}
-
-details li:last-child {
-	padding-bottom: 0;
-	border-bottom: none;
-}
-
-/* FAKE SELECT */
-
-summary.radios {
-	counter-reset: radios;
-}
-
-summary.radios:before {
-	content: var(--selection);
-}
-
-input[type=radio] {
-	counter-increment: radios;
-	appearance: none;
-	display: none;
-}
-
-input[type=radio]:checked {
-	display: inline;
-	--display: block;
-}
-
-input[type=radio]:after {
-	content: attr(title);
-	display: inline;
-	font-size: 1rem;
-}
-
-details ul.list {
-	counter-reset: labels;
-}
-
-label {
-	width: 100%;
-	display: flex;
-	cursor: pointer;
-	justify-content: space-between;
-}
-
-label span {
-	--display: none;
-	display: var(--display);
-	width: 1rem;
-	height: 1rem;
-	border: 1px solid #727272;
-	border-radius: 3px;
+.custom-select select:focus + .custom-select:after {
+    color: #888;
 }
 
 h1 {
 	font-weight: bold;
-	margin: 0;
+	margin: 1vh 0 0 0;
 }
 
 h2 {
@@ -200,7 +103,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
-form {
+ form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -220,22 +123,21 @@ input {
 }
 
 .container {
-	background-color: #fff;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	width: 768px;
-	max-width: 100%;
-	min-height: 480px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 600px;
 }
 
 .form-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	transition: all 0.6s ease-in-out;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
 }
 
 .sign-in-container {
@@ -291,8 +193,7 @@ input {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-image: url('../assets/img/tst.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -381,24 +282,9 @@ footer a {
     text-decoration: none;
 }
 
-
-
-
-
-
-
-
-
-
-/* <% structures.forEach(function(structure) { %>
-	<div class="structures__structure">
-		<div class="structures__structure-details">
-			<li><%= structure.name %></li>
-			<li><%= structure.desc %></li>
-			<li><%= structure.img %></li>
-			<li><%= structure.address %></li>
-			<li><%= structure.rating %></li>
-			<li><%= structure.like %></li>
-		</div>
-	</div>
-<% }); %> */
+form a {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	margin: 1vh 0 1vh 0;
+}
