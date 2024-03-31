@@ -5,6 +5,16 @@
 <footer class="main-footer">
     <div class="main-container-footer">
         <div class="main-footer__upper">
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Inscrivez-vous à notre newsletter pour recevoir les dernières mises à jour.</p>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Entrez votre adresse e-mail" required>
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+            
             <div class="main-footer__row main-footer__row-1">
                 <h2 class="heading heading-sm main-footer__heading-sm">
                     <span>Social</span>
@@ -21,17 +31,28 @@
 
                 </div>
             </div>
+
             <div class="main-footer__row main-footer__row-2">
                 <h2 class="heading heading-sm text-lt">UberAlex</h2>
-                <p class="main-footer__short-desc">
-                    App Web
-                </p>
+                <ul class="footer-menu">
+                    <li><a href="#" class="footer-link">App Web</a></li>
+                    <li><a href="#" class="footer-link">Accueil</a></li>
+                    <li><a href="#" class="footer-link">Services</a></li>
+                    <li><a href="#" class="footer-link">À propos</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
             </div>
         </div>
 
         <div class="main-footer__lower">
-            © Copyright
-            <script>document.write(new Date().getFullYear())</script></a>
+            <a href="#CGU" class="footer-link">CGU</a>
+            <a href="#CGV" class="footer-link">CGV</a>
+            <a href="#Politique" class="footer-link">Politique de confidentialité</a>
+            <a href="#Mentions" class="footer-link">Mentions légales</a>
+            <div class="footer-copyright">
+                © Copyright
+                <script>document.write(new Date().getFullYear())</script>
+            </div>
         </div>
     </div>
 </footer>
