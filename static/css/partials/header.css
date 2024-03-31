@@ -107,31 +107,51 @@
     transition: 0.5s;
     padding-top: 60px;
     z-index: 10;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: flex-start; /
 }
 
-.sidenav a,
-.sidenav button {
+.button_connection {
     padding: 8px 16px; 
     text-decoration: none;
-    font-size: 16px; 
-    color: #818181;
-    display: inline-block;
-    margin: 0 10px; 
-    transition: 0.3s;
-}
-
-.sidenav a:hover,
-.sidenav button:hover {
-    color: #f1f1f1;
-}
-
-.sidenav button {
-    background-color: transparent;
-    border: none;
+    background-color: black;
+    margin: 0 0 2vh 0; 
+    display: flex;
     cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.button_connection a {
+    font-size: 16px; 
+    color: white;
+}
+
+.button_connection:hover {
+    background-color: #333333;
+}
+
+.button_inscription {
+    padding: 8px 16px; 
+    text-decoration: none;
+    background-color: rgb(214, 214, 214);
+    cursor: pointer;
+    display: flex;
+    border-radius: 10px;
+    margin: 0 0 2vh 0; 
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.button_inscription a {
+    font-size: 16px; 
+    color: white;
+}
+
+.button_inscription:hover {
+    background-color: #cccccc;
 }
 
 .sidenav a:nth-child(3) {
@@ -147,3 +167,13 @@
     justify-content: flex-end;
     top: 0;
 }
+
+.sidenav a {
+    font-size: 18px; 
+    color: white;
+}
+
+.sidenav a:hover {
+    text-decoration: underline;
+}
+
