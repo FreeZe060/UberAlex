@@ -25,6 +25,7 @@ router.post('/create_member', async (req, res) => {
         }
 
         const newUser = await memberModel.createMember(userData);
+        console.log("Member inscrit evc succès:", newUser)
 
         req.session.logUser = newUser;
 
@@ -46,7 +47,7 @@ router.post('/create_member', async (req, res) => {
 });
 
 router.post('/login_member', async (req, res) => {
-    
+
 });
 
 
