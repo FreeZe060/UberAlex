@@ -108,9 +108,13 @@
     transition: 0.5s;
     padding-top: 60px;
     z-index: 10;
+}
+
+.sidenav div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /
+    align-items: flex-start; 
+    margin: 0 0 0 1vh;
 }
 
 .button_connection {
@@ -135,7 +139,7 @@
 }
 
 .button_inscription {
-    padding: 8px 16px; 
+    padding: 8px 16px;
     text-decoration: none;
     background-color: rgb(214, 214, 214);
     cursor: pointer;
@@ -169,12 +173,12 @@
     top: 0;
 }
 
-.sidenav a {
+.text_login {
     font-size: 18px; 
     color: white;
 }
 
-.sidenav a:hover {
+.text_login:hover {
     text-decoration: underline;
 }
 
