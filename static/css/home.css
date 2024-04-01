@@ -91,6 +91,17 @@
     height: 7rem;
 }
 
+@media screen and (max-width: 768px) {
+    .searchbar-input {
+        width: 80%;
+        max-width: none;
+    }
+
+    .searchbar-input:hover {
+        width: 85%;
+    }
+}
+
 .searchbar_button {
     height: 2rem;
     position: absolute;
