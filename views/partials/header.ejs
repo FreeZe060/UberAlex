@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/static/css/partials/header.css">
     </head>
     <body>
@@ -8,13 +11,13 @@
         <header class="header">
             <div class="header_content">
                 <div class="header_profile-container">
-                    <a href="./home"><span class="header_profile-span">UberAlex</span></a><br>
+                    <a href="/"><span class="header_profile-span">UberAlex</span></a><br>
                 </div>
 
                 <div class="header_main">
                     <ul class="header_links">
                         <li class="header_link-li">
-                            <a href="./home" class="header_link"> Home </a>
+                            <a href="/" class="header_link"> Home </a>
                         </li>
                         <li class="header_link-li">
                             <a href="./#about" class="header_link"> Infos </a>
@@ -33,14 +36,14 @@
         <div id="sideMenu" class="sidenav">
             <span class="closebtn">&times;</span>
             <button class="button_connection">
-                <a href="./registration"> Se connecter </a>
+                <a href="./user/registration"> Se connecter </a>
             </button>
             <button class="button_inscription">
-                <a href="./registration"> S'inscrire </a>
+                <a href="./user/registration"> S'inscrire </a>
             </button>
-            <a href="./login">Vous etes restaurateurs</a>
-            <a href="./login">Devenez restaurateurs</a>
+            <a href="./user/login">Vous etes restaurateurs</a>
+            <a href="./user/login">Devenez restaurateurs</a>
         </div>
-        <script src="/static/js/popup.js" defer></script>
+        <script src="/static/js/sidenav.js" defer></script>
     </body>
 </html>

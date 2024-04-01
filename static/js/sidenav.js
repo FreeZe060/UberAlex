@@ -10,7 +10,7 @@ signInButton.addEventListener('click', () => {
     container.classList.remove("right-panel-active");
 });
 
-const closeBtn = document.querySelector('.closebtn'); // Sélectionnez l'élément avec la classe closebtn
+const closeBtn = document.querySelector('.closebtn');
 
 closeBtn.addEventListener('click', () => {
     toggleMenu(); // Appeler la fonction toggleMenu lorsque la croix est cliquée
@@ -19,7 +19,7 @@ closeBtn.addEventListener('click', () => {
 function toggleMenu() {
     console.log("nonnnns");
     var sideMenu = document.getElementById("sideMenu");
-    if (sideMenu.style.width === "250px") {
+    if (sideMenu.style.width == "250px") {
         sideMenu.style.width = "0";
     } else {
         sideMenu.style.width = "250px";
