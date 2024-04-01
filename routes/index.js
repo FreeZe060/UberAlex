@@ -6,7 +6,8 @@ const mainController = require('../controllers/mainController');
 //Page principale
 router.get('/', mainController.showHomePage);
 
-router.use('/user', require('../controllers/userController'));
+router.use('/user', require('../controllers/memberController'));
+router.use('/user', require('../controllers/structureController'));
 // router.use('/rides', require('./rideController'));
 // router.use('/payments', require('./paymentController'));
 
