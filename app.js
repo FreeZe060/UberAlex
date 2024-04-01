@@ -1,4 +1,4 @@
-//npm install express-session express path ejs body-parser
+//npm install express-session express path ejs body-parser fs sharp
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -19,11 +19,17 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+app.use((req, res, next) => {
+    // Middleware pour rendre l'ID de l'utilisateur disponible dans toutes les routes
+    res.locals.logUser = req.session.logUser;
+    next();
+});
 
 // Configuration de la base de données
 
 const dbManager = new DbManager();
 dbManager.connect();
+console.log(`Connecté à la base de données MySQL`);
 
 // Autres configurations et middlewares
 app.use(express.static(path.join(__dirname, 'public')));

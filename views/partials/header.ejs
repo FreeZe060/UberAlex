@@ -23,11 +23,15 @@
                             <a href="./#about" class="header_link"> Infos </a>
                         </li>
                         <li class="header_link-li">
-                            <img src="/static/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
+                            <img src="/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
                         </li>
-                        <li class="header_link-li">
-                            <img src="/static/assets/img/menu.png" alt="ImgProfile" class="header_link-less" id="menuButton" onclick="toggleMenu()">
-                        </li>
+                        <% if (profile == undefined) { %>
+                            <li class="header_link-li">
+                                <img src="/assets/img/menu.png" alt="ImgProfile" class="header_link-less" id="menuButton" onclick="toggleMenu()">
+                            </li>
+                        <% } else { %>
+                            <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
+                        <% } %>
                     </ul>
                 </div>
             </div>  
@@ -36,13 +40,13 @@
         <div id="sideMenu" class="sidenav">
             <span class="closebtn">&times;</span>
             <button class="button_connection">
-                <a href="./user/registration"> Se connecter </a>
+                <a href="/user/reg_member"> Se connecter </a>
             </button>
             <button class="button_inscription">
-                <a href="./user/registration"> S'inscrire </a>
+                <a href="/user/reg_member"> S'inscrire </a>
             </button>
-            <a href="./user/login">Vous etes restaurateurs</a>
-            <a href="./user/login">Devenez restaurateurs</a>
+            <a href="/user/reg_restaurateur">Vous etes restaurateurs</a>
+            <a href="/user/reg_restaurateur">Devenez restaurateurs</a>
         </div>
         <script src="/static/js/sidenav.js" defer></script>
     </body>
