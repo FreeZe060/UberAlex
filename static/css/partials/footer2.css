@@ -1,3 +1,5 @@
+@import url(../set.css);
+
 *,
 ::after,
 ::before {
@@ -35,22 +37,19 @@ div {
 }
 
 
-/* ========================= Newsletter =============================== */
-
-
 .newsletter {
     text-align: center;
     order: 2; 
 }
 
 .newsletter h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
 }
 
 .newsletter p {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .newsletter form {
@@ -62,12 +61,18 @@ div {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 300px;
-    margin-right: 10px;
+    min-width: 10px;
+    width: 20vw;
+    height: 7vw;
+    max-height: 37px;
+    margin-right: 1vw;
 }
 
 .newsletter button {
-    padding: 10px 20px;
+    padding: 0 1vw;
+    width: 40%;
+    height: 7vw;
+    max-height: 37px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;

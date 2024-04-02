@@ -4,6 +4,8 @@
     position: fixed;
     top: 0;
     width: 100%;
+    min-height: 84px;
+    max-width: 100%;
     z-index: 5;
     background: #00c67a;
     box-shadow: 0 10px 100px #00c67a85;
@@ -40,7 +42,14 @@
     background: #0071c2;
 }
 
+.header__main-ham-menu-cont {
+    display: flex;
+    flex-direction: row;
+}
+
 .header_link-li {
+    display: flex;
+    align-items: center;
     margin: 0;
     transition: 0.3s transform ease-in-out;
 }
@@ -50,7 +59,7 @@
 }
 
 .header_link {
-    padding: 2.2rem 3rem;
+    padding: 2rem 3rem;
     display: inline-block;
     font-size: 1.6rem;
     color: #333;
@@ -71,6 +80,12 @@
     list-style-type: none;
     padding: 0;
     margin: 0; 
+}
+
+@media (max-width: 37.5em){
+    .header_links {
+        display: none;
+    }
 }
 
 .header li {
