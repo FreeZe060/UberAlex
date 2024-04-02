@@ -13,6 +13,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+	background: linear-gradient(to right, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, .4)), url('../../assets/img/fond_minimaliste.jpg');
 }
 
 .custom-select {

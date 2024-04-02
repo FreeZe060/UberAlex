@@ -47,7 +47,33 @@ router.post('/create_member', async (req, res) => {
 });
 
 router.post('/login_member', async (req, res) => {
+    try {
+        const userData = {
+            password: req.body.password,
+            mail: req.body.mail,
+        };
 
+        memberExist = await memberModel.searchUserByEmail(userData.mail)
+
+        if (!memberExist){
+            console.log("Email non enregistré");
+            return res.render('register_member', { error: 'Aucun membre n\'est associé à cet email' });
+        }
+
+        if (!await memberModel.checkPassword(userData)) {
+            console.log("Mot de passe incorrect");
+            return res.render('register_member', { error: 'Mot de passe incorrect' });
+        }
+        
+        console.log("Connexion réeussi:", memberExist);
+        req.session.logUser = memberExist;
+
+        res.redirect('/');
+
+    } catch (error) {
+        console.error('Erreur lors de la création du membre :', error);
+        res.status(500).send('Une erreur s\'est produite lors de la création du membre');
+    }
 });
 
 

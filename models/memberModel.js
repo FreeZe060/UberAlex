@@ -33,6 +33,16 @@ class MemberModel {
         }
     }
 
+    async checkPassword(userData) {
+        try {
+            const query = 'SELECT * FROM member WHERE mail = ?';
+            const result = await this.dbManager.query(query, [userData.mail]);
+            return result[0].password == userData.password ? true : false;
+        } catch (error) {
+            throw new Error('Erreur lors de la vérification de l\'existence de l\'utilisateur : ' + error.message);
+        }
+    }
+
     destroy() {
         this.dbManager.close();
     }
