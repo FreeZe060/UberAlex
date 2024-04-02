@@ -5,10 +5,10 @@ class StructureModel {
 
     constructor() {
         this.dbManager = new DbManager();
+        this.dbManager.connect();
     }
 
     async getAllStructures() {
-        this.dbManager.connect();
         try {
             const structures = await this.dbManager.query('SELECT * FROM structure');
             // structures.forEach(async structure => {
@@ -19,9 +19,48 @@ class StructureModel {
             return structures;
         } catch (error) {
             throw new Error('Erreur lors de la récupération des structures depuis la base de données : ' + error.message);
-        } finally {
-            this.dbManager.close();
         }
+    }
+
+    async createStructure(structuerData) {
+        let newStructure = null;
+        try {
+            const query = 'INSERT INTO structure (desc, name, password, mail, address) VALUES (?, ?, ?, ?, ?)';
+            const result = await this.dbManager.query(query, [structuerData.desc, structuerData.name, structuerData.password, structuerData.mail, structuerData.address]);
+
+            if (result && result.insertId) {
+                const newStructureQuery = 'SELECT * FROM structure WHERE id = ?';
+                newStructure = await this.dbManager.query(newStructureQuery, [result.insertId]);
+            }
+
+            return newStructure[0];
+        } catch (error) {
+            throw new Error('Erreur lors de la création du membre : ' + error.message);
+        }
+    }
+
+    async searchStructureByEmail(mail) {
+        try {
+            const query = 'SELECT * FROM member WHERE mail = ?';
+            const result = await this.dbManager.query(query, [mail]);
+            return result.length > 0 ? result[0] : false;
+        } catch (error) {
+            throw new Error('Erreur lors de la vérification de l\'existence de l\'utilisateur : ' + error.message);
+        }
+    }
+
+    async checkPassword(structuerData) {
+        try {
+            const query = 'SELECT * FROM member WHERE mail = ?';
+            const result = await this.dbManager.query(query, [structuerData.mail]);
+            return result[0].password == structuerData.password ? true : false;
+        } catch (error) {
+            throw new Error('Erreur lors de la vérification de l\'existence de l\'utilisateur : ' + error.message);
+        }
+    }
+
+    destroy() {
+        this.dbManager.close();
     }
 
 }
