@@ -44,7 +44,7 @@
 }
 
 .home-presentation {
-    background: linear-gradient(to right, rgba(245, 245, 245, .4), rgba(245, 245, 245, .4)), url('../assets/img/fond_minimaliste.jpg');
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, .4)), url('../../assets/img/fond_minimaliste.jpg');
     background-position: center;
     background-size: x;
     background-attachment: fixed;
@@ -89,6 +89,17 @@
 .searchbar-input:hover {
     width: 77rem;
     height: 7rem;
+}
+
+@media screen and (max-width: 768px) {
+    .searchbar-input {
+        width: 80%;
+        max-width: none;
+    }
+
+    .searchbar-input:hover {
+        width: 85%;
+    }
 }
 
 .searchbar_button {
@@ -214,7 +225,6 @@ div p#droprate {
 .heading-sec__main {
     display: block;
     font-size: 4rem;
-    text-transform: uppercase;
     letter-spacing: 1px;
     letter-spacing: 3px;
     text-align: center;
@@ -229,7 +239,7 @@ div p#droprate {
     top: calc(100% + 1.5rem);
     height: 5px;
     width: 3rem;
-    background: #43BFB3;
+    background: #00c67a;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;

@@ -15,15 +15,12 @@ class DbManager {
         this.connection.connect((err) => {
             if (err) {
                 console.error('Erreur de connexion à la base de données : ' + err.message);
-            } else {
-                console.log(`Connecté à la base de données MySQL`);
             }
         });
     }
 
     close() {
         this.connection.end();
-        console.log('Connexion à la base de données fermée');
     }
 
     query(sql, values) {

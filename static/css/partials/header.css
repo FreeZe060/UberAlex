@@ -5,9 +5,8 @@
     top: 0;
     width: 100%;
     z-index: 5;
-    background: #000;
-    background: #fff;
-    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
+    background: #00c67a;
+    box-shadow: 0 10px 100px #00c67a85;
 }
 
 .header_content {

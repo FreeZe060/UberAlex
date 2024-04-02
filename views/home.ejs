@@ -27,16 +27,13 @@
                 </h3>
                 <div class="structures">
                     <% structures.forEach(function(structure) { %>
-                        <div class="structures__structure">
+                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= structure.img %>'); background-size: contain;">
                             <div class="structures__structure-details">
                                 <li>
                                     <%= structure.name %>
                                 </li>
                                 <li>
                                     <%= structure.desc %>
-                                </li>
-                                <li>
-                                    <%= structure.img %>
                                 </li>
                                 <li>
                                     <%= structure.address %>

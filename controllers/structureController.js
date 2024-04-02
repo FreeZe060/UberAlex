@@ -1,17 +1,12 @@
-const StructureModel = require('../models/structureModel');
+const express = require('express');
+const router = express.Router();
+const userModel = require('../models/memberModel');
 
-const StructureController = {};
+// Routes
 
-StructureController.createStructure = async (req, res) => {
-    // Logique pour créer une nouvelle structure
-};
+router.get('/reg_restaurateur', (req, res) => {
+    const logUser = res.locals.logUser;
+    res.render('register_restaurateur', profile = logUser);
+});
 
-StructureController.updateStructure = async (req, res) => {
-    // Logique pour mettre à jour une structure existante
-};
-
-StructureController.deleteStructure = async (req, res) => {
-    // Logique pour supprimer une structure
-};
-
-module.exports = StructureController;
+module.exports = router;
