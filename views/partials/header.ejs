@@ -27,7 +27,7 @@
                         </li>
                         <% if (profile == undefined) { %>
                             <li class="header_link-li">
-                                <img src="/assets/img/menu.png" alt="ImgProfile" class="header_link-less" id="menuButton" onclick="toggleMenu()">
+                                <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
                             </li>
                         <% } else { %>
                             <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
@@ -38,16 +38,15 @@
         </header>
 
         <div id="sideMenu" class="sidenav">
-            <span class="closebtn" onclick="toggleMenu()">&times;</span>
-            <div>
+            <div class="sidenav_contain_button">
                 <button class="button_connection">
                     <a href="/user/reg_member"> Se connecter </a>
                 </button>
                 <button class="button_inscription">
                     <a href="/user/reg_member"> S'inscrire </a>
                 </button>
-                <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
-                <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
+                    <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
+                    <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
             </div>
         </div>
         <script src="/static/js/sidenav.js" defer></script>
