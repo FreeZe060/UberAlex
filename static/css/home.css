@@ -170,20 +170,27 @@
 }
 
 .structures__structure-details ul {
-    list-style-type: none; /* Supprimez les puces de la liste */
-    padding: 0; /* Supprimez les marges intérieures de la liste */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .structures__structure-details li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 20px;
+    font-size: 1.5rem;  
 }
 
-.structures__structure-details .rating {
-    font-size: 1.5rem; /* Augmentez la taille du texte pour le rating */
+.rating {
+    font-size: 1.5rem; 
+    margin: 0 0 0 10vh;
 }
 
+.structures__structure-details li:nth-child(3) {
+    flex: 1; 
+}
 .structures__structure:hover {
     transform: scale(1.05);
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
