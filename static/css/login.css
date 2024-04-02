@@ -79,12 +79,13 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #00c67a;
+	background-color: #00c67a;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
+	margin: 1vh 0 0 0 ;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
@@ -99,11 +100,17 @@ button:focus {
 }
 
 button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
+	border-radius: 20px;
+	background-color: #00c67a;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }
 
- form {
+form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -138,6 +145,9 @@ input {
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .sign-in-container {
@@ -225,6 +235,10 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
+.overlay-panel h1 {
+	margin: 0 0 3vh 0;
+}
+
 .overlay-left {
 	transform: translateX(-20%);
 }
@@ -288,3 +302,25 @@ form a {
 	align-items: center;
 	margin: 1vh 0 1vh 0;
 }
+
+.container_input-adress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+	width: 100%;
+}
+
+.container_input-adress input {
+    flex: 1;
+}
+
+.adress-input[name="address"] {
+    flex: 2;
+}
+
+.city-input[name="city"] {
+    flex: 2; 
+    margin-right: 5px; 
+	margin-left: 5px; 
+}
+

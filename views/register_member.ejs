@@ -25,9 +25,11 @@
                     <span>ou utilisez votre e-mail pour vous connecter</span>
                     <input type="text" name="first_name" placeholder="Prenom" required />
                     <input type="text" name="name" placeholder="Nom" required />
-                    <input type="text" name="address" placeholder="Adresse" required />
-                    <input type="text" name="postal" placeholder="Code postal" required />
-                    <input type="text" name="city" placeholder="Ville" required />
+                    <div class="container_input-adress">
+                        <input type="text" name="address" placeholder="Adresse" class="adress-input" required />
+                        <input type="text" name="city" placeholder="Ville" class="city-input" required />
+                        <input type="text" name="postal" placeholder="Code postal" required />
+                    </div>
                     <input type="email" name="mail" placeholder="Email" required />
                     <input type="password" name="password" placeholder="Mot de Passe" required />
                     <% if (typeof error !=='undefined' ) { %>
@@ -57,12 +59,10 @@
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">
                         <h1>Heureux de vous revoir !</h1>
-                        <p>Utilisez votre e-mail et votre mot de passe pour vous connecter.</p>
                         <button class="ghost" id="signIn">Connectez-vous</button>
                     </div>
                     <div class="overlay-panel overlay-right">
                         <h1>Rejoignez-nous !</h1>
-                        <p>Entrez vos informations pour créer votre compte.</p>
                         <button class="ghost" id="signUp">Créez votre compte</button>
                     </div>
                 </div>
