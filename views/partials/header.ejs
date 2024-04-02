@@ -31,12 +31,11 @@
                     </li>
                     <% if (profile==undefined) { %>
                         <li class="header_link-li">
-                            <img src="/assets/img/menu.png" alt="ImgProfile" class="header_link-less" id="menuButton"
-                                onclick="toggleMenu()">
+                            <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
                         </li>
-                        <% } else { %>
-                            <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
-                            <% } %>
+                    <% } else { %>
+                        <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
+                    <% } %>
                 </div>
             </div>
         </div>

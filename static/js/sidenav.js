@@ -10,18 +10,14 @@ signInButton.addEventListener('click', () => {
     container.classList.remove("right-panel-active");
 });
 
-const closeBtn = document.querySelector('.closebtn');
-
-closeBtn.addEventListener('click', () => {
-    toggleMenu(); // Appeler la fonction toggleMenu lorsque la croix est cliquée
-});
-
 function toggleMenu() {
-    console.log("nonnnns");
     var sideMenu = document.getElementById("sideMenu");
+    var body = document.body;
     if (sideMenu.style.width == "250px") {
         sideMenu.style.width = "0";
+        body.classList.remove("menu-open");
     } else {
         sideMenu.style.width = "250px";
+        body.classList.add("menu-open");
     }
 }

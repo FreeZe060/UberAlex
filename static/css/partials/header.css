@@ -115,36 +115,41 @@
     height: 100%;
     width: 0;
     position: fixed;
+    margin-top: 84px;
     top: 0;
     right: 0;   
-    background-color: #dadada;
+    background: #00c67a;
     overflow-x: hidden;
+    box-shadow: 0 10px 100px #00c67a85;
     transition: 0.5s;
-    padding-top: 60px;
-    z-index: 10;
+    z-index: 1;
 }
 
 .sidenav div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
-    margin: 0 0 0 1vh;
+    align-items: center; 
+    margin: 4vh 0 0 1vh;
 }
 
 .button_connection {
-    padding: 8px 16px; 
+    padding: 12px 16px;
+    width: 92%;
+    min-height: 56px;
     text-decoration: none;
     background-color: black;
     margin: 0 0 2vh 0; 
     display: flex;
+    text-align: center;
     cursor: pointer;
     border-radius: 10px;
     border: none;
+    justify-content: center;
     transition: background-color 0.3s;
 }
 
 .button_connection a {
-    font-size: 16px; 
+    font-size: 2rem; 
     color: white;
 }
 
@@ -153,42 +158,35 @@
 }
 
 .button_inscription {
-    padding: 8px 16px;
+    padding: 12px 16px;
+    width: 92%;
+    min-height: 56px;
     text-decoration: none;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(197, 197, 197);
     cursor: pointer;
     display: flex;
     border-radius: 10px;
-    margin: 0 0 2vh 0; 
+    margin: 0 0 2vh 0;
+    justify-content: center;
     border: none;
     transition: background-color 0.3s;
 }
 
 .button_inscription a {
-    font-size: 16px; 
+    font-size: 2rem; 
     color: white;
 }
 
 .button_inscription:hover {
-    background-color: #cccccc;
+    background-color: #bebebe;
 }
 
 .sidenav a:nth-child(3) {
-    margin-top: 20px; 
-}
-
-.closebtn {
-    color: #fff; 
-    font-size: 36px; 
-    cursor: pointer;
-    margin-right: 10px; 
-    display: flex;
-    justify-content: flex-end;
-    top: 0;
+    margin-top: 2%; 
 }
 
 .text_login {
-    font-size: 18px; 
+    font-size: 2rem; 
     color: white;
 }
 
@@ -196,3 +194,68 @@
     text-decoration: underline;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
+.header_menu-burger{
+    /* margin-top: 20px; */
+    --s: 25px; /* control the size */
+    --c: black; /* the color */
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s)/2) solid #0000; 
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+            no-repeat content-box border-box;
+    --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+            repeat-y content-box border-box;
+    background: 
+        var(--_g2) left  var(--_p,0px) top,
+        var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+        var(--_g2) right var(--_p,0px) top,
+        var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+    background-size: 
+        20% 80%,
+        40% 100%;
+    position: relative;
+    clip-path: inset(0 25%);
+    -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+    cursor: pointer;
+    transition: 
+        background-position .3s var(--_s,.3s), 
+        clip-path 0s var(--_s,.6s);
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+.header_menu-burger:before,
+.header_menu-burger:after {
+    content:"";
+    position: absolute;
+    border-radius: var(--s);
+    inset: 40% 0;
+    background: var(--c);
+    transition: transform .3s calc(.3s - var(--_s,.3s));
+}
+
+.header_menu-burger:checked {
+    clip-path: inset(0);
+    --_p: calc(-1*var(--s));
+    --_s: 0s;
+}
+.header_menu-burger:checked:before {
+transform: rotate(45deg);
+}
+.header_menu-burger:checked:after {
+transform: rotate(-45deg);
+}
+.header_menu-burger:focus-visible {
+    clip-path: none;
+    -webkit-mask: none;
+    border: none;
+    outline: 2px solid var(--c);
+    outline-offset: 5px;
+}
