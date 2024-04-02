@@ -29,21 +29,17 @@
                     <% structures.forEach(function(structure) { %>
                         <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= structure.img %>'); background-size: contain;">
                             <div class="structures__structure-details">
-                                <li>
-                                    <%= structure.name %>
-                                </li>
-                                <li>
-                                    <%= structure.desc %>
-                                </li>
-                                <li>
-                                    <%= structure.address %>
-                                </li>
-                                <li>
-                                    <%= structure.rating %>
-                                </li>
-                                <li>
-                                    <%= structure.like %>
-                                </li>
+                                <ul>
+                                    <li>
+                                        <%= structure.name %>
+                                    </li>
+                                    <li>
+                                        <%= structure.address %>
+                                    </li>
+                                    <li>
+                                        <%= structure.rating %>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     <% }); %>
@@ -57,5 +53,3 @@
 
     
 </html>
-    
-
