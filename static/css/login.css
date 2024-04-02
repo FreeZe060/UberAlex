@@ -192,8 +192,8 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background-image: url('../assets/img/tst.png');
+	/* background: #FF416C; */
+	background-image: url('../../assets/img/tst.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

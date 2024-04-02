@@ -12,12 +12,11 @@ signInButton.addEventListener('click', () => {
 
 const closeBtn = document.querySelector('.closebtn');
 
-closeBtn.addEventListener('click', () => {
-    toggleMenu(); // Appeler la fonction toggleMenu lorsque la croix est cliquée
-});
+// closeBtn.addEventListener('click', () => {
+//     toggleMenu();
+// });
 
 function toggleMenu() {
-    console.log("nonnnns");
     var sideMenu = document.getElementById("sideMenu");
     if (sideMenu.style.width == "250px") {
         sideMenu.style.width = "0";
