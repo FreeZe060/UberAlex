@@ -160,13 +160,13 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.structures__structure-details{
+.structures__structure-details {
     position: absolute;
     width: 100%;
     height: 8rem;
     background: rgb(226, 226, 226);
     border-radius: 20px;
-    bottom:0;
+    bottom: 0;
 }
 
 .structures__structure-details ul {
@@ -179,17 +179,18 @@
 }
 
 .structures__structure-details li {
+    margin: 2vh 0 0 0;
     padding: 0 20px;
-    font-size: 1.5rem;  
+    font-size: 2.2rem;
 }
 
 .rating {
-    font-size: 1.5rem; 
-    margin: 0 0 0 10vh;
+    font-size: 1.5rem;
 }
 
 .structures__structure-details li:nth-child(3) {
-    flex: 1; 
+    flex: 1;
+    text-align: right;
 }
 .structures__structure:hover {
     transform: scale(1.05);
