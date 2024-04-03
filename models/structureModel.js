@@ -22,11 +22,11 @@ class StructureModel {
         }
     }
 
-    async createStructure(structuerData) {
+    async createStructure(structureData) {
         let newStructure = null;
         try {
             const query = 'INSERT INTO structure (desc, name, password, mail, address) VALUES (?, ?, ?, ?, ?)';
-            const result = await this.dbManager.query(query, [structuerData.desc, structuerData.name, structuerData.password, structuerData.mail, structuerData.address]);
+            const result = await this.dbManager.query(query, [structureData.desc, structureData.name, structureData.password, structureData.mail, structureData.address]);
 
             if (result && result.insertId) {
                 const newStructureQuery = 'SELECT * FROM structure WHERE id = ?';
@@ -49,11 +49,11 @@ class StructureModel {
         }
     }
 
-    async checkPassword(structuerData) {
+    async checkPassword(structureData) {
         try {
             const query = 'SELECT * FROM member WHERE mail = ?';
-            const result = await this.dbManager.query(query, [structuerData.mail]);
-            return result[0].password == structuerData.password ? true : false;
+            const result = await this.dbManager.query(query, [structureData.mail]);
+            return result[0].password == structureData.password ? true : false;
         } catch (error) {
             throw new Error('Erreur lors de la vérification de l\'existence de l\'utilisateur : ' + error.message);
         }
