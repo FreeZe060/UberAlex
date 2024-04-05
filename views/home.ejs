@@ -26,24 +26,20 @@
                     <span class="heading-sec__main">Listes des restaurants</span>
                 </h3>
                 <div class="structures">
-                    <% structures.forEach(function(structure) { %>
-                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= structure.img %>'); background-size: contain;">
-                            <div class="structures__structure-details">
-                                <li>
-                                    <%= structure.name %>
-                                </li>
-                                <li>
-                                    <%= structure.desc %>
-                                </li>
-                                <li>
-                                    <%= structure.address %>
-                                </li>
-                                <li>
-                                    <%= structure.rating %>
-                                </li>
-                                <li>
-                                    <%= structure.like %>
-                                </li>
+                    <% restaurants.forEach(function(restaurant) { %>
+                        <div class="structures__structure">
+                            <div class="structures__structure-details" style="background-image: url('../assets/img/logo/<%= restaurant.img %>'); background-size: contain;">
+                                <ul>
+                                    <li>
+                                        <%= restaurant.name %>
+                                    </li>
+                                    <li>
+                                        <%= restaurant.address %>
+                                    </li>
+                                    <li class="rating">
+                                        <%= restaurant.rating %>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     <% }); %>
@@ -57,5 +53,3 @@
 
     
 </html>
-    
-

@@ -24,13 +24,13 @@
                     </div>
                     <span>ou utilisez votre e-mail pour vous connecter</span>
                     <input type="text" name="first_name" placeholder="Prenom" required />
-                    <input type="text" name="name" placeholder="Nom" required />
+                    <input type="text" name="last_name" placeholder="Nom" required />
                     <div class="container_input-adress">
                         <input type="text" name="address" placeholder="Adresse" class="adress-input" required />
                         <input type="text" name="city" placeholder="Ville" class="city-input" required />
                         <input type="text" name="postal" placeholder="Code postal" required />
                     </div>
-                    <input type="email" name="mail" placeholder="Email" required />
+                    <input type="email" name="email" placeholder="Email" required />
                     <input type="password" name="password" placeholder="Mot de Passe" required />
                     <% if (typeof error !=='undefined' ) { %>
                         <p style="color: red;">
@@ -49,15 +49,10 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>ou créez-vous un compte</span>
-                    <input type="email" name="mail" placeholder="Email" />
-                    <input type="password" name="password" placeholder="Password" />
+                    <input type="email" id="" name="email" placeholder="Email / Username" />
+                    <input type="password" name="password" id="" placeholder="Password" />
                     <a href="#">Vous avez oublié votre mot de passe ?</a>
-                    <% if (typeof error !=='undefined' ) { %>
-                        <p style="color: red;">
-                            <%= error %>
-                        </p>
-                    <% } %>
-                    <button type="submit">Se connecter</button>
+                    <button>Se connecter</button>
                 </form>
             </div>
             <div class="overlay-container">

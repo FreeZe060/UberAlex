@@ -29,33 +29,29 @@
                     <li class="header_link-li">
                         <img src="/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
                     </li>
-                    <% if (profile||null!=undefined) { %>
+                    <% if (profile==undefined) { %>
                         <li class="header_link-li">
-                            <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
+                            <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
                         </li>
                     <% } else { %>
+                        <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
                     <% } %>
-                    <li class="header_link-li">
-                        <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
-                    </li>
                 </div>
             </div>
         </div>
     </header>
 
     <div id="sideMenu" class="sidenav">
-        <% if (!profile||null!=undefined) { %>
-            <div>
-                <button class="button_connection">
-                    <a href="/user/reg_member"> Se connecter </a>
-                </button>
-                <button class="button_inscription">
-                    <a href="/user/reg_member"> S'inscrire </a>
-                </button>
-                <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
-                <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
-            </div>
-        <% } %>
+        <div>
+            <button class="button_connection">
+                <a href="/user/reg_member"> Se connecter </a>
+            </button>
+            <button class="button_inscription">
+                <a href="/user/reg_member"> S'inscrire </a>
+            </button>
+            <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
+            <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
+        </div>
     </div>
     <script src="/static/js/sidenav.js" defer></script>
 </body>

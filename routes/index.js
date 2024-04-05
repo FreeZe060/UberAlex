@@ -7,7 +7,8 @@ const mainController = require('../controllers/mainController');
 router.get('/', mainController.showHomePage);
 
 router.use('/user', require('../controllers/memberController'));
-router.use('/user', require('../controllers/structureController'));
+router.use('/user', require('../controllers/restaurateurController'));
+// router.use('/user', require('../controllers/structureController'));
 // router.use('/rides', require('./rideController'));
 // router.use('/payments', require('./paymentController'));
 

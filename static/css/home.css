@@ -160,15 +160,38 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.structures__structure-details{
+.structures__structure-details {
     position: absolute;
     width: 100%;
-    height: 11rem;
+    height: 8rem;
     background: rgb(226, 226, 226);
     border-radius: 20px;
-    bottom:0;
+    bottom: 0;
 }
 
+.structures__structure-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.structures__structure-details li {
+    margin: 2vh 0 0 0;
+    padding: 0 20px;
+    font-size: 2.2rem;
+}
+
+.rating {
+    font-size: 1.5rem;
+}
+
+.structures__structure-details li:nth-child(3) {
+    flex: 1;
+    text-align: right;
+}
 .structures__structure:hover {
     transform: scale(1.05);
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
