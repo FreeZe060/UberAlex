@@ -13,13 +13,14 @@ router.post('/create_member', async (req, res) => {
     try {
         const userData = {
             first_name: req.body.first_name,
-            name: req.body.name,
+            last_name: req.body.last_name,
             password: req.body.password,
-            mail: req.body.mail,
-            address: req.body.address + "_" + req.body.postal + "_" + req.body.city
+            email: req.body.email,
+            address: req.body.address + "_" + req.body.postal + "_" + req.body.city,
+            balance: req.body.balance
         };
 
-        if (await memberModel.searchUserByEmail(userData.mail)){
+        if (await memberModel.searchUserByEmail(userData.email)){
             console.log("Inscription non autorisé car un membre avec cet email existe déjà");
             return res.render('register_member', { error: 'Un membre avec cet email existe déjà' });
         }

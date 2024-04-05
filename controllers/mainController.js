@@ -8,7 +8,7 @@ mainController.showHomePage = async (req, res) => {
     const logUser = res.locals.logUser;
     console.log("redirect to : /")
     console.log("Recover all structures :", structures.length, "of them");
-    res.render('home', { structures, profile: logUser });
+    res.render('home', { profile: logUser });
 };
 
 module.exports = mainController;
