@@ -24,10 +24,10 @@ USE `uberalex`;
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `Identifiant` varchar(50) NOT NULL DEFAULT '0',
-  `Mdp` varchar(50) NOT NULL DEFAULT '0',
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Donnée Administrateur';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.admin : ~0 rows (environ)
 DELETE FROM `admin`;
@@ -36,34 +36,38 @@ DELETE FROM `admin`;
 DROP TABLE IF EXISTS `member`;
 CREATE TABLE IF NOT EXISTS `member` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `img` int DEFAULT NULL,
-  `first_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `mail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `solde` double NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Donnée Client';
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `balance` decimal(10,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.member : ~1 rows (environ)
+-- Listage des données de la table uberalex.member : ~0 rows (environ)
 DELETE FROM `member`;
-INSERT INTO `member` (`id`, `img`, `first_name`, `name`, `password`, `mail`, `address`, `solde`) VALUES
-	(14, NULL, 'Tim_V@outlook.fr', 'VANNSON', '123', 'Tim_V@outlook.fr', 'Nice_06000_Nice', 0);
+INSERT INTO `member` (`id`, `first_name`, `last_name`, `password`, `email`, `address`, `balance`) VALUES
+	(1, 'Alexandre ', 'Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria_95100_ARGENTEUIL', 0.00),
+	(2, 'alex.perezac490@gmail.com', 'Xavier Perez', '123', 'alex.perezac490@gmail.com', '6 avenue maria_95100_argenteuil', 0.00);
 
 -- Listage de la structure de table uberalex. order
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_product` int NOT NULL,
-  `id_member` int NOT NULL,
-  `date` datetime DEFAULT NULL,
-  `received` tinyint(1) NOT NULL DEFAULT '0',
+  `product_id` int NOT NULL,
+  `restaurant_id` int NOT NULL,
+  `member_id` int NOT NULL,
+  `quantity` int NOT NULL DEFAULT '1',
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `status` enum('pending','completed') NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`id`),
-  KEY `id_client` (`id_member`) USING BTREE,
-  KEY `id_plat` (`id_product`,`id_member`) USING BTREE,
-  CONSTRAINT `FK_commande_membre` FOREIGN KEY (`id_member`) REFERENCES `member` (`id`),
-  CONSTRAINT `FK_commande_produit` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`)
+  KEY `product_id` (`product_id`),
+  KEY `restaurant_id` (`restaurant_id`),
+  KEY `member_id` (`member_id`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `order_ibfk_2` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`),
+  CONSTRAINT `order_ibfk_3` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.order : ~0 rows (environ)
@@ -73,38 +77,49 @@ DELETE FROM `order`;
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_structure` int NOT NULL DEFAULT '0',
-  `photo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
-  `price` int NOT NULL DEFAULT '0',
+  `restaurant_id` int NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_produit_structure` (`id_structure`),
-  CONSTRAINT `FK_produit_structure` FOREIGN KEY (`id_structure`) REFERENCES `structure` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Donnée en lien avec un Produit';
+  KEY `restaurant_id` (`restaurant_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.product : ~0 rows (environ)
 DELETE FROM `product`;
 
--- Listage de la structure de table uberalex. structure
-DROP TABLE IF EXISTS `structure`;
-CREATE TABLE IF NOT EXISTS `structure` (
+-- Listage de la structure de table uberalex. restaurant
+DROP TABLE IF EXISTS `restaurant`;
+CREATE TABLE IF NOT EXISTS `restaurant` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `img` varchar(50) DEFAULT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `desc` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `rating` double DEFAULT NULL,
-  `like` int NOT NULL DEFAULT '0',
-  `mail` varchar(50) DEFAULT NULL,
-  `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `restaurateur_id` int NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `rating` decimal(3,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `restaurateur_id` (`restaurateur_id`),
+  CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`restaurateur_id`) REFERENCES `restaurateur` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.structure : ~2 rows (environ)
-DELETE FROM `structure`;
-INSERT INTO `structure` (`id`, `img`, `name`, `desc`, `address`, `rating`, `like`, `mail`, `password`) VALUES
-	(1, 'KFC-logo.png', 'KFC', 'Cool Chicken', '10 re', 4.5, 6000, NULL, NULL),
-	(2, 'defaultlogo', 'fsfe', 'esfsef', '25 ru', 5, 1, NULL, NULL);
+-- Listage des données de la table uberalex.restaurant : ~0 rows (environ)
+DELETE FROM `restaurant`;
+
+-- Listage de la structure de table uberalex. restaurateur
+DROP TABLE IF EXISTS `restaurateur`;
+CREATE TABLE IF NOT EXISTS `restaurateur` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Listage des données de la table uberalex.restaurateur : ~1 rows (environ)
+DELETE FROM `restaurateur`;
+INSERT INTO `restaurateur` (`id`, `first_name`, `last_name`, `password`, `email`, `address`) VALUES
+	(1, 'alex.perezab470@gmail.com', 'Alexandre Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria_95100_ARGENTEUIL');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

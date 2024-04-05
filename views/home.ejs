@@ -26,18 +26,18 @@
                     <span class="heading-sec__main">Listes des restaurants</span>
                 </h3>
                 <div class="structures">
-                    <% structures.forEach(function(structure) { %>
-                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= structure.img %>'); background-size: contain;">
-                            <div class="structures__structure-details">
+                    <% restaurants.forEach(function(restaurant) { %>
+                        <div class="structures__structure">
+                            <div class="structures__structure-details" style="background-image: url('../assets/img/logo/<%= structure.img %>'); background-size: contain;">
                                 <ul>
                                     <li>
-                                        <%= structure.name %>
+                                        <%= restaurant.name %>
                                     </li>
                                     <li>
-                                        <%= structure.address %>
+                                        <%= restaurant.address %>
                                     </li>
                                     <li class="rating">
-                                        <%= structure.rating %>
+                                        <%= restaurant.rating %>
                                     </li>
                                 </ul>
                             </div>

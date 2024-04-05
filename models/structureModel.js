@@ -1,29 +1,22 @@
 const DbManager = require('../config/dbManager');
 // const binaryToPng = require('../config/binaryToPng');
 
-class StructureModel {
-
+class RestaurantModel {
     constructor() {
         this.dbManager = new DbManager();
     }
 
-    async getAllStructures() {
+    async getAllRestaurants() {
         this.dbManager.connect();
         try {
-            const structures = await this.dbManager.query('SELECT * FROM structure');
-            // structures.forEach(async structure => {
-            //     console.log(structure);
-            //     binaryToPng(structure.img, `./assets/img/save/${structure.name}_logo.png`)
-            //     fs.writeFileSync(`./assets/img/save/${structure.name}_logo.jpg`, structure.img);
-            // });
-            return structures;
+            const restaurants = await this.dbManager.query('SELECT name, address, rating FROM restaurant');
+            return restaurants;
         } catch (error) {
-            throw new Error('Erreur lors de la récupération des structures depuis la base de données : ' + error.message);
+            throw new Error('Erreur lors de la récupération des restaurants depuis la base de données : ' + error.message);
         } finally {
             this.dbManager.close();
         }
     }
-
 }
 
-module.exports = StructureModel;
+module.exports = RestaurantModel;

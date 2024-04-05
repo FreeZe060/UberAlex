@@ -13,7 +13,7 @@
         
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form action="./create_restaurateur" method="post">
                     <h1>Créez-vous un compte</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -21,24 +21,20 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>ou utilisez votre e-mail pour vous connecter</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <input type="text" placeholder="Nom de votre boutique" />
-                    <input type="text" placeholder="Adresse de votre boutique" />
-                    <div class="custom-select">
-                        <select id="item" name="item">
-                            <option value="default">Choisissez votre profession...</option>
-                            <option value="restaurant">Restaurant</option>
-                            <option value="boulangerie">Boulangerie</option>
-                            <option value="courses">Courses</option>
-                        </select>
+                    <input type="text" name="first_name" placeholder="Prenom" required />
+                    <input type="text" name="last_name" placeholder="Nom" required />
+                    <div class="container_input-adress">
+                        <input type="text" name="address" placeholder="Adresse" class="adress-input" required />
+                        <input type="text" name="city" placeholder="Ville" class="city-input" required />
+                        <input type="text" name="postal" placeholder="Code postal" required />
                     </div>
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="password" name="password" placeholder="Mot de Passe" required />
                     <button>Créez votre compte</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                    <form action="#">
+                    <form action="./login_restaurateur" method="post">
                         <h1>Connectez-vous</h1>
                         <div class="social-container">
                             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -46,8 +42,8 @@
                             <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                         <span>ou créez-vous un compte</span>
-                        <input type="email" placeholder="Email / Username" />
-                        <input type="password" placeholder="Password" />
+                        <input type="email" name="email" placeholder="Email / Username" />
+                        <input type="password" name="password" placeholder="Password" />
                         <a href="#">Vous avez oublié votre mot de passe ?</a>
                         <button>Se connecter</button>
                     </form>
