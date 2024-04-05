@@ -33,6 +33,16 @@ class MemberModel {
         }
     }
 
+    async authenticate(userData) {
+        try {
+            const query = 'SELECT * FROM member WHERE email = ? AND password = ?';
+            const result = await this.dbManager.query(query, [userData.email, userData.password]);
+            return result.length > 0 ? result[0] : null;
+        } catch (error) {
+            throw new Error('Erreur lors de l\'authentification du membre : ' + error.message);
+        }
+    }
+
     destroy() {
         this.dbManager.close();
     }
