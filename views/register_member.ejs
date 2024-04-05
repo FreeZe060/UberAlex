@@ -13,7 +13,7 @@
 
     <%- include('./partials/header.ejs') %>
 
-        <div class="container" id="container">
+        <div class="container <%= typeof error2 !== 'undefined' ? 'right-panel-active' : '' %>" id="container">
             <div class="form-container sign-up-container">
                 <form action="./create_member" method="post">
                     <h1>Créez-vous un compte</h1>
@@ -32,9 +32,9 @@
                     </div>
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" name="password" placeholder="Mot de Passe" required />
-                    <% if (typeof error !=='undefined' ) { %>
+                    <% if (typeof error2 != 'undefined' ) { %>
                         <p style="color: red;">
-                            <%= error %>
+                            <%= error2 %>
                         </p>
                     <% } %>
                     <button type="submit">Créez votre compte</button>
@@ -49,10 +49,15 @@
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>ou créez-vous un compte</span>
-                    <input type="email" id="" name="email" placeholder="Email / Username" />
-                    <input type="password" name="password" id="" placeholder="Password" />
+                    <input type="email" id="" name="email" placeholder="Email / Username" required/>
+                    <input type="password" name="password" id="" placeholder="Password" required/>
                     <a href="#">Vous avez oublié votre mot de passe ?</a>
-                    <button>Se connecter</button>
+                    <% if (typeof error1 !=='undefined' ) { %>
+                        <p style="color: red;">
+                            <%= error1 %>
+                        </p>
+                    <% } %>
+                    <button type="submit">Se connecter</button>
                 </form>
             </div>
             <div class="overlay-container">

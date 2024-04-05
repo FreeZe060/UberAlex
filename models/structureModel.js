@@ -9,7 +9,7 @@ class RestaurantModel {
     async getAllRestaurants() {
         this.dbManager.connect();
         try {
-            const restaurants = await this.dbManager.query('SELECT name, address, rating FROM restaurant');
+            const restaurants = await this.dbManager.query('SELECT * FROM restaurant');
             return restaurants;
         } catch (error) {
             throw new Error('Erreur lors de la récupération des restaurants depuis la base de données : ' + error.message);

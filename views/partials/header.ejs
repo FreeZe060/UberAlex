@@ -29,13 +29,13 @@
                     <li class="header_link-li">
                         <img src="/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
                     </li>
-                    <% if (profile==undefined) { %>
-                        <li class="header_link-li">
-                            <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
-                        </li>
-                    <% } else { %>
+                    <% if (profile !=undefined) { %>
                         <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
+                    <% } else { %>
                     <% } %>
+                    <li class="header_link-li">
+                        <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
+                    </li>
                 </div>
             </div>
         </div>

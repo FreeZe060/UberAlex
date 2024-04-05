@@ -21,7 +21,7 @@ router.post('/create_member', async (req, res) => {
 
         if (await memberModel.searchUserByEmail(userData.email)) {
             console.log("Inscription non autorisée car un membre avec cet email existe déjà");
-            return res.render('register_member', { error: 'Un membre avec cet email existe déjà' });
+            return res.render('register_member', { error2: 'Un membre avec cet email existe déjà' });
         }
 
         const newUser = await memberModel.createMember(userData);
@@ -50,8 +50,7 @@ router.post('/login_member', async (req, res) => {
             req.session.logUser = User;
             res.redirect('/');
         } else {
-            // Identifiants incorrects, redirigez vers la page de connexion avec un message d'erreur
-            res.render('login', { error: 'Identifiants incorrects' });
+            res.render('register_member', { error1: 'Identifiants incorrects' });
         }
 
     } catch (error) {

@@ -22,7 +22,7 @@ router.post('/create_restaurateur', async (req, res) => {
         // Vérifiez si l'utilisateur existe déjà
         if (await restaurateurModel.searchUserByEmail(userData.email)) {
             console.log("Inscription non autorisée car un restaurateur avec cet email existe déjà");
-            return res.render('register_restaurateur', { error: 'Un restaurateur avec cet email existe déjà' });
+            return res.render('register_restaurateur', { error2: 'Un restaurateur avec cet email existe déjà' });
         }
 
         // Création du nouvel utilisateur
@@ -52,8 +52,7 @@ router.post('/login_restaurateur', async (req, res) => {
             req.session.logUser = restaurateur;
             res.redirect('/');
         } else {
-            // Identifiants incorrects, redirigez vers la page de connexion avec un message d'erreur
-            res.render('login', { error: 'Identifiants incorrects' });
+            res.render('login', { error1: 'Identifiants incorrects' });
         }
 
     } catch (error) {

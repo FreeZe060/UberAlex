@@ -11,7 +11,7 @@
 
         <%- include('./partials/header.ejs') %>
         
-        <div class="container" id="container">
+        <div class="container <%= typeof error2 !== 'undefined' ? 'right-panel-active' : '' %>" id="container">
             <div class="form-container sign-up-container">
                 <form action="./create_restaurateur" method="post">
                     <h1>Créez-vous un compte</h1>
@@ -30,7 +30,12 @@
                     </div>
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" name="password" placeholder="Mot de Passe" required />
-                    <button>Créez votre compte</button>
+                    <% if (typeof error2 !='undefined' ) { %>
+                        <p style="color: red;">
+                            <%= error2 %>
+                        </p>
+                    <% } %>
+                    <button type="submit">Créez votre compte</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
@@ -45,6 +50,11 @@
                         <input type="email" name="email" placeholder="Email / Username" />
                         <input type="password" name="password" placeholder="Password" />
                         <a href="#">Vous avez oublié votre mot de passe ?</a>
+                        <% if (typeof error1 !='undefined' ) { %>
+                            <p style="color: red;">
+                                <%= error1 %>
+                            </p>
+                        <% } %>
                         <button>Se connecter</button>
                     </form>
             </div>
