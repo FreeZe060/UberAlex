@@ -31,11 +31,12 @@
                     </li>
                     <% if (profile !=undefined) { %>
                         <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
-                    <% } else { %>
-                    <% } %>
-                    <li class="header_link-li">
-                        <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
-                    </li>
+                        <% } else { %>
+                            <% } %>
+                                <li class="header_link-li">
+                                    <input type="checkbox" role="button" aria-label="Display the menu"
+                                        class="header_menu-burger" onclick="toggleMenu()">
+                                </li>
                 </div>
             </div>
         </div>
@@ -43,20 +44,98 @@
 
     <div id="sideMenu" class="sidenav">
         <% if (profile !=undefined) { %>
-            
-        <% } else { %>
             <div>
-                <button class="button_connection">
-                    <a href="/user/reg_member"> Se connecter </a>
-                </button>
-                <button class="button_inscription">
-                    <a href="/user/reg_member"> S'inscrire </a>
-                </button>
-                <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
-                <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
+                <div class="al ca">
+                    <img alt="" role="presentation"
+                        src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&amp;Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&amp;Key-Pair-Id=K36LFL06Z5BT10"
+                        class="dr dq ia kn">
+                    <div class="spacer _16">
+
+                    </div>
+                    <div>
+                        <div class="db dc dd ec">Alexandre
+
+                        </div>
+                        <a href="https://account.uber.com?entry_domain=www.ubereats.com&amp;marketing_vistor_id=d68fe9c9-b57e-4ac7-8075-56b2b0c114ea&amp;next_url=https%3A%2F%2Fwww.ubereats.com%2Ffr%2Ffeed%3FdiningMode%3DDELIVERY%26effect%3D%26marketing_vistor_id%3Dd68fe9c9-b57e-4ac7-8075-56b2b0c114ea%26mod%3DpendingRating%26pl%3DJTdCJTIyYWRkcmVzcyUyMiUzQSUyMjI0MDAlMjBSdGUlMjBkZXMlMjBEb2xpbmVzJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSk1aeTFZNmNyekJJUlphdUFhMVJIdFNJJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTQzLjYyNDgxODY5OTk5OTk5JTJDJTIybG9uZ2l0dWRlJTIyJTNBNy4wNTA1MzM1OTk5OTk5OTklN0Q%253D%26ps%3D1"
+                            class="db e4 dd e5 gf">Gérer le compte</a>
+                    </div>
+                </div>
+                <a class="l9 al aq hg eo" data-testid="menu-orders-button" href="/fr/orders">
+                    <div class="p6 fz es al ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                            <path
+                                d="M4.5 2.833v18.333l4.583-2.5 2.917 2.5 2.917-2.5 4.583 2.5V2.833h-15zM16.167 9.5H7.833V7h8.334v2.5z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="spacer _16">
+
+                    </div>
+                    <div class="db dc dd ec">Commandes</div>
+                </a>
+                <a class="l9 al aq hg eo" data-testid="menu-favorite-button" href="/fr/favorites?fav=true">
+                    <div class="p6 fz es al ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                            <path
+                                d="M17 3c-2.2 0-3.8 1.2-5 2.5C10.8 4.3 9.2 3 7 3 3.5 3 1 5.9 1 9.5c0 1.8.7 3.4 2 4.5l9 8.5 9-8.5c1.2-1.2 2-2.7 2-4.5C23 5.9 20.5 3 17 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="spacer _16"></div>
+                    <div class="db dc dd ec">Favoris</div>
+                </a>
+                <a data-testid="menu-wallet-button" href="https://wallet.uber.com/" target="_blank" rel="noopener"
+                    class="l9 al aq hg eo">
+                    <div class="p6 fz es al ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                            <path d="M14.12 14H9.88l-3-3H1v9h22v-9h-5.88l-3 3z"></path>,<path
+                                d="M1 4v4h7.12l3 3h1.76l3-3H23V4H1z"></path>
+                        </svg>
+                    </div>
+                    <div class="spacer _16"></div>
+                    <div class="db dc dd ec">Wallet
+                    </div>
+                </a>
+                <a data-testid="menu-help-button" href="//help.uber.com/ubereats" class="l9 al aq hg eo">
+                    <div class="p6 fz es al ca cn"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"
+                            class="je jd es et">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 7.833c-.667 0-1.334.166-1.917.5L6.5 4.749C8 3.583 9.917 2.916 12 2.916s4 .667 5.5 1.833l-3.583 3.584a3.871 3.871 0 00-1.917-.5zm3.666 6.083c.334-.583.5-1.25.5-1.917 0-.666-.166-1.333-.5-1.916l3.584-3.584c1.166 1.5 1.833 3.417 1.833 5.5 0 2.084-.666 4-1.833 5.5l-3.584-3.583zm-1.75 1.75c-.583.333-1.25.5-1.916.5a3.872 3.872 0 01-1.917-.5L6.5 19.25c1.5 1.167 3.417 1.834 5.5 1.834s4-.667 5.5-1.834l-3.583-3.583zM2.834 12c0-2.083.667-4 1.834-5.5l3.583 3.584c-.333.583-.5 1.25-.5 1.916 0 .667.167 1.334.5 1.917L4.667 17.5C3.5 16 2.833 14.083 2.833 12z">
+                            </path>
+                        </svg></div>
+                    <div class="spacer _16"></div>
+                    <div class="db dc dd ec">Aide</div>
+                </a>
+                <a aria-current="page" class="l9 al aq hg eo active" data-testid="menu-promotions-button"
+                    rel="noopener" tabindex="-1"
+                    href="/fr/feed?diningMode=DELIVERY&amp;effect=&amp;marketing_vistor_id=d68fe9c9-b57e-4ac7-8075-56b2b0c114ea&amp;mod=promos&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjI0MDAlMjBSdGUlMjBkZXMlMjBEb2xpbmVzJTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyQ2hJSk1aeTFZNmNyekJJUlphdUFhMVJIdFNJJTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmdvb2dsZV9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTQzLjYyNDgxODY5OTk5OTk5JTJDJTIybG9uZ2l0dWRlJTIyJTNBNy4wNTA1MzM1OTk5OTk5OTklN0Q%3D&amp;ps=1">
+                    <div class="p6 fz es al ca cn"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"
+                            class="je jd es et">
+                            <path d="M11.333 22l10-10V3.667H13l-10 10L11.333 22z"></path>
+                        </svg></div>
+                    <div class="spacer _16"></div>
+                    <div class="db dc dd ec">Promotions</div>
+                </a>
+                <a data-testid="menu-sign-out-button"
+                    href="https://auth.uber.com/login/logout?next_url=https%3A%2F%2Fwww.ubereats.com%2Ffr%2Ffeed%3FdiningMode%3DDELIVERY%26effect%3D%26marketing_vistor_id%3Dd68fe9c9-b57e-4ac7-8075-56b2b0c114ea%26mod%3DpendingRating%26ps%3D1&amp;_ga=2.257767371.1752950121.1713528926-608681628.1711744380&amp;_gac=1.128407806.1711835582.Cj0KCQjwzZmwBhD8ARIsAH4v1gWNgjExxcFTI8BhyJUWzwULj4cvZsS_ccjaHLXwwdF99xRzqiP_do0aAsr1EALw_wcB"
+                    class="l9 al aq hg eo">
+                    <div class="db dc dd de i7 p7">Déconnexion</div>
+                </a>
             </div>
-        <% } %>
-        
+
+            <% } else { %>
+                <div class="side_connection">
+                    <button class="button_connection">
+                        <a href="/user/reg_member"> Se connecter </a>
+                    </button>
+                    <button class="button_inscription">
+                        <a href="/user/reg_member"> S'inscrire </a>
+                    </button>
+                    <a href="/user/reg_restaurateur" class="text_login">Vous etes restaurateurs</a>
+                    <a href="/user/reg_restaurateur" class="text_login">Devenez restaurateurs</a>
+                </div>
+            <% } %>
+
     </div>
     <script src="/static/js/sidenav.js" defer></script>
 </body>
