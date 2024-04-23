@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const memberModel = require('../models/memberModel');
+const orderModel = require('../models/orderModel');
 
 // Routes
 
@@ -60,9 +61,13 @@ router.post('/login_member', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-    
-    res.render('info_profile', {profile: res.locals.logUser});
+    if (res.locals.logUser != null) {
+        console.error('Erreur : Pas de profil');
+        return res.redirect("/");
+    }
+    orders = await orderModel.getOrdersByMemberId(res.locals.logUser.id)
+    console.log(orders);
+    res.render('info_profile', {profile: res.locals.logUser, orders});
 });
-
 
 module.exports = router;
