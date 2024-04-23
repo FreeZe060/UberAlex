@@ -302,6 +302,17 @@ div p#droprate {
 
 /* Profile */
 
+.profile-presentation {
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, .4)), url('../../assets/img/fond_minimaliste.jpg');
+    background-position: center;
+    background-size: x;
+    background-attachment: fixed;
+    height: 50vh;
+    min-height: 50rem;
+    max-height: 120rem;
+    position: relative;
+}
+
 .main-container {
     max-width: 120rem;
     margin: auto;
@@ -315,8 +326,8 @@ div p#droprate {
 }
 
 .profile-div{
-    position: absolute;
-    margin-top:-250px;
+    /* position: absolute;
+    margin-top:-250px; */
     max-height: 300px;
     max-width: 300px;
     height: 30vw;
