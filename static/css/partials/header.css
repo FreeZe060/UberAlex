@@ -127,11 +127,11 @@
     z-index: 1;
 }
 
-.sidenav div {
+.side_connection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4vh 0 0 1vh;
+    margin: 4vh 0 0 0;
 }
 
 .button_connection {
@@ -201,11 +201,8 @@ body.menu-open {
 }
 
 .header_menu-burger {
-    /* margin-top: 20px; */
     --s: 25px;
-    /* control the size */
     --c: black;
-    /* the color */
     height: var(--s);
     aspect-ratio: 1;
     border: none;
@@ -262,4 +259,159 @@ body.menu-open {
     border: none;
     outline: 2px solid var(--c);
     outline-offset: 5px;
+}
+
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+.b1 {
+    color: #000000;
+}
+
+.nav_img_profile {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 2rem 2rem;
+    display: inline-block;
+}
+
+.kn {
+    object-fit: cover;
+}
+.dr {
+    width: 48px;
+}
+.ia {
+    border-radius: 50%;
+}
+.dq {
+    height: 48px;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.dc {
+    font-size: 16px;
+}
+
+
+.l9 {
+    padding-top: 24px;
+}
+.hg {
+    -webkit-box-align: start;
+    align-items: flex-start;
+}
+.eo {
+    flex-shrink: 0;
+}
+.aq {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.p6 {
+    width: 24px;
+}
+.fz {
+    height: 24px;
+}
+.es {
+    flex: none;
+}
+.cn {
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.ca {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+
+.spacer._16 {
+    width: 16px;
+}
+.spacer {
+    height: 1px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.ec {
+    line-height: 24px;
+}
+
+.aq {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+
+.je {
+    width: 20px;
+}
+
+.jd {
+    height: 20px;
+}
+.et {
+    fill: currentColor;
+}
+
+.al {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.am {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.ak {
+    position: relative;
+}
+.aj {
+    min-width: 100%;
+}
+
+
+.gf {
+    color: #0E8345;
+}
+
+.e5 {
+    line-height: 16px;
+}
+.e4 {
+    font-size: 14px;
+}
+.dd {
+    font-weight: 500;
+}
+.db {
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+:not(svg) {
+    transform-origin: 0px 0px;
 }
