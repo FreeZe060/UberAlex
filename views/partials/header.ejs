@@ -30,13 +30,18 @@
                         <img src="/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
                     </li>
                     <% if (profile !=undefined) { %>
-                        <img src="/assets/img/profile.png" alt="ImgProfile" class="header_link-less" />
-                        <% } else { %>
-                            <% } %>
-                                <li class="header_link-li">
-                                    <input type="checkbox" role="button" aria-label="Display the menu"
-                                        class="header_menu-burger" onclick="toggleMenu()">
-                                </li>
+                        <li class="header_link-li">
+                            <img alt="" role="presentation"
+                        src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&amp;Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&amp;Key-Pair-Id=K36LFL06Z5BT10"
+                        class="nav_img_profile">
+                        </li>
+                    <% } else { %>
+
+                    <% } %>
+
+                    <li class="header_link-li">
+                        <input type="checkbox" role="button" aria-label="Display the menu" class="header_menu-burger" onclick="toggleMenu()">
+                    </li>
                 </div>
             </div>
         </div>
@@ -44,7 +49,7 @@
 
     <div id="sideMenu" class="sidenav">
         <% if (profile !=undefined) { %>
-            <div>
+            <div >
                 <div class="al ca">
                     <img alt="" role="presentation"
                         src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&amp;Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&amp;Key-Pair-Id=K36LFL06Z5BT10"
