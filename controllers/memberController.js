@@ -59,5 +59,10 @@ router.post('/login_member', async (req, res) => {
     }
 });
 
+router.get('/profile', async (req, res) => {
+    
+    res.render('info_profile', {profile: res.locals.logUser});
+});
+
 
 module.exports = router;
