@@ -338,7 +338,7 @@ div p#droprate {
 
 .main-container {
     max-width: 120rem;
-    margin: auto;
+    /* margin: auto; */
     width: 92%;
 }
 
@@ -351,8 +351,8 @@ div p#droprate {
 .profile-div{
     max-height: 300px;
     max-width: 300px;
-    min-height: 150px;
-    min-width: 150px;
+    min-height: 180px;
+    min-width: 180px;
     margin: auto;
     height: 30vw;
     width: 30vw;
@@ -367,7 +367,6 @@ div p#droprate {
     background-color: #fff;
     width: 100%;
     max-width: 100%;
-    z-index: 5;
 }
 
 #boutons {
@@ -399,4 +398,82 @@ div p#droprate {
     height: 2px;
     background-color: black;
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+.div_info_perso{
+    margin: 0 0 0 2vh;
+}
+
+.info-title strong {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.info-item span {
+    margin-left: 2vh;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.info-item {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.div_info_separation {
+    height: 1px;
+    width: 85%;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+
+.profile_contenu{
+    padding: 3rem;
+}
+
+.div_commande_perso {
+    display: none;
+}
+
+.div_commande_perso h2 {
+    margin-bottom: 20px;
+}
+
+.commande-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.commande-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.details {
+    flex: 1;
+}
+
+.details h3 {
+    margin-bottom: 5px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.actions button {
+    margin-bottom: 10px;
+}
+
+.show-all-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }

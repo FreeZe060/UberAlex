@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+    </head>
 
     <%- include('./partials/header.ejs') %>
     <body>
@@ -17,13 +17,13 @@
         <section id="home" class="profile-presentation">
             <div class="stack">
                 <div id="boutons">
-                    <button class="bouton-onglet selected" onclick="choisirOnglet('info')">
+                    <button class="bouton-onglet selected" onclick="choisirOnglet(0)">
                         <a href="#">Informations du Compte</a>
                     </button>
-                    <button class="bouton-onglet" onclick="choisirOnglet('commandes')">
+                    <button class="bouton-onglet" onclick="choisirOnglet(1)">
                         <a href="#">Vos Commandes</a>
                     </button>
-                    <button class="bouton-onglet" onclick="choisirOnglet('favoris')">
+                    <button class="bouton-onglet" onclick="choisirOnglet(2)">
                         <a href="#">Vos Favoris</a>
                     </button>
                     <div class="trait-noir"></div>
@@ -32,25 +32,97 @@
             <div class="container_info_profile">
                 <div class="container_img_profile">
                     <div class="profile-div">
-            
+                    </div>
+                </div>
+            </div> 
+        </section>
+        
+        <section id="profile-sec" class="profile_contenu">
+            <div id="contenu">
+                <div id="info" style="display: none;" class="div_info_perso">
+                    <h2 class="info-title"><strong> Informations Personnelles : </strong></h2>
+                    <p class="info-item">Nom : <span> Nom de famille </span></p>
+                    <div class="div_info_separation"></div>
+                    <p class="info-item">Numéro de téléphone : <span> Numéro de téléphone </span></p>
+                    <div class="div_info_separation"></div>
+                    <p class="info-item">Adresse email : <span> Adresse email </span></p>
+                    <div class="div_info_separation"></div>
+                </div>
+                <div id="commande" style="display: none;" class="div_commande_perso">
+                    <h2>Vos commandes</h2>
+                    <div class="commande-item">
+                        <img src="restaurant_image.jpg" alt="Restaurant Image">
+                        <div class="details">
+                            <h3>Nom du restaurant</h3>
+                            <p>Lieu: Nom de l'endroit</p>
+                            <p>Nombre d'articles : 3</p>
+                            <p>Montant de la commande : $20</p>
+                            <p>Rating du restaurant : 4.5</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-primary">Afficher plus</button>
+                            <button class="btn btn-secondary">Commander à nouveau</button>
+                        </div>
+                    </div>
+                    <div class="div_info_separation"></div>
+                    <div class="commande-item">
+                        <img src="restaurant_image.jpg" alt="Restaurant Image">
+                        <div class="details">
+                            <h3>Nom du restaurant</h3>
+                            <p>Lieu: Nom de l'endroit</p>
+                            <p>Nombre d'articles : 3</p>
+                            <p>Montant de la commande : $20</p>
+                            <p>Rating du restaurant : 4.5</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-primary">Afficher plus</button>
+                            <button class="btn btn-secondary">Commander à nouveau</button>
+                        </div>
+                    </div>
+                    <div class="div_info_separation"></div>
+                    <div class="commande-item">
+                        <img src="restaurant_image.jpg" alt="Restaurant Image">
+                        <div class="details">
+                            <h3>Nom du restaurant</h3>
+                            <p>Lieu: Nom de l'endroit</p>
+                            <p>Nombre d'articles : 3</p>
+                            <p>Montant de la commande : $20</p>
+                            <p>Rating du restaurant : 4.5</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-primary">Afficher plus</button>
+                            <button class="btn btn-secondary">Commander à nouveau</button>
+                        </div>
+                    </div>
+                    <div class="div_info_separation"></div>
+                    <div class="show-all-btn">
+                        <button class="btn btn-primary">Afficher toutes vos commandes</button>
+                    </div>
+                </div>
+                <div id="favoris" style="display: none;">
+                    <h2>Vos Favoris</h2>
+                    <div class="structures">
+                            <div class="structures__structure" style="background-image: url('../assets/img/logo/KFC.png'); background-size: contain;">
+                                <div class="structures__structure-details">
+                                    <ul>
+                                        <li>
+                                            <p>restaurant name</p>
+                                        </li>
+                                        <li>
+                                            <p>restaurant adress</p>
+                                        </li>
+                                        <li class="rating">
+                                            <p>restaurant rating</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div> 
         </section>
 
-        <section id="profile-sec" class="about sec-pad">
-            <div id="contenu">
-                <% if (nomContenu === "info") { %>
-                    <p id="infoContenu">Contenu pour les informations du compte...</p>
-                <% } else if (nomContenu === "commande") { %>
-                    <p id="commandesContenu">Contenu pour vos commandes...</p>
-                <% } else if (nomContenu === "favoris") { %>
-                    <p id="favorisContenu">Contenu pour vos favoris...</p>
-                <% } %>
-            </div>
-        </section>
-
-        <script src="/static/js/sidenav.js" defer></script>
+        <script src="/static/js/Profile.js" defer></script>
     </body>
 
     <%- include('./partials/footer2.ejs') %>
