@@ -1,5 +1,12 @@
 @import url(./set.css);
 
+@media screen and (max-width: 400px) {
+    body {
+        min-width: 400px;
+        overflow-x: hidden; /* Empêche le défilement horizontal lorsque la taille de l'écran est réduite en dessous de 400px */
+    }
+}
+
 .sec-pad {
     padding: 10rem 0;
 }
@@ -311,6 +318,22 @@ div p#droprate {
     min-height: 50rem;
     max-height: 120rem;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.container_img_profile {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.container_info_profile {
+    max-width: 120rem;
+    margin: auto;
+    width: 92%;
+    display: flex;
+    padding-top: 13rem;
 }
 
 .main-container {
@@ -326,12 +349,54 @@ div p#droprate {
 }
 
 .profile-div{
-    /* position: absolute;
-    margin-top:-250px; */
     max-height: 300px;
     max-width: 300px;
+    min-height: 150px;
+    min-width: 150px;
+    margin: auto;
     height: 30vw;
     width: 30vw;
     border-radius: 50%;
     background-color: rgb(255, 188, 188);
+}
+
+.stack{
+    position: fixed;
+    top: 84px;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    z-index: 5;
+}
+
+#boutons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between
+}
+
+.bouton-onglet {
+    background-color: transparent;
+    border: none;
+    padding: 2rem;
+    position: relative;
+}
+
+.bouton-onglet a {
+    text-decoration: none;
+    color: black;
+}
+
+.bouton-onglet.selected {
+    background-color: #ccc;
+}
+
+.trait-noir {
+    position: absolute;
+    bottom: -2px;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
 }

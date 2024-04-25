@@ -4,84 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/home.css">
 </head>
 
-<%- include('./partials/header.ejs') %>
-
+    <%- include('./partials/header.ejs') %>
     <body>
 
-        <section id="home" class="home-presentation">
-            <!-- <div class="searchbar-main">
-                <h2 class="heading-primary">Rechercher vos restaurants préférés</h2>
-                <input type="text" maxlength="12" placeholder="Rechercher..." class="searchbar-input" />
-                <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="searchbar_button" />
-            </div> -->
-            <div class="profile-div">
-    
+        <section id="home" class="profile-presentation">
+            <div class="stack">
+                <div id="boutons">
+                    <button class="bouton-onglet selected" onclick="choisirOnglet('info')">
+                        <a href="#">Informations du Compte</a>
+                    </button>
+                    <button class="bouton-onglet" onclick="choisirOnglet('commandes')">
+                        <a href="#">Vos Commandes</a>
+                    </button>
+                    <button class="bouton-onglet" onclick="choisirOnglet('favoris')">
+                        <a href="#">Vos Favoris</a>
+                    </button>
+                    <div class="trait-noir"></div>
+                </div>
             </div>
+            <div class="container_info_profile">
+                <div class="container_img_profile">
+                    <div class="profile-div">
+            
+                    </div>
+                </div>
+            </div> 
         </section>
 
         <section id="profile-sec" class="about sec-pad">
-            
-            <div class="main-container">
-                <div class="profile__content">
-                    <div class="about__content-main">
-                        <h3 class="about__content-title">Get to know me!</h3>
-                        <div class="about__content-details">
-                            <p class="about__content-details-para">
-                                I'm a <strong>Frontend Focused Web Developer</strong> building
-                                and managing the Front-end of Websites and Web Applications that
-                                leads to the success of the overall product. Check out some of
-                                my work in the <strong>Projects</strong> section.
-                            </p>
-                            <p class="about__content-details-para">
-                                I also like sharing content related to the stuff that I have
-                                learned over the years in <strong>Web Development</strong> so it
-                                can help other people of the Dev Community. Feel free to Connect
-                                or Follow me on my
-                                <a rel="noreferrer" href="https://linkedin.com/in/rammcodes"
-                                    target="_blank">Linkedin</a>
-                                and
-                                <a rel="noreferrer" href="https://instagram.com/rammcodes_"
-                                    target="_blank">Instagram</a>
-                                where I post useful content related to Web Development and
-                                Programming
-                            </p>
-                            <p class="about__content-details-para">
-                                I'm open to <strong>Job</strong> opportunities where I can
-                                contribute, learn and grow. If you have a good opportunity that
-                                matches my skills and experience then don't hesitate to
-                                <strong>contact</strong> me.
-                            </p>
-                        </div>
-                        <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr">Contact</a>
-                    </div>
-                    <div class="about__content-skills">
-                        <h3 class="about__content-title">My Skills</h3>
-                        <div class="skills">
-                            <div class="skills__skill">HTML</div>
-                            <div class="skills__skill">CSS</div>
-                            <div class="skills__skill">JavaScript</div>
-                            <div class="skills__skill">React</div>
-                            <div class="skills__skill">Wordpress</div>
-                            <div class="skills__skill">PHP</div>
-                            <div class="skills__skill">SASS</div>
-                            <div class="skills__skill">GIT</div>
-                            <div class="skills__skill">Github</div>
-                            <div class="skills__skill">Responsive Design</div>
-                            <div class="skills__skill">SEO</div>
-                            <div class="skills__skill">Terminal</div>
-                        </div>
-                    </div>
-                </div>
+            <div id="contenu">
+                <% if (nomContenu === "info") { %>
+                    <p id="infoContenu">Contenu pour les informations du compte...</p>
+                <% } else if (nomContenu === "commande") { %>
+                    <p id="commandesContenu">Contenu pour vos commandes...</p>
+                <% } else if (nomContenu === "favoris") { %>
+                    <p id="favorisContenu">Contenu pour vos favoris...</p>
+                <% } %>
             </div>
-
         </section>
 
+        <script src="/static/js/sidenav.js" defer></script>
     </body>
 
     <%- include('./partials/footer2.ejs') %>
