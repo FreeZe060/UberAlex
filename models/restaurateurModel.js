@@ -1,8 +1,8 @@
-const DbManager = require('../config/dbManager');
+const dbManager = require('../config/dbManager');
 
 class RestaurateurModel {
     constructor() {
-        this.dbManager = new DbManager();
+        this.dbManager = new dbManager();
     }
 
     async createRestaurateur(userData) {

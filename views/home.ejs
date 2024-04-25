@@ -28,7 +28,7 @@
                 </h3>
                 <div class="structures">
                     <% restaurants.forEach(function(restaurant) { %>
-                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= restaurant.img %>'); background-size: contain;">
+                        <div class="structures__structure" href="/restaurant/id<%= restaurant.id %>" style="background-image: url('../assets/img/logo/<%= restaurant.img %>'); background-size: contain;">
                             <div class="structures__structure-details">
                                 <ul>
                                     <li>

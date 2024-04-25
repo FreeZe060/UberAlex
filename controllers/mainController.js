@@ -1,9 +1,8 @@
-const RestaurantModel = require('../models/structureModel');
+const restaurantModel = require('../models/restaurantModel');
 
 const mainController = {};
 
 mainController.showHomePage = async (req, res) => {
-    const restaurantModel = new RestaurantModel();
     try {
         const restaurants = await restaurantModel.getAllRestaurants();
         const logUser = res.locals.logUser;

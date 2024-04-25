@@ -101,28 +101,26 @@
                 </div>
                 <div id="favoris" style="display: none;">
                     <h2>Vos Favoris</h2>
-                    <div class="structures">
-                            <div class="structures__structure" style="background-image: url('../assets/img/logo/KFC.png'); background-size: contain;">
-                                <div class="structures__structure-details">
-                                    <ul>
-                                        <li>
-                                            <p>restaurant name</p>
-                                        </li>
-                                        <li>
-                                            <p>restaurant adress</p>
-                                        </li>
-                                        <li class="rating">
-                                            <p>restaurant rating</p>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <% orders.forEach(function(order) { %>
+                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= order.restaurant_img %>'); background-size: contain;">
+                            <div class="structures__structure-details">
+                                <ul>
+                                    <li>
+                                        <%= order.name %>
+                                    </li>
+                                    <li>
+                                        <%= order.date %>
+                                    </li>
+                                    <li class="rating">
+                                        <%= order.status %>
+                                    </li>
+                                </ul>
                             </div>
-                    </div>
+                        </div>
+                    <% }); %>
                 </div>
             </div> 
         </section>
-
-        <script src="/static/js/Profile.js" defer></script>
     </body>
 
     <%- include('./partials/footer2.ejs') %>

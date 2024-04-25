@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+</head>
+
+<%- include('./partials/header.ejs') %>
+
+    <body>
+
+        <section id="home" class="home-presentation">
+            <!-- <div class="searchbar-main">
+                <h2 class="heading-primary">Rechercher vos restaurants préférés</h2>
+                <input type="text" maxlength="12" placeholder="Rechercher..." class="searchbar-input" />
+                <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="searchbar_button" />
+            </div> -->
+        </section>
+
+        <section id="profile-sec" class="about sec-pad">
+            <h3 class="heading heading-sec heading-sec__mb-med">
+                <span class="heading-sec__main"><%= restaurant.name %></span>
+            </h3>
+            <ul>
+                <li>
+                    <%= restaurant.desc %>
+                </li>
+                <li>
+                    <%= restaurant.address %>
+                </li>
+                <li class="rating">
+                    <%= restaurant.rating %>
+                </li>
+            </ul>
+        </section>
+
+    </body>
+
+    <%- include('./partials/footer2.ejs') %>
+
+
+</html>
