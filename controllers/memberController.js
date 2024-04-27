@@ -61,13 +61,18 @@ router.post('/login_member', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-    if (res.locals.logUser != null) {
+    if (res.locals.logUser == null) { // Modifiez ici pour utiliser == au lieu de !=
         console.error('Erreur : Pas de profil');
         return res.redirect("/");
     }
-    orders = await orderModel.getOrdersByMemberId(res.locals.logUser.id)
-    console.log(orders);
-    res.render('info_profile', {profile: res.locals.logUser, orders});
+    try {
+        const orders = await orderModel.getOrdersByMemberId(res.locals.logUser.id);
+        console.log(orders);
+        res.render('info_profile', { profile: res.locals.logUser, orders });
+    } catch (error) {
+        console.error('Erreur lors de la récupération des commandes du membre :', error);
+        res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');
+    }
 });
 
 module.exports = router;

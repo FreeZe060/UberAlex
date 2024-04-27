@@ -8,12 +8,13 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
     </head>
 
     <%- include('./partials/header.ejs') %>
     <body>
 
+        
         <section id="home" class="profile-presentation">
             <div class="stack">
                 <div id="boutons">
@@ -34,69 +35,162 @@
                     <div class="profile-div">
                     </div>
                 </div>
-            </div> 
+            </div>     
         </section>
         
         <section id="profile-sec" class="profile_contenu">
             <div id="contenu">
                 <div id="info" style="display: none;" class="div_info_perso">
                     <h2 class="info-title"><strong> Informations Personnelles : </strong></h2>
-                    <p class="info-item">Nom : <span> Nom de famille </span></p>
+                    <p class="info-item">Nom : <br>
+                        <span> Nom de famille </span>
+                    </p>
                     <div class="div_info_separation"></div>
-                    <p class="info-item">Numéro de téléphone : <span> Numéro de téléphone </span></p>
+                    <p class="info-item">Numéro de téléphone : <br> 
+                        <span> Numéro de téléphone </span>
+                    </p>
                     <div class="div_info_separation"></div>
-                    <p class="info-item">Adresse email : <span> Adresse email </span></p>
+                    <p class="info-item">Adresse email : <br>
+                        <span> Adresse email </span>
+                    </p>
                     <div class="div_info_separation"></div>
                 </div>
                 <div id="commande" style="display: none;" class="div_commande_perso">
-                    <h2>Vos commandes</h2>
-                    <div class="commande-item">
+                    <h2 class="commande_title">Vos commandes</h2>
+                    <div class="commande_item">
                         <img src="restaurant_image.jpg" alt="Restaurant Image">
                         <div class="details">
-                            <h3>Nom du restaurant</h3>
-                            <p>Lieu: Nom de l'endroit</p>
-                            <p>Nombre d'articles : 3</p>
-                            <p>Montant de la commande : $20</p>
-                            <p>Rating du restaurant : 4.5</p>
+                            <div class="commande_item_info_resto">
+                                <ul>
+                                    <li>
+                                        <h2>Macdo</h2>
+                                    </li>
+                                    <li>
+                                        4.5
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="commande_item_info_resto">
+                                <ul>
+                                    <li>
+                                        <p>3 plats pour $20</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="commande_details_items">
+                                <ul>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="actions">
-                            <button class="btn btn-primary">Afficher plus</button>
-                            <button class="btn btn-secondary">Commander à nouveau</button>
+                            <button class="btn_more">Afficher plus</button>
+                            <button class="btn_more">Commander à nouveau</button>
                         </div>
                     </div>
                     <div class="div_info_separation"></div>
-                    <div class="commande-item">
+                    <div class="commande_item">
                         <img src="restaurant_image.jpg" alt="Restaurant Image">
                         <div class="details">
-                            <h3>Nom du restaurant</h3>
-                            <p>Lieu: Nom de l'endroit</p>
-                            <p>Nombre d'articles : 3</p>
-                            <p>Montant de la commande : $20</p>
-                            <p>Rating du restaurant : 4.5</p>
+                            <div class="commande_item_info_resto">
+                                <ul>
+                                    <li>
+                                        <h2>Macdo</h2>
+                                    </li>
+                                    <li>
+                                        4.5 <br>
+                                    </li>
+                                    <li>
+                                        <p>3 plats pour $20</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="commande_details_items">
+                                <ul>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="actions">
-                            <button class="btn btn-primary">Afficher plus</button>
-                            <button class="btn btn-secondary">Commander à nouveau</button>
+                            <button class="btn_more">Afficher plus</button>
+                            <button class="btn_more">Commander à nouveau</button>
                         </div>
                     </div>
                     <div class="div_info_separation"></div>
-                    <div class="commande-item">
+                    <div class="commande_item">
                         <img src="restaurant_image.jpg" alt="Restaurant Image">
                         <div class="details">
-                            <h3>Nom du restaurant</h3>
-                            <p>Lieu: Nom de l'endroit</p>
-                            <p>Nombre d'articles : 3</p>
-                            <p>Montant de la commande : $20</p>
-                            <p>Rating du restaurant : 4.5</p>
+                            <div class="commande_item_info_resto">
+                                <ul>
+                                    <li>
+                                        <h2>Macdo</h2>
+                                    </li>
+                                    <li>
+                                        4.5
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="commande_item_info_resto">
+                                <ul>
+                                    <li>
+                                        <p>3 plats pour $20</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="commande_details_items">
+                                <ul>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                    <li>
+                                        <div class="horizontal">
+                                            <span class="item_qty">1</span>
+                                            <h2 class="title_menu">Menu Burger</h2>
+                                        </div>
+                                        <p>Menu Burger Bacon, Frites, Coca</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="actions">
-                            <button class="btn btn-primary">Afficher plus</button>
-                            <button class="btn btn-secondary">Commander à nouveau</button>
+                            <button class="btn_more">Afficher plus</button>
+                            <button class="btn_more">Commander à nouveau</button>
                         </div>
                     </div>
+                    
                     <div class="div_info_separation"></div>
                     <div class="show-all-btn">
-                        <button class="btn btn-primary">Afficher toutes vos commandes</button>
+                        <button class="btn_all_commande">Afficher toutes vos commandes</button>
                     </div>
                 </div>
                 <div id="favoris" style="display: none;">
@@ -121,6 +215,7 @@
                 </div>
             </div> 
         </section>
+        <script src="/static/js/Profile.js" defer></script>
     </body>
 
     <%- include('./partials/footer2.ejs') %>

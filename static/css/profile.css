@@ -1,0 +1,260 @@
+.profile-presentation {
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, .4)), url('../../assets/img/fond_minimaliste.jpg');
+    background-position: center;
+    background-size: x;
+    background-attachment: fixed;
+    height: 50vh;
+    min-height: 50rem;
+    max-height: 120rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.container_img_profile {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.container_info_profile {
+    max-width: 120rem;
+    margin: auto;
+    width: 92%;
+    display: flex;
+    padding-top: 13rem;
+}
+
+.main-container {
+    max-width: 120rem;
+    /* margin: auto; */
+    width: 92%;
+}
+
+.profile__content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+}
+
+.profile-div{
+    max-height: 300px;
+    max-width: 300px;
+    min-height: 180px;
+    min-width: 180px;
+    margin: auto;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+    background-color: rgb(255, 188, 188);
+}
+
+.stack{
+    position: fixed;
+    top: 84px;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+}
+
+#boutons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between
+}
+
+.bouton-onglet {
+    background-color: transparent;
+    border: none;
+    padding: 2rem;
+    position: relative;
+}
+
+.bouton-onglet a {
+    text-decoration: none;
+    color: black;
+}
+
+.bouton-onglet.selected {
+    background-color: #ccc;
+}
+
+.trait-noir {
+    position: absolute;
+    bottom: -2px;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+.div_info_perso{
+    margin: 0 0 0 2vh;
+}
+
+.info-title strong {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.info-item span {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.info-item {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.div_info_separation {
+    height: 1px;
+    width: 85%;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+
+.profile_contenu{
+    padding: 3rem;
+}
+
+.commande_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.commande_item_info_resto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commande_item_info_resto ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commande_item_info_resto li {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+.commande_details_items ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.commande_details_items ul li{
+    font-size: 1.1rem;
+}
+
+.horizontal {
+    display: flex;
+    align-items: center;
+}
+
+.title_menu {
+    margin-right: 1vh;
+    font-size: 1.7rem;
+}
+
+.commande_title {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.commande_item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.item_qty {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 1vh;
+}
+
+.actions {
+    position: absolute;
+    right: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.actions button {
+    margin-bottom: 1rem;
+}
+
+.show-all-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.show-all-btn {
+    padding: 2rem;
+}
+
+.btn_more {
+    background: #43BFB3;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 1rem;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .15);
+    transition: transform .3s;
+}
+
+.btn_more:hover {
+    transform: translateY(-3px);
+}
+
+.btn--theme {
+    background: #43BFB3;
+    color: #fff;
+}
+
+.btn--med {
+    padding: 1.5rem 5rem;
+    font-size: 1.6rem;
+}
+
+.btn_all_commande {
+    background: #43BFB3;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 2rem;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .15);
+    transition: transform .3s;
+}
+
+.btn_all_commande:hover {
+    transform: translateY(-3px);
+}

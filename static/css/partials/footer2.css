@@ -9,7 +9,7 @@
     font-family: inherit;
 }
 
-p {
+.main-footer p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
