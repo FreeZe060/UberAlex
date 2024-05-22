@@ -22,3 +22,21 @@ function toggleMenu() {
         body.classList.add("menu-open");
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('neumorphism');
+    const extraButton = document.getElementById('extra-button');
+
+    toggle.addEventListener('change', function() {
+        if (toggle.checked) {
+            extraButton.style.display = 'block';
+            console.log("oui");
+        } else {
+            extraButton.style.display = 'none';
+        }
+    });
+});
+
+
+
+

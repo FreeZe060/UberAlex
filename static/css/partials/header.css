@@ -433,9 +433,7 @@ a {
 }
 
 .neumorphism-toggle input + label {
-    background: #fff;
     border-radius: 9px;
-    padding: 16px 0 16px 20px;
     min-width: 208px;
     display: block;
     cursor: pointer;
@@ -450,7 +448,6 @@ a {
     right: 0;
     bottom: 0;
     border-radius: inherit;
-    background: linear-gradient(160deg, #F1F4FF, #F9FAFF);
     opacity: var(--gradient, 0);
     transition: opacity .4s;
 }
@@ -514,7 +511,7 @@ a {
     vertical-align: top;
     z-index: 1;
     position: relative;
-    margin-left: 12px;
+    margin: 1vh 0 0 3px;
     transition: color .4s;
 }
 
@@ -531,10 +528,6 @@ a {
     color: #A6ACCD;
     transform: translateY(4px);
     transition: opacity .4s, transform .4s;
-}
-
-.neumorphism-toggle input:not(:checked) + label {
-    pointer-events: none;
 }
 
 .neumorphism-toggle input:checked + label {
