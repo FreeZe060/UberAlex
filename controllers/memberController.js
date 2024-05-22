@@ -45,7 +45,6 @@ router.post('/login_member', async (req, res) => {
             password: req.body.password
         };
 
-        // Vérifiez les informations de connexion
         const User = await memberModel.authenticate(userData);
         if (User) {
             req.session.logUser = User;
@@ -61,18 +60,23 @@ router.post('/login_member', async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-    if (res.locals.logUser == null) { // Modifiez ici pour utiliser == au lieu de !=
+    if (res.locals.logUser == null) {
         console.error('Erreur : Pas de profil');
         return res.redirect("/");
     }
     try {
-        const orders = await orderModel.getOrdersByMemberId(res.locals.logUser.id);
+        const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
         console.log(orders);
-        res.render('info_profile', { profile: res.locals.logUser, orders });
+        res.render('info_profile', { profile: res.locals.logUser, orders});
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
         res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');
     }
+});
+
+router.get('/logout', async (req, res) => {
+    req.session.logUser = undefined;
+    res.redirect('/');
 });
 
 module.exports = router;

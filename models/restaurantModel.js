@@ -7,7 +7,6 @@ class RestaurantModel {
     }
 
     async getAllRestaurants() {
-        this.dbManager.connect();
         try {
             const restaurants = await this.dbManager.query('SELECT * FROM restaurant');
             return restaurants;
@@ -17,7 +16,6 @@ class RestaurantModel {
     }
 
     async getRestaurantById(restauID) {
-        this.dbManager.connect();
         try {
             const restaurant = await this.dbManager.query('SELECT * FROM restaurant where id = ?', restauID);
             return restaurant[0];
