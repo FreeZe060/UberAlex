@@ -27,7 +27,6 @@
 
 .main-container {
     max-width: 120rem;
-    /* margin: auto; */
     width: 92%;
 }
 
@@ -97,16 +96,16 @@
 
 .info-title strong {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .info-item span {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: normal;
 }
 
 .info-item {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -114,17 +113,27 @@
     height: 1px;
     width: 85%;
     background-color: #ccc;
-    margin-bottom: 10px;
+    margin: 1vh 0 1vh 0;
 }
 
 .profile_contenu{
     padding: 3rem;
 }
 
+
+
+
+
+.commande_title {
+    font-size: 2.5rem;
+}
+
 .commande_item {
     display: flex;
     align-items: center;
-    margin-bottom: 2vh;
+    flex-direction: column;
+    margin: 2vh 0 0 0;
+    max-width: 400px;
 }
 
 .details {
@@ -171,14 +180,9 @@
     font-size: 1.7rem;
 }
 
-.commande_title {
-    font-weight: bold;
-    font-size: 2rem;
-}
-
 .commande_item img {
-    width: 100px;
-    height: 100px;
+    width: 80%;
+    height: 150px;
     margin-right: 20px;
     border-radius: 8px;
 }
@@ -195,9 +199,9 @@
 }
 
 .actions {
-    position: absolute;
-    right: 1vh;
     display: flex;
+    align-items: center;
+    margin: 2vh 0 0 0;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -220,9 +224,11 @@
     background: #43BFB3;
     color: #fff;
     text-transform: uppercase;
-    font-size: 1rem;
     padding: 1rem;
+    letter-spacing: 1px;
     display: inline-block;
+    width: 300px;
+    font-weight: 500;
     border-radius: 5px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .15);
     transition: transform .3s;
