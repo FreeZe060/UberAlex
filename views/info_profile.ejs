@@ -42,66 +42,63 @@
             <div id="contenu">
                 <div id="info" style="display: none;" class="div_info_perso">
                     <h2 class="info-title"><strong> Informations Personnelles : </strong></h2>
-                    <p class="info-item">Nom : <br>
-                        <span> Nom de famille </span>
+                    <p class="info-item">Nom Prenom : <br>
+                        <span> <%= profile.last_name %> <%= profile.first_name %></span>
                     </p>
                     <div class="div_info_separation"></div>
-                    <p class="info-item">Numéro de téléphone : <br> 
-                        <span> Numéro de téléphone </span>
+                    <p class="info-item">Adresse : <br> 
+                        <span> <%= profile.address %> </span>
                     </p>
                     <div class="div_info_separation"></div>
                     <p class="info-item">Adresse email : <br>
-                        <span> Adresse email </span>
+                        <span> <%= profile.email %> </span>
                     </p>
                     <div class="div_info_separation"></div>
                 </div>
                 <div id="commande" style="display: none;" class="div_commande_perso">
                     <h2 class="commande_title">Vos commandes</h2>
-                    <div class="commande_item">
-                        <img src="restaurant_image.jpg" alt="Restaurant Image">
-                        <div class="details">
-                            <div class="commande_item_info_resto">
-                                <ul>
-                                    <li>
-                                        <h2>Macdo</h2>
-                                    </li>
-                                    <li>
-                                        4.5
-                                    </li>
-                                </ul>
+                    <% orders.forEach(function(order) { %>
+    
+                        <div class="commande_item">
+                            <img src="restaurant_image.jpg" alt="Restaurant Image">
+                            <div class="details">
+                                <div class="commande_item_info_resto">
+                                    <ul>
+                                        <li>
+                                            <h2><%= order.rest_name %></h2>
+                                        </li>
+                                        <li>
+                                            <%= order.rest_rating %>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <%= order.products.length %> plats pour <%= order.total_price %>€
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="commande_details_items">
+                                    <ul>
+                                        <% order.products.forEach(function(product) { %>
+                                            <li>
+                                                <div class="horizontal">
+                                                    <span class="item_qty"><%= product.quantity %></span>
+                                                    <h2 class="title_menu"><%= product.product_name %></h2>
+                                                </div>
+                                                <p><%= product.product_price %>€</p>
+                                            </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="commande_item_info_resto">
-                                <ul>
-                                    <li>
-                                        <p>3 plats pour $20</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="commande_details_items">
-                                <ul>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                </ul>
+                            <div class="actions">
+                                <button class="btn_more">Afficher plus</button>
+                                <button class="btn_more">Commander à nouveau</button>
                             </div>
                         </div>
-                        <div class="actions">
-                            <button class="btn_more">Afficher plus</button>
-                            <button class="btn_more">Commander à nouveau</button>
-                        </div>
-                    </div>
-                    <div class="div_info_separation"></div>
+                        <div class="div_info_separation"></div>
+                    <% }); %>
+
                     <div class="commande_item">
                         <img src="restaurant_image.jpg" alt="Restaurant Image">
                         <div class="details">
@@ -195,23 +192,7 @@
                 </div>
                 <div id="favoris" style="display: none;">
                     <h2>Vos Favoris</h2>
-                    <% orders.forEach(function(order) { %>
-                        <div class="structures__structure" style="background-image: url('../assets/img/logo/<%= order.restaurant_img %>'); background-size: contain;">
-                            <div class="structures__structure-details">
-                                <ul>
-                                    <li>
-                                        <%= order.name %>
-                                    </li>
-                                    <li>
-                                        <%= order.date %>
-                                    </li>
-                                    <li class="rating">
-                                        <%= order.status %>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    <% }); %>
+                    
                 </div>
             </div> 
         </section>

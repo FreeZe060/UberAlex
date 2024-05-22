@@ -51,14 +51,17 @@
         <% if (profile !=undefined) { %>
             <div>
                 <div class="al ca">
-                    <img alt="" role="presentation"
-                        src=""
+                    <% if (profile.img == null) { %>
+                    <img alt="profile img" src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&Key-Pair-Id=K36LFL06Z5BT10"
                         class="dr dq ia kn">
-                    <div class="spacer _16">
+                    <% } else { %>
+                        <img alt="profile img" src="../../assets/img/profile/<%= profile.img %>" class="dr dq ia kn">
+                    <% } %>
 
-                    </div>
+                    <div class="spacer _16"></div>
+
                     <div>
-                        <div class="db dc dd ec">Alexandre
+                        <div class="db dc dd ec"><%= profile.first_name %>
 
                         </div>
                         <a href="/user/profile"

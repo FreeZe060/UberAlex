@@ -67,6 +67,7 @@ router.get('/profile', async (req, res) => {
     try {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
         console.log(orders);
+        console.log(res.locals.logUser);
         res.render('info_profile', { profile: res.locals.logUser, orders});
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
