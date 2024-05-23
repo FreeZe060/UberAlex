@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/home_resto.css">
+</head>
+
+<%- include('./partials/header.ejs') %>
+
+    <body>
+        <div class="container">
+            <section id="home" class="home-presentation">
+                <img src="path/to/restaurant-image.jpg" alt="Restaurant Image" class="header-image">
+            </section>
+            <div class="content">
+                <div class="sidebar">
+                    <aside>
+                        <div class="restaurant-info">
+                            <h1>KFC</h1>
+                            <p>Frais de livraison : 3.99€</p>
+                            <p>Distance : 5.6 km</p>
+                            <hr>
+                            <div class="stack">
+                                <div id="boutons">
+                                    <ul class="nav-links">
+                                        <li><a href="#section1" onclick="choisirOnglet(event, 0)">Menus</a></li>
+                                        <li><a href="#section2" onclick="choisirOnglet(event, 1)">Frites</a></li>
+                                        <li><a href="#section3" onclick="choisirOnglet(event, 2)">Dessert</a></li>
+                                        <li><a href="#section4" onclick="choisirOnglet(event, 3)">Boissons</a></li>
+                                    </ul>
+                                    <div class="trait-noir"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </aside>
+                </div>
+                <main class="main-content">
+                    <span id="section1" class="offset"></span>
+                    <section id="menus" class="menus">
+                        <h2 class="title">Nos Menus</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Menu Bacon Lovers + Frites - 14.25€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Original Double Cheese + Frites - 13.25€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Signature Bacon & Egg + Frites - 16.75€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <span id="section2" class="offset"></span>
+                    <section id="fries" class="menus">
+                        <h2 class="title">Frites</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/fries-image.jpg" alt="Fries Image">
+                                <p>Fries Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <span id="section3" class="offset"></span>
+                    <section id="desserts" class="menus">
+                        <h2 class="title">Desserts</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/dessert-image.jpg" alt="Dessert Image">
+                                <p>Dessert Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <span id="section4" class="offset"></span>
+                    <section id="drinks" class="menus">
+                        <h2 class="title">Boissons</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/drink-image.jpg" alt="Drink Image">
+                                <p>Drink Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- 
+            <section id="profile-sec" class="about sec-pad">
+                <h3 class="heading heading-sec heading-sec__mb-med">
+                    <span class="heading-sec__main"><%= restaurant.name %></span>
+                </h3>
+                <ul>
+                    <li>
+                        <%= restaurant.desc %>
+                    </li>
+                    <li>
+                        <%= restaurant.address %>
+                    </li>
+                    <li class="rating">
+                        <%= restaurant.rating %>
+                    </li>
+                </ul>
+            </section>
+        </section> -->
+
+        <script src="/static/js/info_resto.js" defer></script>
+
+    </body>
+    <%- include('./partials/footer2.ejs') %>
+</html>
