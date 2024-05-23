@@ -18,90 +18,106 @@
                 <img src="path/to/restaurant-image.jpg" alt="Restaurant Image" class="header-image">
             </section>
             <div class="content">
-                <aside class="sidebar">
-                    <div class="restaurant-info">
-                        <h1>Steak 'N Shake</h1>
-                        <p>Frais de livraison : 3.99€</p>
-                        <p>Distance : 5.6 km</p>
-                        <p>Temps de livraison : 35-50 min</p>
-                        <hr>
-                        <div class="stack">
-                            <div id="boutons">
-                                <ul class="nav-links">
-                                    <li><a href="#menus" onclick="choisirOnglet(event, 0)">Informations du Compte</a></li>
-                                    <li><a href="#fries" onclick="choisirOnglet(event, 1)">Vos Commandes</a></li>
-                                    <li><a href="#desserts" onclick="choisirOnglet(event, 2)">Vos Favoris</a></li>
-                                </ul>
-                                <div class="trait-noir"></div>
+                <div class="sidebar">
+                    <aside>
+                        <div class="restaurant-info">
+                            <h1>KFC</h1>
+                            <p>Frais de livraison : 3.99€</p>
+                            <p>Distance : 5.6 km</p>
+                            <hr>
+                            <div class="stack">
+                                <div id="boutons">
+                                    <ul class="nav-links">
+                                        <li><a href="#section1" onclick="choisirOnglet(event, 0)">Menus</a></li>
+                                        <li><a href="#section2" onclick="choisirOnglet(event, 1)">Frites</a></li>
+                                        <li><a href="#section3" onclick="choisirOnglet(event, 2)">Dessert</a></li>
+                                        <li><a href="#section4" onclick="choisirOnglet(event, 3)">Boissons</a></li>
+                                    </ul>
+                                    <div class="trait-noir"></div>
+                                </div>
                             </div>
+                            
                         </div>
-                        
-                    </div>
-                </aside>
+                    </aside>
+                </div>
                 <main class="main-content">
-                    <section id="menus">
-                        <h2>Nos Menus</h2>
-                        <div class="menu-item">
-                            <img src="path/to/menu-image.jpg" alt="Menu Image">
-                            <p>Menu Bacon Lovers + Frites - 14.25€</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                    <span id="section1" class="offset"></span>
+                    <section id="menus" class="menus">
+                        <h2 class="title">Nos Menus</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Menu Bacon Lovers + Frites - 14.25€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="path/to/menu-image.jpg" alt="Menu Image">
-                            <p>Original Double Cheese + Frites - 13.25€</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                        
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Original Double Cheese + Frites - 13.25€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="path/to/menu-image.jpg" alt="Menu Image">
-                            <p>Signature Bacon & Egg + Frites - 16.75€</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                            </div>
-                        </div>
-                    </section>
-                    <section id="fries">
-                        <h2>Frites</h2>
-                        <div class="menu-item">
-                            <img src="path/to/fries-image.jpg" alt="Fries Image">
-                            <p>Fries Name</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                            <div class="menu-item">
+                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                <p>Signature Bacon & Egg + Frites - 16.75€</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
                             </div>
                         </div>
                     </section>
-                    <section id="desserts">
-                        <h2>Desserts</h2>
-                        <div class="menu-item">
-                            <img src="path/to/dessert-image.jpg" alt="Dessert Image">
-                            <p>Dessert Name</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                    <span id="section2" class="offset"></span>
+                    <section id="fries" class="menus">
+                        <h2 class="title">Frites</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/fries-image.jpg" alt="Fries Image">
+                                <p>Fries Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
                             </div>
                         </div>
                     </section>
-                    <section id="drinks">
-                        <h2>Boissons</h2>
-                        <div class="menu-item">
-                            <img src="path/to/drink-image.jpg" alt="Drink Image">
-                            <p>Drink Name</p>
-                            <div class="quantity-control">
-                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                <div id="display" class="quantity-display">+</div>
-                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                    <span id="section3" class="offset"></span>
+                    <section id="desserts" class="menus">
+                        <h2 class="title">Desserts</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/dessert-image.jpg" alt="Dessert Image">
+                                <p>Dessert Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <span id="section4" class="offset"></span>
+                    <section id="drinks" class="menus">
+                        <h2 class="title">Boissons</h2>
+                        <div class="flex-container">
+                            <div class="menu-item">
+                                <img src="/assets/img/drink-image.jpg" alt="Drink Image">
+                                <p>Drink Name</p>
+                                <div class="quantity-control">
+                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <div id="display" class="quantity-display">+</div>
+                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                </div>
                             </div>
                         </div>
                     </section>
