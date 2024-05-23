@@ -61,14 +61,14 @@ header {
 }
 
 .nav-links li {
-    margin-bottom: 10px; /* Espacement entre les liens */
+    margin-bottom: 10px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: black;
     display: block;
-    padding: 10px; /* Ajustez selon vos préférences */
+    padding: 10px;
 }
 
 .nav-links a.selected {
@@ -76,7 +76,7 @@ header {
 }
 
 #boutons {
-    position: relative; /* Changement de position à relative */
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
@@ -86,8 +86,8 @@ header {
 .trait-noir {
     position: absolute;
     left: 0;
-    top: 0; /* Ajustement de la position par rapport au haut du conteneur */
-    height: 100%; /* Utilisation de la hauteur totale du conteneur */
+    top: 0; 
+    height: 100%; 
     background-color: black;
     transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
