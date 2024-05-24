@@ -12,7 +12,6 @@ router.get('/id:id', async (req, res) => {
     const types = await productModel.getAllProductsTypesOfRestaurantId(restauID);
     const typesProducts = await productModel.getAllProductsOrderedByTypesOfRestaurantId(restauID);
 
-    console.log(typesProducts);
     res.render('info_restaurant', {profile: logUser, restaurant: restau, types, typesProducts});
 });
 

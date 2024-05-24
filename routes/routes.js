@@ -9,7 +9,6 @@ router.get('/', mainController.showHomePage);
 router.use('/user', require('../controllers/memberController'));
 router.use('/user', require('../controllers/restaurateurController'));
 router.use('/restaurant', require('../controllers/restaurantController'));
-// router.use('/user', require('../controllers/structureController'));
 // router.use('/rides', require('./rideController'));
 // router.use('/payments', require('./paymentController'));
 

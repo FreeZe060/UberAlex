@@ -19,6 +19,7 @@
 
 footer {
     display: block;
+    bottom: 0;
 }
 
 div {

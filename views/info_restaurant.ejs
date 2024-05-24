@@ -24,7 +24,7 @@
                             <h1>
                                 <%= restaurant.name %>
                             </h1>
-                            <p>Frais de livraison : 3.99€</p>
+                            <p>Frais de livraison : <%= parseFloat((restaurant.distance * 2.2 + 1.5).toFixed(2)) %>€</p>
                             <p>
                                 <%= restaurant.address %>
                             </p>
@@ -46,94 +46,33 @@
                 </div>
 
                 <main class="main-content">
-                    <% typesProducts.forEach(function(typeProducts, index) { %>
+                    <h2 class="heading-primary">Produits à commander:</h2>
+                    <% Object.entries(typesProducts).forEach(([type, products], index) => { %>
                         <span id="section<%= index+1 %>" class="offset"></span>
-                        <section id="menus" class="menus">
-                            <h2 class="title">Nos Menus</h2>
+                        <section id="<%= type.toLowerCase() %>" class="menus">
+                            <h2 class="title"><%= type %></h2>
                             <div class="flex-container">
-                                <div class="menu-item">
-                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                    <p>Menu Bacon Lovers + Frites - 14.25€</p>
-                                    <div class="quantity-control">
-                                        <button id="minus" class="quantity-btn minus" disabled
-                                            style="display: none;">-</button>
-                                        <div id="display" class="quantity-display">+</div>
-                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                <% products.forEach(product => { %>
+                                    <div class="menu-item">
+                                        <img src="../assets/img/produits/<%= product.img %>" alt="Menu Image">
+                                        <p><%= product.name %> - <%= product.price %>€</p>
+                                        <% if (profile != undefined){ %>
+                                            <div class="quantity-control">
+                                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                                <div id="display" class="quantity-display">+</div>
+                                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                                <form action="/user/add-to-cart" method="post">
+                                                    <input type="hidden" id="productQ" name="quantity" value="1">
+                                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                                    <button id="envoi" class="btn" type="sumbit" style="margin-top: 20px;">Ajouté au panier</button>
+                                                </form>
+                                            </div>
+                                        <% }; %>
                                     </div>
-                                </div>
-    
-                                <div class="menu-item">
-                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                    <p>Original Double Cheese + Frites - 13.25€</p>
-                                    <div class="quantity-control">
-                                        <button id="minus" class="quantity-btn minus" disabled
-                                            style="display: none;">-</button>
-                                        <div id="display" class="quantity-display">+</div>
-                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                    </div>
-                                </div>
-                                <div class="menu-item">
-                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                    <p>Signature Bacon & Egg + Frites - 16.75€</p>
-                                    <div class="quantity-control">
-                                        <button id="minus" class="quantity-btn minus" disabled
-                                            style="display: none;">-</button>
-                                        <div id="display" class="quantity-display">+</div>
-                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                    </div>
-                                </div>
+                                <% }); %>
                             </div>
                         </section>
                     <% }); %>
-                    <span id="section2" class="offset"></span>
-                    <section id="fries" class="menus">
-                        <h2 class="title">Frites</h2>
-                        <div class="flex-container">
-                            <div class="menu-item">
-                                <img src="/assets/img/fries-image.jpg" alt="Fries Image">
-                                <p>Fries Name</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <span id="section3" class="offset"></span>
-                    <section id="desserts" class="menus">
-                        <h2 class="title">Desserts</h2>
-                        <div class="flex-container">
-                            <div class="menu-item">
-                                <img src="/assets/img/dessert-image.jpg" alt="Dessert Image">
-                                <p>Dessert Name</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </section>
-                    <span id="section4" class="offset"></span>
-                    <section id="drinks" class="menus">
-                        <h2 class="title">Boissons</h2>
-                        <div class="flex-container">
-                            <div class="menu-item">
-                                <img src="/assets/img/drink-image.jpg" alt="Drink Image">
-                                <p>Drink Name</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
                 </main>
             </div>
         </div>

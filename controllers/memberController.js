@@ -80,4 +80,29 @@ router.get('/logout', async (req, res) => {
     res.redirect('/');
 });
 
+// ---------------------- Panier -------------------------------------
+
+router.get('/cart', (req, res) => {
+    res.render('panier', { profile: res.locals.logUser});
+});
+
+router.post('/add-to-cart', (req, res) => {
+    const { productId, quantity } = req.body;
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    const existProductIndex = req.session.cart.findIndex(item => item.productId === productId);
+
+    if (existProductIndex !== -1) {
+        req.session.cart[existProductIndex].quantity += quantity;
+    } else {
+        req.session.cart.push({ productId, quantity: quantity });
+    }
+
+    console.log("USER id",req.session.logUser.id,": Ajout au panier, le produit d'ID",productId);
+    res.redirect(req.headers.referer);
+});
+
 module.exports = router;

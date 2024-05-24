@@ -27,19 +27,19 @@
                 </ul>
                 <div class="header__main-ham-menu-cont">
                     <li class="header_link-li">
-                        <img src="/assets/img/panier.png" alt="ImgPanier" class="header_link-less" />
+                        <a href="/user/cart"><img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" /></a>
                     </li>
                     <% if (profile != undefined) { %>
 
                         <% if (profile.img == null) { %>
                             <li class="header_link-li">
                                 <img alt="" src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&amp;Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&amp;Key-Pair-Id=K36LFL06Z5BT10"
-                                class="nav_img_profile">
+                                class="nav_img" style="border-radius: 50%;">
                             </li>
                         <% } else { %>
                             <li class="header_link-li">
-                                <img alt="" src="../../assets/img/profile/<%= profile.img %>"
-                                class="nav_img_profile">
+                                <img alt="" src="../../assets/img/profiles/<%= profile.img %>"
+                                class="nav_img" style="border-radius: 50%;">
                             </li>
                         <% } %>
                     <% } %>
@@ -60,7 +60,7 @@
                     <img alt="profile img" src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&Key-Pair-Id=K36LFL06Z5BT10"
                         class="dr dq ia kn">
                     <% } else { %>
-                        <img alt="profile img" src="../../assets/img/profile/<%= profile.img %>" class="dr dq ia kn">
+                        <img alt="profile img" src="../../assets/img/profiles/<%= profile.img %>" class="dr dq ia kn">
                     <% } %>
 
                     <div class="spacer _16"></div>
