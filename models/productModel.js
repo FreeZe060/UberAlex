@@ -44,6 +44,16 @@ class ProductModel {
             throw new Error('Erreur lors de la récupération des types de produits : ' + error.message);
         }
     }
+
+    async getProductByID(productId) {
+        try {
+            const query = 'SELECT * FROM product WHERE id = ?';
+            const result = await this.dbManager.query(query, [productId]);
+            return result[0];
+        } catch (error) {
+            throw new Error('Erreur lors de la récupération du produit : ' + error.message);
+        }
+    }
 }
 
 module.exports = new ProductModel();

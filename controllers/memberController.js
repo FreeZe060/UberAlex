@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
+const productModel = require('../models/productModel');
 
 // Routes
 
@@ -83,26 +84,33 @@ router.get('/logout', async (req, res) => {
 // ---------------------- Panier -------------------------------------
 
 router.get('/cart', (req, res) => {
-    res.render('panier', { profile: res.locals.logUser});
+    res.render('panier', { profile: res.locals.logUser, panier: res.locals.cart});
 });
 
-router.post('/add-to-cart', (req, res) => {
+router.post('/add-to-cart', async (req, res) => {
     const { productId, quantity } = req.body;
 
     if (!req.session.cart) {
         req.session.cart = [];
     }
 
-    const existProductIndex = req.session.cart.findIndex(item => item.productId === productId);
+    try {
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id === productId);
+        const product = await productModel.getProductByID(productId);
 
-    if (existProductIndex !== -1) {
-        req.session.cart[existProductIndex].quantity += quantity;
-    } else {
-        req.session.cart.push({ productId, quantity: quantity });
+        if (existProductIndex !== -1) {
+            req.session.cart[existProductIndex].quantity += quantity;
+        } else {
+            req.session.cart.push({ product, quantity: quantity });
+        }
+
+        console.log("USER id", req.session.logUser.id, ": Ajout au panier, le produit d'ID", productId);
+        res.redirect(req.headers.referer);
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout au panier :', error);
+        res.status(500).send('Une erreur s\'est produite lors de l\'ajout au panier');
     }
-
-    console.log("USER id",req.session.logUser.id,": Ajout au panier, le produit d'ID",productId);
-    res.redirect(req.headers.referer);
 });
+
 
 module.exports = router;
