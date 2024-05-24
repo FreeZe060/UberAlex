@@ -112,5 +112,27 @@ router.post('/add-to-cart', async (req, res) => {
     }
 });
 
+router.post('/remove-from-cart', async (req, res) => {
+    const { productId } = req.body;
 
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    try {
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id == productId);
+
+        if (existProductIndex != -1) {
+            req.session.cart.splice(existProductIndex, 1);
+            console.log("USER id", req.session.logUser.id, ": Supprime du panier, le produit d'ID", productId);
+        } else {
+            console.log("Le produit d'ID", productId, "n'existe pas dans le panier.");
+        }
+
+        res.redirect(req.headers.referer);
+    } catch (error) {
+        console.error('Erreur lors de la suppression du panier :', error);
+        res.status(500).send('Une erreur s\'est produite lors de la suppression du panier');
+    }
+});
 module.exports = router;

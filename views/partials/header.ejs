@@ -26,10 +26,10 @@
                     </li>
                 </ul>
                 <div class="header__main-ham-menu-cont">
-                    <li class="header_link-li">
-                        <a href="/user/cart"><img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" /></a>
-                    </li>
                     <% if (profile != undefined) { %>
+                        <li class="header_link-li">
+                            <a href="/user/cart"><img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" /></a>
+                        </li>
 
                         <% if (profile.img == null) { %>
                             <li class="header_link-li">
