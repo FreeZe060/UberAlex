@@ -35,55 +35,56 @@
                             <div class="stack">
                                 <div id="boutons">
                                     <ul class="nav-links">
-                                        <li><a href="#section1" onclick="choisirOnglet(event, 0)">Menus</a></li>
-                                        <li><a href="#section2" onclick="choisirOnglet(event, 1)">Frites</a></li>
-                                        <li><a href="#section3" onclick="choisirOnglet(event, 2)">Dessert</a></li>
-                                        <li><a href="#section4" onclick="choisirOnglet(event, 3)">Boissons</a></li>
+                                        <% types.forEach(function(type, index) { %>
+                                            <li><a href="#section<%= index+1 %>" onclick="choisirOnglet(event, <%= index %>)"><%= type %></a></li>
+                                        <% }); %>
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </aside>
                 </div>
-                <main class="main-content">
-                    <span id="section1" class="offset"></span>
-                    <section id="menus" class="menus">
-                        <h2 class="title">Nos Menus</h2>
-                        <div class="flex-container">
-                            <div class="menu-item">
-                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                <p>Menu Bacon Lovers + Frites - 14.25€</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                </div>
-                            </div>
 
-                            <div class="menu-item">
-                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                <p>Original Double Cheese + Frites - 13.25€</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                <main class="main-content">
+                    <% typesProducts.forEach(function(typeProducts, index) { %>
+                        <span id="section<%= index+1 %>" class="offset"></span>
+                        <section id="menus" class="menus">
+                            <h2 class="title">Nos Menus</h2>
+                            <div class="flex-container">
+                                <div class="menu-item">
+                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                    <p>Menu Bacon Lovers + Frites - 14.25€</p>
+                                    <div class="quantity-control">
+                                        <button id="minus" class="quantity-btn minus" disabled
+                                            style="display: none;">-</button>
+                                        <div id="display" class="quantity-display">+</div>
+                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                    </div>
+                                </div>
+    
+                                <div class="menu-item">
+                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                    <p>Original Double Cheese + Frites - 13.25€</p>
+                                    <div class="quantity-control">
+                                        <button id="minus" class="quantity-btn minus" disabled
+                                            style="display: none;">-</button>
+                                        <div id="display" class="quantity-display">+</div>
+                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <img src="/assets/img/menu-image.jpg" alt="Menu Image">
+                                    <p>Signature Bacon & Egg + Frites - 16.75€</p>
+                                    <div class="quantity-control">
+                                        <button id="minus" class="quantity-btn minus" disabled
+                                            style="display: none;">-</button>
+                                        <div id="display" class="quantity-display">+</div>
+                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="menu-item">
-                                <img src="/assets/img/menu-image.jpg" alt="Menu Image">
-                                <p>Signature Bacon & Egg + Frites - 16.75€</p>
-                                <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled
-                                        style="display: none;">-</button>
-                                    <div id="display" class="quantity-display">+</div>
-                                    <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
+                    <% }); %>
                     <span id="section2" class="offset"></span>
                     <section id="fries" class="menus">
                         <h2 class="title">Frites</h2>
