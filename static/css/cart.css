@@ -1,0 +1,26 @@
+@import url(./set.css);
+
+.home-presentation {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-main_panier {
+    width: 300rem;
+    height: 200rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.cont-main_panier h1 {
+    text-align: center;
+}
+
+.cont-main_panier p {
+    text-align: justify;
+}
