@@ -21,9 +21,16 @@
                 <div class="sidebar">
                     <aside>
                         <div class="restaurant-info">
-                            <h1>KFC</h1>
+                            <h1>
+                                <%= restaurant.name %>
+                            </h1>
                             <p>Frais de livraison : 3.99€</p>
-                            <p>Distance : 5.6 km</p>
+                            <p>
+                                <%= restaurant.address %>
+                            </p>
+                            <p>
+                                <%= restaurant.distance %> km
+                            </p>
                             <hr>
                             <div class="stack">
                                 <div id="boutons">
@@ -33,10 +40,9 @@
                                         <li><a href="#section3" onclick="choisirOnglet(event, 2)">Dessert</a></li>
                                         <li><a href="#section4" onclick="choisirOnglet(event, 3)">Boissons</a></li>
                                     </ul>
-                                    <div class="trait-noir"></div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </aside>
                 </div>
@@ -49,17 +55,19 @@
                                 <img src="/assets/img/menu-image.jpg" alt="Menu Image">
                                 <p>Menu Bacon Lovers + Frites - 14.25€</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
                             </div>
-                        
+
                             <div class="menu-item">
                                 <img src="/assets/img/menu-image.jpg" alt="Menu Image">
                                 <p>Original Double Cheese + Frites - 13.25€</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
@@ -68,7 +76,8 @@
                                 <img src="/assets/img/menu-image.jpg" alt="Menu Image">
                                 <p>Signature Bacon & Egg + Frites - 16.75€</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
@@ -83,7 +92,8 @@
                                 <img src="/assets/img/fries-image.jpg" alt="Fries Image">
                                 <p>Fries Name</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
@@ -98,7 +108,8 @@
                                 <img src="/assets/img/dessert-image.jpg" alt="Dessert Image">
                                 <p>Dessert Name</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
@@ -114,7 +125,8 @@
                                 <img src="/assets/img/drink-image.jpg" alt="Drink Image">
                                 <p>Drink Name</p>
                                 <div class="quantity-control">
-                                    <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                    <button id="minus" class="quantity-btn minus" disabled
+                                        style="display: none;">-</button>
                                     <div id="display" class="quantity-display">+</div>
                                     <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
                                 </div>
@@ -148,4 +160,5 @@
 
     </body>
     <%- include('./partials/footer2.ejs') %>
+
 </html>
