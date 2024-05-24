@@ -32,8 +32,7 @@
             </div>
             <div class="container_info_profile">
                 <div class="container_img_profile">
-                    <div class="profile-div">
-                    </div>
+                    <img alt="" src="../../assets/img/profile/<%= profile.img %>" class="profile-div">
                 </div>
             </div>     
         </section>
@@ -60,7 +59,7 @@
                     <% orders.forEach(function(order) { %>
     
                         <div class="commande_item">
-                            <img src="restaurant_image.jpg" alt="Restaurant Image">
+                            <img src="../assets/img/restaurant/<%= order.rest_img %>" alt="Restaurant Image">
                             <div class="details">
                                 <div class="commande_item_info_resto">
                                     <ul>
@@ -98,94 +97,7 @@
                         </div>
                         <div class="div_info_separation"></div>
                     <% }); %>
-
-                    <div class="commande_item">
-                        <img src="../assets/img/logo/KFC.png" alt="Restaurant Image">
-                        <div class="details">
-                            <div class="commande_item_info_resto">
-                                <ul>
-                                    <li>
-                                        <h2>Macdo</h2>
-                                    </li>
-                                    <li>
-                                        4.5 <br>
-                                    </li>
-                                    <li>
-                                        <p>3 plats pour $20</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="commande_details_items">
-                                <ul>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="actions">
-                            <button class="btn_more">Afficher plus</button>
-                            <button class="btn_more">Commander à nouveau</button>
-                        </div>
-                    </div>
-                    <div class="div_info_separation"></div>
-                    <div class="commande_item">
-                        <img src="../assets/img/logo/KFC.png" alt="Restaurant Image">
-                        <div class="details">
-                            <div class="commande_item_info_resto">
-                                <ul>
-                                    <li>
-                                        <h2>Macdo</h2>
-                                    </li>
-                                    <li>
-                                        4.5
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="commande_item_info_resto">
-                                <ul>
-                                    <li>
-                                        <p>3 plats pour $20</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="commande_details_items">
-                                <ul>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                    <li>
-                                        <div class="horizontal">
-                                            <span class="item_qty">1</span>
-                                            <h2 class="title_menu">Menu Burger</h2>
-                                        </div>
-                                        <p>Menu Burger Bacon, Frites, Coca</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="actions">
-                            <button class="btn_more">Afficher plus</button>
-                            <button class="btn_more">Commander à nouveau</button>
-                        </div>
-                    </div>
                     
-                    <div class="div_info_separation"></div>
                     <div class="show-all-btn">
                         <button class="btn_all_commande">Afficher toutes vos commandes</button>
                     </div>
