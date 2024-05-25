@@ -18,24 +18,7 @@
 <body>
 
     <section id="home" class="home-presentation" style="width: 100%; height: 5vh; max-height: 100%">
-        <!-- <div class="cont-main_panier">
-                    <h3 class="heading heading-sec heading-sec__mb-med">
-                        <span class="heading-sec__main">Panier:</span>
-                    </h3>
-                    <ul>
-                        <% let subtotal=0; %>
-                        <% cart.forEach(item=> { %>
-                            <% subtotal +=item.product.price * item.quantity; %>
-                            <li class="heading-primary">Product ID:<%= item.product.id %>, Quantity: <%= item.quantity %>, Price: <%= item.product.price %>€ 
-                            <button class="remove-button" onclick="removeProduct(<%= item.product.id %>)"><i class="fa fa-times"></i></button>
-                            </li>
-                        <% }); %>
-                    </ul>
-                    <p>Sous-total: <%= subtotal.toFixed(2) %>€</p>
-                    <p>Frais de livraison: 3€</p>
-                    <p>Total: <%= (subtotal + 3).toFixed(2) %>€</p>
-                    <button class="button-pay">Payer</button>
-                </div> -->
+        
     </section>
 
 
@@ -62,9 +45,10 @@
                                         </svg>
                                     </div>
                                     <div class="al am cl g6">
-                                        <span class="bo bp dr ds b1">10 Rue Foncet, VANNSON, 2 eme etage</span>
+                                        <% const addressParts = profile.address.split(', '); %>
+                                        <span class="bo bp dr ds b1"><%= addressParts[0] %></span>
                                         <div class="bo fd bq ds b1">
-                                            <span class="i5">Nice</span>
+                                            <span class="i5"><%= addressParts[1] %>, <%= addressParts[2] %> </span>
                                         </div>
                                     </div>
                                     <button data-baseweb="button" data-testid="edit-delivery-address-button"
@@ -89,7 +73,7 @@
                                     <div class="al am cl g6">
                                         <span class="bo bp dr ds b1">Rendez-vous devant ma porte</span>
                                         <div class="bo fd bq ds b1">
-                                            <span class=""><span class="i5">2 eme etage</span></span>
+                                            <span class=""><span class="i5"><%= profile.last_name.toUpperCase() %></span></span>
                                         </div>
                                     </div>
                                     <button data-baseweb="button" data-testid="edit-delivery-address-button"
@@ -173,7 +157,7 @@
                             Moyen de paiement
                         </h6>
                         <div class="cl g6">
-                            <a class="al eo bc ci" href="/fr/checkout?mod=paymentsAddProfile&amp;ps=1">
+                            <a class="al eo bc ci" href="">
                                 <div class="g7 g8">
                                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -186,10 +170,29 @@
                                         Ajouter un moyen de paiement
                                     </div>
                                 </div>
-                                <button data-baseweb="button" data-testid="edit-payment-button"
-                                    class="d3 aq bc d4 d5 d6 d7 d8 d9 da db dc dd de df dg dh di dj ci dk gl dm dn do dp dq bo fd dr fe gm gn go gp gq gr gs gt b1 gu gv gw">
-                                    Modifier
-                                </button>
+                                <input type="radio" id="opCarte" name="group">
+                            </a>
+                        </div>
+                        <div class="cl g6">
+                            <div class="al cr">
+                                <div class="gx gu bs cl gy"></div>
+                            </div>
+                            <a class="al eo bc ci" href="">
+                                <div class="g7 g8">
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.833 5.333h18.334v3.333H2.833V5.333zm0 5.833h18.334v7.5H2.833v-7.5z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="al am cl g6">
+                        
+                                    <span class="bo bp dr ds b1">Payer avec le porte-monnaie</span>
+                                    <div class="bo fd bq ds b1">
+                                        <span class="i5">Balance: <%= logUser.balance.toFixed(2) %>€</span>
+                                    </div>
+                                </div>
+                                <input type="radio" id="opBalance" name="group">
                             </a>
                         </div>
                     </div>
@@ -203,21 +206,21 @@
                 <div class="fr b0 eh fs ft">
                     <div class="fu fv">
                         <div class="hz">
-                            <a class="al eq bc eo" href="/fr/store/starbucks-nice-iconic/-vKdkSowWmO2_UP3FvoHCA">
+                            <a class="al eq bc eo" href="/restaurant/id<%= restaurant.id %>">
                                 <div class="al">
                                     <div class="al bc i0">
                                         <div class="e4 e5 i1 i2 bu ak">
                                             <img alt="" role="presentation"
-                                                src="https://tb-static.uber.com/prod/image-proc/processed_images/d65526df93dc92499f1439a45dac1d24/e39556ef1e4c4565bc6c7dbd8b90869c.jpeg"
+                                                src="../assets/img/restaurants/<%= restaurant.img %>"
                                                 class="e4 e5 i3 i1" />
                                         </div>
                                     </div>
                                     <div class="al am d4 i4">
                                         <div data-baseweb="typo-labelmedium" class="b1 bo dr bp ds">
-                                            Starbucks
+                                            <%= restaurant.name %>
                                         </div>
                                         <p data-baseweb="typo-paragraphsmall" class="i5 bo bq fd ds">
-                                            2 Avenue Thiers
+                                            <%= restaurant.address %> (<%= restaurant.distance %>km)
                                         </p>
                                     </div>
                                 </div>
@@ -251,13 +254,12 @@
                                             </svg>
                                         </div>
                                         <div data-baseweb="typo-labelmedium" class="b1 bo dr bp ds">
-                                            Récapitulatif du panier (1&nbsp;article)
+                                            Récapitulatif du panier (<%= panier.reduce((total, item) => total + item.quantity, 0) %> article(s))
                                         </div>
                                     </div>
                                     <!-- PanierP -->
                                     <div title="Expand" class="al g8 if ig ih ii ij">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <title>Chevron down small</title>
                                             <path d="M18 8v3.8l-6 4.6-6-4.6V8l6 4.6L18 8Z" fill="currentColor"></path>
                                         </svg>
                                     </div>
@@ -266,37 +268,40 @@
                                     <div class="bo fd bq ds b0 b1 dx dy dz e0 do dq dn dp af bu je jf im ii in ij io">
                                         <div class="it">
                                             <ul>
-                                                <li class="al bh jg"><a class="bh jh al ji jj"
-                                                        href="/fr/checkout?mod=editItem&amp;modctx=%257B%2522itemUuid%2522%253A%25227d5eb66e-b90b-45c4-a410-0439ce82096b%2522%252C%2522draftOrderUUID%2522%253A%2522fd465f57-738d-4646-9298-c19301baf0ef%2522%257D&amp;ps=1">
-                                                        <div class="al d4 bc">
-                                                            <div class="ji do dq dn jk jl jm jn al d4 bu ez"><img
-                                                                    alt="Caffè Americano"
-                                                                    src="https://tb-static.uber.com/prod/image-proc/processed_images/5f314afbc7008e5d92d5b9fc5daa64d3/5954bcb006b10dbfd0bc160f6370faf3.jpeg"
-                                                                    class="jm jk i3 jo"></div>
-                                                        </div>
-                                                        <div class="bi gz cl al am d4 fw jp">
-                                                            <div class="bo bp dr ds eh">Caffè Americano</div>
-                                                            <div>
-                                                                <p class="bo fd bq ds eu"><span data-testid="rich-text"
-                                                                        class="jq eh jr bo fd bq ds g8">Size:
-                                                                    </span><span data-testid="rich-text"
-                                                                        class="jq eh jr bo fd bq ds g8">Grande
-                                                                        (0,85&nbsp;€)</span></p>
+                                                <% let subtotal=0; %>
+                                                <% cart.forEach(item=> { %>
+                                                    <% subtotal +=item.product.price * item.quantity; %>
+                                                    <li class="al bh jg"><a class="bh jh al ji jj">
+                                                            <div class="al d4 bc">
+                                                                <div class="ji do dq dn jk jl jm jn al d4 bu ez"><img alt="Img <%= item.product.name %>"
+                                                                    src="../assets/img/produits/<%= item.product.img %>" class="jm jk i3 jo"></div>
                                                             </div>
-                                                            <div>
-                                                                <div data-baseweb="typo-labelmedium"
-                                                                    class="cs al am js b1 bo dr bp ds">
-                                                                    <div class="al ga"><span data-testid="rich-text"
-                                                                            class="jq eh jr bo fd dr fe g8">5,00&nbsp;€</span>
+                                                            <div class="bi gz cl al am d4 fw jp">
+                                                                <div class="bo bp dr ds eh"><%= item.product.name %></div>
+                                                                <div>
+                                                                    <p class="bo fd bq ds eu">
+                                                                        <span class="jq eh jr bo fd bq ds g8">ID: </span><span class="jq eh jr bo fd bq ds g8"><%= item.product.id %> </span>
+                                                                        <span class="jq eh jr bo fd bq ds g8">Type: </span><span class="jq eh jr bo fd bq ds g8"><%= item.product.type %> </span>
+                                                                    </p>
+                                                                    
+                                                                </div>
+                                                                <div>
+                                                                    <div data-baseweb="typo-labelmedium" class="cs al am js b1 bo dr bp ds">
+                                                                        <div class="al ga"><span data-testid="rich-text" class="jq eh jr bo fd dr fe g8"><%= item.product.price %>€</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <button class="remove-button" onclick="removeProduct(<%= item.product.id %>)">
+                                                                    <i class="fa fa-times"></i>
+                                                                </button>
                                                             </div>
+                                                        </a>
+                                                        <div class="al bc d4">
+                                                            <div class="bo fd dr fe ez gu jt bw"><%= item.quantity %></div>
                                                         </div>
-                                                    </a>
-                                                    <div class="al bc d4">
-                                                        <div class="bo fd dr fe ez gu jt bw">1</div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                <% }); %>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -318,7 +323,7 @@
                                             <div class="bo bp bq br i5">Sous-total</div>
                                         </div>
                                         <div class="bo ew bq g2 b1">
-                                            <span class="">5,00&nbsp;€</span>
+                                            <span class=""><%= subtotal.toFixed(2) %>€</span>
                                         </div>
                                     </li>
                                     <li class="bo ew bq g2 al eq bc">
@@ -339,7 +344,8 @@
                                             <div class="bo bp bq br i5">Livraison</div>
                                         </div>
                                         <div class="bo ew bq g2 b1">
-                                            <span class="">2,99&nbsp;€</span>
+                                            <% let taxe = parseFloat((restaurant.distance * 2.2 + 1.5).toFixed(2)) %>
+                                            <span class=""><%= taxe %>€</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -348,7 +354,7 @@
                                 </div>
                                 <div class="bo bp dr ds al eq">
                                     <div class="al bc aq j9">Total</div>
-                                    10,59&nbsp;€
+                                    <%= (subtotal + taxe).toFixed(2) %>€
                                 </div>
                             </div>
                         </div>

@@ -66,7 +66,7 @@
                                         <li>
                                             <div class="horizontal">
                                                 <h2 class="title_"><%= order.rest_name %></h2>
-                                                <p><%= order.products.length %> plats pour <%= order.total_price %>€</p>
+                                                <p><%= order.products.reduce((total, product)=> total + product.quantity, 0) %> plats pour <%= order.total_price %>€</p>
                                             </div>
                                         </li>
                                     </ul>
