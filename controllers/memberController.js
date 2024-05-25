@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
+const productModel = require('../models/productModel');
 
 // Routes
 
@@ -80,4 +81,58 @@ router.get('/logout', async (req, res) => {
     res.redirect('/');
 });
 
+// ---------------------- Panier -------------------------------------
+
+router.get('/cart', (req, res) => {
+    res.render('panier', { profile: res.locals.logUser, panier: res.locals.cart});
+});
+
+router.post('/add-to-cart', async (req, res) => {
+    const { productId, quantity } = req.body;
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    try {
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id === productId);
+        const product = await productModel.getProductByID(productId);
+
+        if (existProductIndex !== -1) {
+            req.session.cart[existProductIndex].quantity += quantity;
+        } else {
+            req.session.cart.push({ product, quantity: quantity });
+        }
+
+        console.log("USER id", req.session.logUser.id, ": Ajout au panier, le produit d'ID", productId);
+        res.redirect(req.headers.referer);
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout au panier :', error);
+        res.status(500).send('Une erreur s\'est produite lors de l\'ajout au panier');
+    }
+});
+
+router.post('/remove-from-cart', async (req, res) => {
+    const { productId } = req.body;
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+
+    try {
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id == productId);
+
+        if (existProductIndex != -1) {
+            req.session.cart.splice(existProductIndex, 1);
+            console.log("USER id", req.session.logUser.id, ": Supprime du panier, le produit d'ID", productId);
+        } else {
+            console.log("Le produit d'ID", productId, "n'existe pas dans le panier.");
+        }
+
+        res.redirect(req.headers.referer);
+    } catch (error) {
+        console.error('Erreur lors de la suppression du panier :', error);
+        res.status(500).send('Une erreur s\'est produite lors de la suppression du panier');
+    }
+});
 module.exports = router;

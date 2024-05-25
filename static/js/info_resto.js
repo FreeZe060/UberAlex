@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let quantity = 0;
 
         function updateDisplay() {
+            document.getElementById('productQ').value = quantity;
+
             if (quantity === 0) {
                 display.textContent = '+';
                 minusBtn.style.display = 'none';
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function choisirOnglet(event, index) {
-    event.preventDefault(); // Empêche le comportement par défaut du lien
+    event.preventDefault();
 
     var boutons = document.querySelectorAll("#boutons .nav-links a");
     var traitNoir = document.querySelector(".trait-noir");
@@ -83,7 +85,6 @@ function choisirOnglet(event, index) {
     traitNoir.style.height = boutonSelectionne.offsetHeight + "px";
     traitNoir.style.transform = "translateY(" + boutonSelectionnePosition + "px)";
 
-    // Scroll jusqu'à l'élément correspondant
     var targetId = boutonSelectionne.getAttribute("href");
     var targetElement = document.querySelector(targetId);
     targetElement.scrollIntoView({ behavior: 'smooth' });

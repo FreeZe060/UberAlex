@@ -1,0 +1,39 @@
+@import url(./set.css);
+
+.home-presentation {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-main_panier {
+    position: relative;
+    width: 100rem;
+    height: 66rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 4rem;
+}
+
+.cont-main_panier h1 {
+    text-align: center;
+}
+
+.cont-main_panier p {
+    text-align: justify;
+}
+
+.button-pay {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(37, 167, 37);
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

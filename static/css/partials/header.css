@@ -68,6 +68,16 @@
     font-weight: 700;
     transition: color .3s;
     text-decoration: none;
+    position: relative;
+}
+
+.header_link img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 .header_link-less {
@@ -270,12 +280,11 @@ div {
     color: #000000;
 }
 
-.nav_img_profile {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
+.nav_img {
+    max-width: 68px;
+    height: 68rem;
     object-fit: cover;
-    padding: 2rem 2rem;
+    padding: 16px;
     display: inline-block;
 }
 

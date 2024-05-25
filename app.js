@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const DbManager = require('./config/dbManager');
-const routes = require('./routes');
+const routes = require('./routes/routes');
 
 const app = express();
 const port = 8080;
@@ -20,13 +20,12 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use((req, res, next) => {
-    // Middleware pour rendre l'ID de l'utilisateur disponible dans toutes les routes
     res.locals.logUser = req.session.logUser;
+    res.locals.cart = req.session.cart || [];
     next();
 });
 
 // Configuration de la base de données
-
 const dbManager = new DbManager();
 dbManager.connect();
 console.log(`Connecté à la base de données MySQL`);
@@ -42,5 +41,5 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', routes);
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port} with Express server : http://localhost:${port}`);
+    console.log(`Serveur marche sur le port ${port} avec Express server : http://localhost:${port}`);
 });
