@@ -130,28 +130,33 @@
 
 
 
-@media (max-width: 780px) {
+@media (max-width: 900px) {
     .commande_item {
         display: flex;
         flex-direction: column;
-        margin: 2vh 0 0 3vh;
+        margin: 2vh 0 2vh 3vh;
         max-width: 400px;
     }
+
+    .commande_details_items {
+        width: 100%;
+    }
 }
+
 
 
 
 .details {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .commande_item_info_resto {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; 
+    width: 300px; 
 }
 
 .commande_item_info_resto ul {
@@ -169,15 +174,13 @@
     font-size: 1.5rem;
 }
 
-.commande_details_items {
-    width: 100%;
-}
+
 
 .commande_details_items ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: 200px;
 }
 
 .commande_details_items ul li {
@@ -189,6 +192,8 @@
 .horizontal {
     display: flex;
     align-items: center;
+    width: 100%;
+    flex: 1;
 }
 
 .title_menu {
@@ -224,6 +229,7 @@
     margin: 2vh 0 0 0;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .actions button {
@@ -287,10 +293,10 @@
 
 
 
-@media (min-width: 780px) {
+@media (min-width: 900px) {
     .commande_item {
         display: flex;
-        margin: 2vh 0 0 3vh;
+        margin: 2vh 0 2vh 3vh;
         max-width: 750px;
     }
 
@@ -300,12 +306,57 @@
         margin-right: 20px;
         border-radius: 8px;
     }
+
+    .actions {
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 200px; 
+        padding-right: 20px;
+    }
+    
+
+    .btn_more {
+        background: #43BFB3;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 1rem;
+        letter-spacing: 1px;
+        display: inline-block;
+        width: 200px;
+        font-weight: 500;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .15);
+        transition: transform .3s;
+    }
+    
+    .btn_more:hover {
+        transform: translateY(-3px);
+    }
+
+    .btn--med {
+        font-size: 1.6rem;
+    }
+
+    .commande_item_info_resto li {
+        padding: 0 1rem;
+        font-size: 1.5rem;
+    }
+
+    .horizontal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
 
 @media (min-width: 1200px) {
     .commande_item {
         display: flex;
-        margin: 2vh 0 0 3vh;
+        margin: 2vh 0 2vh 3vh;
         max-width: 900px;
     }
 
