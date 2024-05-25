@@ -5,25 +5,29 @@ document.addEventListener('DOMContentLoaded', function() {
         const minusBtn = control.querySelector('.minus');
         const plusBtn = control.querySelector('.plus');
         const display = control.querySelector('.quantity-display');
-
+        const displayValue = control.querySelector('p');
+        const envoi = document.getElementById('envoi')
         let quantity = 0;
 
         function updateDisplay() {
             document.getElementById('productQ').value = quantity;
+            displayValue.textContent = quantity;
 
             if (quantity === 0) {
-                display.textContent = '+';
                 minusBtn.style.display = 'none';
                 plusBtn.style.display = 'none';
+                displayValue.style.display = 'none';
                 display.style.width = '30px';
                 display.style.height = '30px';
                 display.style.borderRadius = '50%';
+                envoi.style.display = 'none';
             } else {
-                display.textContent = quantity;
+                displayValue.style.display = 'inline-block';
                 minusBtn.style.display = 'inline-block';
                 plusBtn.style.display = 'inline-block';
-                display.style.width = 'auto';
-                display.style.height = 'auto';
+                envoi.style.display = 'flex';
+                display.style.width = '0px';
+                display.style.height = '0px';
                 display.style.borderRadius = '0';
             }
 
@@ -68,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
     var boutons = document.querySelectorAll("#boutons .nav-links a");

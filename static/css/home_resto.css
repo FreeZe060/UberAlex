@@ -31,15 +31,19 @@ header {
     flex: 1;
 }
 
-.sidebar {
-    position: sticky;
-    top: 100px;
-    width: 25%;
-    height: 25%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+@media (min-width: 600px) {
+    .sidebar {
+        position: sticky;
+        top: 100px;
+        width: 25%;
+        height: 25%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
 }
+
+
 
 .restaurant-info {
     margin-bottom: 20px;
@@ -85,19 +89,19 @@ header {
 }
 
 .nav-links a.selected {
-    background-color: #f0f0f0; /* fond grisé */
+    background-color: #f0f0f0;
     font-weight: bold;
 }
 
-.trait-noir {
+/* .trait-noir {
     position: absolute;
     left: 0;
     top: 0;
-    width: 4px; /* largeur du trait noir */
+    width: 4px; 
     background-color: black;
     transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0; /* Ajouté pour éviter le clignotement initial */
-}
+    opacity: 0;
+} */
 
 
 
@@ -143,6 +147,8 @@ section h2 {
     background-color: #f0f0f0;
 }
 
+
+
 .menu-item {
     display: flex;
     align-items: center;
@@ -176,7 +182,9 @@ section h2 {
     .sidebar {
         width: 100%;
         padding: 20px;
-        height: 105px;
+        margin: 2vh 0 0 0;
+        background-color: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links {
@@ -188,6 +196,61 @@ section h2 {
         height: 300px;
         margin-top: -300px;
         visibility: hidden;
+    }
+
+    #boutons {
+        position: relative;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .stacks {
+        z-index: 999;
+    }
+    
+    .nav-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around; 
+        z-index: 999;
+        opacity: 1;
+    }
+    
+    .nav-links li {
+        position: relative;
+        flex: 1;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+        text-align: center; 
+    }
+    
+    .nav-links a.selected {
+        background-color: #f0f0f0;
+        font-weight: bold;
+    }
+    
+    .trait-noir {
+        position: absolute;
+        bottom: 0; 
+        left: 0;
+        height: 4px; 
+        background-color: black;
+        transition: width 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 1;
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 20px;
+        background-color: #fff;
+        margin: 5vh 0 0 0;
     }
 
 }
@@ -211,6 +274,11 @@ section h2 {
     margin: 10px;
     display: flex;
     align-items: center;
+}
+
+.quantity-control form {
+    display: flex;
+    flex-direction: column;
 }
 
 .quantity-btn {
@@ -243,5 +311,14 @@ section h2 {
     align-items: center;
     justify-content: center;
     font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-add-to-cart {
+    background-color: #007BFF;
+    border-radius: 20px;
+    padding: 1rem;
+    color: white;
+    font-size: 10px;
     cursor: pointer;
 }
