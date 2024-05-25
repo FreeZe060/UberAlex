@@ -291,13 +291,13 @@ div {
 .kn {
     object-fit: cover;
 }
-.dr {
+.ddr {
     width: 48px;
 }
 .ia {
     border-radius: 50%;
 }
-.dq {
+.ddq {
     height: 48px;
 }
 
@@ -306,10 +306,9 @@ img {
     overflow: clip;
 }
 
-.dc {
+.ddc {
     font-size: 16px;
 }
-
 
 .l9 {
     padding-top: 24px;
@@ -372,7 +371,7 @@ a {
 }
 
 
-.je {
+.jje {
     width: 20px;
 }
 
@@ -383,18 +382,12 @@ a {
     fill: currentColor;
 }
 
-.al {
+.ah {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-}
-
-.am {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
 }
 
 .ak {

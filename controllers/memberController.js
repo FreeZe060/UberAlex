@@ -3,6 +3,7 @@ const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
 const productModel = require('../models/productModel');
+const restaurantModel = require('../models/restaurantModel');
 
 // Routes
 
@@ -18,7 +19,7 @@ router.post('/create_member', async (req, res) => {
             last_name: req.body.last_name,
             password: req.body.password,
             email: req.body.email,
-            address: req.body.address + "_" + req.body.postal + "_" + req.body.city
+            address: req.body.address + ", " + req.body.postal + ", " + req.body.city
         };
 
         if (await memberModel.searchUserByEmail(userData.email)) {
@@ -83,8 +84,16 @@ router.get('/logout', async (req, res) => {
 
 // ---------------------- Panier -------------------------------------
 
-router.get('/cart', (req, res) => {
-    res.render('panier', { profile: res.locals.logUser, panier: res.locals.cart});
+router.get('/cart', async (req, res) => {
+    if (res.locals.logUser == null || res.locals.cart.length == 0) {
+        return res.redirect('/');
+    }
+
+    const restaurantID = res.locals.cart[0].product.id_restaurant;
+    const restaurant = await restaurantModel.getRestaurantById(restaurantID);
+
+    res.render('panier', { profile: res.locals.logUser, panier: res.locals.cart, restaurant});
+    
 });
 
 router.post('/add-to-cart', async (req, res) => {
@@ -95,16 +104,16 @@ router.post('/add-to-cart', async (req, res) => {
     }
 
     try {
-        const existProductIndex = req.session.cart.findIndex(item => item.product.id === productId);
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id.toString() === productId);
         const product = await productModel.getProductByID(productId);
 
         if (existProductIndex !== -1) {
-            req.session.cart[existProductIndex].quantity += quantity;
+            req.session.cart[existProductIndex].quantity += parseInt(quantity);
         } else {
-            req.session.cart.push({ product, quantity: quantity });
+            req.session.cart.push({ product, quantity: parseInt(quantity) });
         }
 
-        console.log("USER id", req.session.logUser.id, ": Ajout au panier, le produit d'ID", productId);
+        console.log("USER id", req.session.logUser.id, ": Ajout au panier, un produit d'ID", productId);
         res.redirect(req.headers.referer);
     } catch (error) {
         console.error('Erreur lors de l\'ajout au panier :', error);
@@ -120,11 +129,17 @@ router.post('/remove-from-cart', async (req, res) => {
     }
 
     try {
-        const existProductIndex = req.session.cart.findIndex(item => item.product.id == productId);
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id === parseInt(productId));
 
-        if (existProductIndex != -1) {
-            req.session.cart.splice(existProductIndex, 1);
-            console.log("USER id", req.session.logUser.id, ": Supprime du panier, le produit d'ID", productId);
+        if (existProductIndex !== -1) {
+            if (req.session.cart[existProductIndex].quantity > 1){
+                req.session.cart[existProductIndex].quantity -= 1;
+                console.log("USER id", req.session.logUser.id, ": Enleve du panier, un produit d'ID", productId);
+            } else {
+                req.session.cart.splice(existProductIndex, 1);
+                console.log("USER id", req.session.logUser.id, ": Supprime du panier, le produit d'ID", productId);
+            }
+            
         } else {
             console.log("Le produit d'ID", productId, "n'existe pas dans le panier.");
         }
