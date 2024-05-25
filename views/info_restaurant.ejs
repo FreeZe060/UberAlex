@@ -34,9 +34,12 @@
                             <hr>
                             <div class="stack">
                                 <div id="boutons">
+                                    <div class="trait-noir"></div>
                                     <ul class="nav-links">
                                         <% types.forEach(function(type, index) { %>
-                                            <li><a href="#section<%= index+1 %>" onclick="choisirOnglet(event, <%= index %>)"><%= type %></a></li>
+                                            <li>
+                                                <a href="#section<%= index+1 %>" onclick="choisirOnglet(event, <%= index %>)" <%= index === 0 ? 'class="selected"' : '' %>><%= type %></a>
+                                            </li>
                                         <% }); %>
                                     </ul>
                                 </div>
@@ -49,7 +52,7 @@
                     <h2 class="heading-primary">Produits à commander:</h2>
                     <% Object.entries(typesProducts).forEach(([type, products], index) => { %>
                         <span id="section<%= index+1 %>" class="offset"></span>
-                        <section id="<%= type.toLowerCase() %>" class="menus">
+                        <section id="section<%= index+1 %>" class="section menus">
                             <h2 class="title"><%= type %></h2>
                             <div class="flex-container">
                                 <% products.forEach(product => { %>
@@ -64,7 +67,7 @@
                                                 <form action="/user/add-to-cart" method="post">
                                                     <input type="hidden" id="productQ" name="quantity" value="1">
                                                     <input type="hidden" name="productId" value="<%= product.id %>">
-                                                    <button id="envoi" class="btn" type="sumbit" style="margin-top: 20px;">Ajouté au panier</button>
+                                                    <button id="envoi" class="btn" type="submit" style="margin-top: 20px;">Ajouté au panier</button>
                                                 </form>
                                             </div>
                                         <% }; %>
@@ -73,7 +76,7 @@
                             </div>
                         </section>
                     <% }); %>
-                </main>
+                </main>                           
             </div>
         </div>
 

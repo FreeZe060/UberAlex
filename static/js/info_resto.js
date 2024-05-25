@@ -69,23 +69,82 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-function choisirOnglet(event, index) {
-    event.preventDefault();
-
+document.addEventListener("DOMContentLoaded", function() {
     var boutons = document.querySelectorAll("#boutons .nav-links a");
-    var traitNoir = document.querySelector(".trait-noir");
+    var traitNoir = document.createElement('div');
+    traitNoir.classList.add('trait-noir');
+    document.querySelector('#boutons').appendChild(traitNoir);
+    var sections = document.querySelectorAll(".section");
+    var isScrolling = false;
 
-    for (var i = 0; i < boutons.length; i++) {
-        boutons[i].classList.remove("selected");
+    // Fonction pour mettre à jour la sélection du bouton
+    function updateSelection(index) {
+        for (var i = 0; i < boutons.length; i++) {
+            boutons[i].classList.remove("selected");
+        }
+        boutons[index].classList.add("selected");
+
+        var boutonSelectionne = boutons[index];
+        var boutonSelectionneRect = boutonSelectionne.getBoundingClientRect();
+        var parentRect = boutonSelectionne.parentElement.getBoundingClientRect();
+        var boutonSelectionnePosition = boutonSelectionneRect.top - parentRect.top;
+
+        console.log('Selected button position:', boutonSelectionnePosition); // Debug
+
+        traitNoir.style.height = boutonSelectionne.offsetHeight + "px";
+        traitNoir.style.transform = "translateY(" + boutonSelectionnePosition + "px)";
+        traitNoir.style.opacity = "1";
     }
-    boutons[index].classList.add("selected");
 
-    var boutonSelectionne = boutons[index];
-    var boutonSelectionnePosition = boutonSelectionne.offsetTop;
-    traitNoir.style.height = boutonSelectionne.offsetHeight + "px";
-    traitNoir.style.transform = "translateY(" + boutonSelectionnePosition + "px)";
+    // Initialiser la position du trait noir pour le premier élément sélectionné
+    var boutonSelectionne = document.querySelector("#boutons .nav-links a.selected");
+    if (boutonSelectionne) {
+        var boutonSelectionneRect = boutonSelectionne.getBoundingClientRect();
+        var parentRect = boutonSelectionne.parentElement.getBoundingClientRect();
+        var boutonSelectionnePosition = boutonSelectionneRect.top - parentRect.top;
+        console.log('Initial selected button position:', boutonSelectionnePosition); // Debug
 
-    var targetId = boutonSelectionne.getAttribute("href");
-    var targetElement = document.querySelector(targetId);
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-}
+        traitNoir.style.height = boutonSelectionne.offsetHeight + "px";
+        traitNoir.style.transform = "translateY(" + boutonSelectionnePosition + "px)";
+        traitNoir.style.opacity = "1";
+    }
+
+    // Intersection Observer pour les sections
+    var observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5 // Ajustez selon vos besoins
+    };
+
+    var observer = new IntersectionObserver(function(entries, observer) {
+        if (!isScrolling) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var index = Array.prototype.indexOf.call(sections, entry.target);
+                    updateSelection(index);
+                }
+            });
+        }
+    }, observerOptions);
+
+    sections.forEach(function(section) {
+        observer.observe(section);
+    });
+
+    // Gestion des clics sur les boutons
+    window.choisirOnglet = function(event, index) {
+        event.preventDefault();
+        isScrolling = true;
+        updateSelection(index);
+
+        var targetId = event.currentTarget.getAttribute("href");
+        var targetElement = document.querySelector(targetId);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+        // Attendre que le défilement soit terminé avant de permettre l'observation
+        setTimeout(function() {
+            isScrolling = false;
+        }, 500);
+    };
+});
+

@@ -62,6 +62,11 @@ header {
     border-top: 1px solid #ccc;
 }
 
+#boutons {
+    position: relative;
+    width: 200px; /* ajustez cette largeur selon vos besoins */
+}
+
 .nav-links {
     list-style-type: none;
     padding: 0;
@@ -69,36 +74,32 @@ header {
 }
 
 .nav-links li {
-    margin-bottom: 10px;
+    position: relative;
 }
 
 .nav-links a {
+    display: block;
+    padding: 10px 20px;
     text-decoration: none;
     color: black;
-    display: block;
-    padding: 10px;
 }
 
 .nav-links a.selected {
-    background-color: #ccc;
-}
-
-#boutons {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
+    background-color: #f0f0f0; /* fond grisé */
+    font-weight: bold;
 }
 
 .trait-noir {
     position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
+    width: 4px; /* largeur du trait noir */
     background-color: black;
-    transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0; /* Ajouté pour éviter le clignotement initial */
 }
+
+
 
 .nav-links a:hover {
     text-decoration: underline;
