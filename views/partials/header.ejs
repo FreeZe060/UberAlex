@@ -30,7 +30,7 @@
                         <li class="header_link-li">
                             <a href="/user/cart"><img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" /></a>
                         </li>
-
+                        
                         <% if (profile.img == null) { %>
                             <li class="header_link-li">
                                 <img alt="" src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&amp;Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&amp;Key-Pair-Id=K36LFL06Z5BT10"
@@ -55,27 +55,27 @@
     <div id="sideMenu" class="sidenav">
         <% if (profile !=undefined) { %>
             <div>
-                <div class="al ca">
+                <div class="ah ca">
                     <% if (profile.img == null) { %>
                     <img alt="profile img" src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1713572131&Signature=TFNrVB-1QKtpukH7xNtewgLChxbtmMVzVxcWdu21-TXMOi3BwI7dyypMy8gvNtmQak4GwbprYWojWMxiik2zViVLK5XQEuefrVM~~kE~LEKkIYS-9NxS2-Qsok~CTIpNXC6QeQUZ8TuonpckfE~ZLEuy1NU8DmcQ4PFohGy2oRo52JEGc3zjYyHqAlTx2EaI9umgs5jvIKV~klNrlxOZQmNh3j~bOg2v0BaxNuyQSql6eqTo1Ypy7D4kp7OVZeCLbUOASuWbxvS1MTeECvBEtgMycKpY83jVrnPNipa35A-gtVl-a11IpK7MCYTHTfK2-H5oG~KGGZJFYyHxoyQtNA__&Key-Pair-Id=K36LFL06Z5BT10"
-                        class="dr dq ia kn">
+                        class="ddr ddq ia kn">
                     <% } else { %>
-                        <img alt="profile img" src="../../assets/img/profiles/<%= profile.img %>" class="dr dq ia kn">
+                        <img alt="profile img" src="../../assets/img/profiles/<%= profile.img %>" class="ddr ddq ia kn">
                     <% } %>
 
                     <div class="spacer _16"></div>
 
                     <div>
-                        <div class="db dc dd ec"><%= profile.first_name %>
+                        <div class="db ddc dd ec"><%= profile.first_name %>
 
                         </div>
                         <a href="/user/profile"
                             class="db e4 dd e5 gf">Gérer le compte</a>
                     </div>
                 </div>
-                <a class="l9 al aq hg eo" data-testid="menu-orders-button" href="/user/profile#order-sec">
-                    <div class="p6 fz es al ca cn">
-                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                <a class="l9 ah aq hg eo" data-testid="menu-orders-button" href="/user/profile#order-sec">
+                    <div class="p6 fz es ah ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="jjejd es et">
                             <path
                                 d="M4.5 2.833v18.333l4.583-2.5 2.917 2.5 2.917-2.5 4.583 2.5V2.833h-15zM16.167 9.5H7.833V7h8.334v2.5z">
                             </path>
@@ -84,29 +84,29 @@
                     <div class="spacer _16">
 
                     </div>
-                    <div class="db dc dd ec">Commandes</div>
+                    <div class="db ddc dd ec">Commandes</div>
                 </a>
-                <a class="l9 al aq hg eo" data-testid="menu-favorite-button" href="/fr/favorites?fav=true">
-                    <div class="p6 fz es al ca cn">
-                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                <a class="l9 ah aq hg eo" data-testid="menu-favorite-button" href="/fr/favorites?fav=true">
+                    <div class="p6 fz es ah ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="jjejd es et">
                             <path
                                 d="M17 3c-2.2 0-3.8 1.2-5 2.5C10.8 4.3 9.2 3 7 3 3.5 3 1 5.9 1 9.5c0 1.8.7 3.4 2 4.5l9 8.5 9-8.5c1.2-1.2 2-2.7 2-4.5C23 5.9 20.5 3 17 3z">
                             </path>
                         </svg>
                     </div>
                     <div class="spacer _16"></div>
-                    <div class="db dc dd ec">Favoris</div>
+                    <div class="db ddc dd ec">Favoris</div>
                 </a>
                 <a data-testid="menu-wallet-button" href="https://wallet.uber.com/" target="_blank" rel="noopener"
-                    class="l9 al aq hg eo">
-                    <div class="p6 fz es al ca cn">
-                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="je jd es et">
+                    class="l9 ah aq hg eo">
+                    <div class="p6 fz es ah ca cn">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="jjejd es et">
                             <path d="M14.12 14H9.88l-3-3H1v9h22v-9h-5.88l-3 3z"></path>,<path
                                 d="M1 4v4h7.12l3 3h1.76l3-3H23V4H1z"></path>
                         </svg>
                     </div>
                     <div class="spacer _16"></div>
-                    <div class="db dc dd ec">Wallet
+                    <div class="db ddc dd ec">Wallet
                     </div>
                 </a>
                 <div class="neumorphism-toggle">
@@ -120,8 +120,8 @@
                 </div>
                 <button id="extra-button" style="display: none;">Bouton supplémentaire</button>
                   
-                <a href="/user/logout" class="l9 al aq hg eo">
-                    <div class="db dc dd de i7 p7">Déconnexion</div>
+                <a href="/user/logout" class="l9 ah aq hg eo">
+                    <div class="db ddc dd de i7 p7">Déconnexion</div>
                 </a>
             </div>
         <% } else { %>
