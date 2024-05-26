@@ -8,6 +8,7 @@ router.get('/', mainController.showHomePage);
 
 router.use('/user', require('../controllers/memberController'));
 router.use('/user', require('../controllers/restaurateurController'));
+router.use('/user', require('../controllers/cartController'));
 router.use('/restaurant', require('../controllers/restaurantController'));
 // router.use('/rides', require('./rideController'));
 // router.use('/payments', require('./paymentController'));

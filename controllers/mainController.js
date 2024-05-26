@@ -8,6 +8,7 @@ mainController.showHomePage = async (req, res) => {
         const logUser = res.locals.logUser;
         console.log("Redirect to: /");
         console.log("Recover all restaurants:", restaurants.length);
+        
         res.render('home', { restaurants, profile: logUser, panier: res.locals.cart});
     } catch (error) {
         console.error('Erreur lors de la récupération des restaurants :', error);

@@ -70,15 +70,24 @@
                     <% cart.forEach(item=> { %>
                         <% subtotal +=item.product.price * item.quantity; %>
                         <li>
-                            <div class="item-details">
-                                <h4><%= item.product.name %></h4>
-                                <p><%= item.product.type %><br>Quantité:<%= item.quantity %> €</p>
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="margin-right: 1rem;">
+                                    <img alt="Img Frite" src="../assets/img/produits/<%= item.product.img %>" class="img_product_popup">
+                                </div>
+                                <div class="item-details">
+                                    <h4 style="font-weight: 550;"><%= item.product.name %></h4>
+                                    <p><%= item.product.type %><br><div class="cont_quantity-popup"><%= item.quantity %></div>
+                                        <button class="remove-button" style="background-color: white;" onclick="removeProduct(<%= item.product.id %>)">
+                                        <i class="fa fa-times"></i>
+                                        </button>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="item-price"><%= item.product.price * item.quantity %> €</div>
+                            <div class="item-price"><%= (item.product.price * item.quantity).toFixed(2) %> €</div>
                         </li>
                     <% }); %>
                 </ul>
-                <div class="single-subtotal">Sous-total: <%= subtotal %> €</div>
+                <div class="single-subtotal">Sous-total: <%= subtotal.toFixed(2) %> €</div>
 
                 <a href="/user/cart" type="button" class="cart_popup-button">Voir le panier</a>
             </div>

@@ -84,6 +84,7 @@
     width: 20px;
     height: 20px;
     text-align: center;
+    cursor: pointer;
     line-height: 20px;
     background-color: rgb(14, 131, 69);
     color: white;
@@ -627,6 +628,29 @@ html {
     padding: 20px;
 }
 
+.img_product_popup{
+    object-fit: cover;
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+}
+
+.cont_quantity-popup{
+    margin-top: 1rem;
+    -webkit-box-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(232, 232, 232);
+    border-radius: 50%;
+    height: 19px;
+    width: 19px;
+    flex: 0 0 28px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
 .restaurant {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -727,4 +751,25 @@ html {
     font-weight: bold;
     text-align: right;
     margin-top: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00C67A;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    opacity: 0.5;
 }
