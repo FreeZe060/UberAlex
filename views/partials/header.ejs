@@ -28,7 +28,10 @@
                 <div class="header__main-ham-menu-cont">
                     <% if (profile != undefined) { %>
                         <li class="header_link-li">
-                            <a href="/user/cart"><img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" /></a>
+                            <a href="/user/cart" class="cart-link">
+                                <img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" />
+                                <p id="item_cart" class="item_qty" style="display: none;"></p>
+                            </a>
                         </li>
                         
                         <% if (profile.img == null) { %>
@@ -139,5 +142,6 @@
 
     </div>
     <script src="/static/js/sidenav.js" defer></script>
+    <script src="/static/js/info_resto.js" defer></script>
 
 </html>

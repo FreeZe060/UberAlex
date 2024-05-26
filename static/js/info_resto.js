@@ -6,12 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const plusBtn = control.querySelector('.plus');
         const display = control.querySelector('.quantity-display');
         const displayValue = control.querySelector('p');
+        const item_cart = document.getElementById('item_cart')
         const envoi = document.getElementById('envoi')
         let quantity = 0;
 
         function updateDisplay() {
             document.getElementById('productQ').value = quantity;
             displayValue.textContent = quantity;
+            item_cart.textContent = quantity;
 
             if (quantity === 0) {
                 minusBtn.style.display = 'none';
@@ -21,10 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 display.style.height = '30px';
                 display.style.borderRadius = '50%';
                 envoi.style.display = 'none';
+                item_cart.style.display = 'none';
             } else {
                 displayValue.style.display = 'inline-block';
                 minusBtn.style.display = 'inline-block';
                 plusBtn.style.display = 'inline-block';
+                item_cart.style.display = 'inline-block';
                 envoi.style.display = 'flex';
                 display.style.width = '0px';
                 display.style.height = '0px';
