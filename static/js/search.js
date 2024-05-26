@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
-    const restaurantList = document.getElementById('restaurant-list');
-    const restaurants = Array.from(restaurantList.children);
+    const restaurants = document.querySelectorAll('.structures__structure');
+    const width = restaurants[0].offsetWidth;
 
     searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
+        const searchQuery = searchInput.value.toLowerCase();
 
-        restaurants.forEach(restaurant => {
-            const restaurantName = restaurant.querySelector('#rest_name').textContent.toLowerCase();
-            if (restaurantName.includes(searchTerm)) {
-                restaurant.style.display = '';
+        restaurants.forEach(function (restaurant) {
+            const restaurantName = restaurant.querySelector('.bu .bo').textContent.toLowerCase();
+
+            const divImg = restaurant.querySelector('#divImg');
+            const divDet = restaurant.querySelector('#divDet');
+
+            if (restaurantName.includes(searchQuery)) {
+                divImg.style.display = 'block';
+                divDet.style.display = 'block';
+                restaurant.style.width = width+'px';
             } else {
-                restaurant.style.display = 'none';
+                divImg.style.display = 'none';
+                divDet.style.display = 'none';
+                restaurant.style.width = 0;
             }
         });
     });

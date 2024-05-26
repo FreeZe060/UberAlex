@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/static/css/home.css">
-        <script src="/static/js/search.js" defer></script>
     </head>
     
     <%- include('./partials/header.ejs') %>
@@ -17,8 +16,7 @@
         <section id="home" class="home-presentation">
             <div class="searchbar-main">
                 <h2 class="heading-primary">Recherchez vos restaurants préférés</h2>
-                <input type="text" maxlength="12" placeholder="Rechercher..." class="searchbar-input" />
-                <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="search icon" class="searchbar_button" />
+                <input type="text" maxlength="12" id="search-input" placeholder="Rechercher..." class="searchbar-input" />
             </div>
         </section>
     
@@ -30,7 +28,7 @@
                 <div class="structures">
                     <% restaurants.forEach(function(restaurant) { %>
                         <a class="structures__structure" href="/restaurant/id<%= restaurant.id %>">
-                            <div class="structures__structure-contimg" style="height: 100%;">
+                            <div id="divImg" class="structures__structure-contimg" style="height: 100%;">
                                 <img src="../assets/img/restaurants/<%= restaurant.img %>" alt="Img restaurant" style="object-fit: cover; display: block; width: 100%; height: 100%;">
 
                                 <div style="padding: 12px 12px 12px 0px;-webkit-box-pack: end;justify-content: flex-end;width: 100%;top: 0;position: absolute;display: flex;box-sizing: border-box;">
@@ -43,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="al aam hu">
+                            <div id="divDet" class="al aam hu">
                                 <div class="nm bh aal h7 mk bc">
                                     <div class="bu">
                                         <div id="rest_name" class="bo lq du br nn bh bw bu eq"><%= restaurant.name %></div>
@@ -63,6 +61,8 @@
                 </div>
             </div>
         </section>
+
+        <script src="/static/js/search.js" defer></script>
         
     </body>
     
