@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.admin : ~0 rows (environ)
-DELETE FROM `admin`;
 
 -- Listage de la structure de table uberalex. member
 DROP TABLE IF EXISTS `member`;
@@ -47,11 +46,10 @@ CREATE TABLE IF NOT EXISTS `member` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.member : ~3 rows (environ)
-DELETE FROM `member`;
 INSERT INTO `member` (`id`, `img`, `first_name`, `last_name`, `password`, `email`, `address`, `balance`) VALUES
-	(1, NULL, 'Alexandre ', 'Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria_95100_ARGENTEUIL', 0.00),
-	(2, NULL, 'alex.perezac490@gmail.com', 'Xavier Perez', '123', 'alex.perezac490@gmail.com', '6 avenue maria_95100_argenteuil', 0.00),
-	(4, 'rog.jpg', 'Tim', 'Vannson', '123', 'Tim_V@outlook.fr', '10 rue_06000_Nice', 0.00);
+	(1, NULL, 'Alexandre ', 'Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria, 95100, ARGENTEUIL', 0.00),
+	(2, NULL, 'alex.perezac490@gmail.com', 'Xavier Perez', '123', 'alex.perezac490@gmail.com', '6 avenue maria, 95100, argenteuil', 0.00),
+	(4, 'rog.jpg', 'Tim', 'Vannson', '123', 'Tim_V@outlook.fr', '10 rue Foncet, 06000, Nice', 0.00);
 
 -- Listage de la structure de table uberalex. order
 DROP TABLE IF EXISTS `order`;
@@ -69,7 +67,6 @@ CREATE TABLE IF NOT EXISTS `order` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.order : ~1 rows (environ)
-DELETE FROM `order`;
 INSERT INTO `order` (`id`, `id_restaurant`, `id_member`, `date`, `status`) VALUES
 	(1, 1, 4, '2024-04-23 15:37:46', 'completed');
 
@@ -88,13 +85,12 @@ CREATE TABLE IF NOT EXISTS `product` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.product : ~6 rows (environ)
-DELETE FROM `product`;
 INSERT INTO `product` (`id`, `id_restaurant`, `name`, `img`, `price`, `type`) VALUES
 	(1, 1, '3 Tenders', 'tenders.jpg\r\n', 3.99, 'Petits Prix'),
 	(2, 1, 'Frite', 'frites_kfc.jpg', 2.99, 'Unités'),
 	(3, 1, '3 Crousti\' Fromage', 'croustifromage.png', 3.25, 'Petits Prix'),
 	(4, 1, 'Pepsi', 'pepsi.jpg', 2.99, 'Boissons'),
-	(5, 1, 'Cookie', 'cookie_kfc.png', 2.99, 'Desserts'),
+	(5, 1, 'Cookie', 'cookie_kfc.jpg', 2.99, 'Desserts'),
 	(6, 1, 'Menu Colonel Original Bacon', 'menu-chickenBacon.jpg', 10.95, 'Menus');
 
 -- Listage de la structure de table uberalex. relations_order_product
@@ -110,7 +106,6 @@ CREATE TABLE IF NOT EXISTS `relations_order_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.relations_order_product : ~2 rows (environ)
-DELETE FROM `relations_order_product`;
 INSERT INTO `relations_order_product` (`id_order`, `id_product`, `quantity`) VALUES
 	(1, 1, 2),
 	(1, 2, 1);
@@ -129,13 +124,15 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
   PRIMARY KEY (`id`),
   KEY `restaurateur_id` (`id_restaurateur`) USING BTREE,
   CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`id_restaurateur`) REFERENCES `restaurateur` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.restaurant : ~2 rows (environ)
-DELETE FROM `restaurant`;
+-- Listage des données de la table uberalex.restaurant : ~5 rows (environ)
 INSERT INTO `restaurant` (`id`, `id_restaurateur`, `name`, `img`, `desc`, `address`, `rating`, `distance`) VALUES
 	(1, 1, 'KFC', 'KFC.png', 'Cool Chicken', '6 rue zeub', 4.40, 1.200000),
-	(2, 2, 'McDonald\'s', 'default.jpg', 'Cool Burger', '10 rue carasol', 4.20, 0.800000);
+	(2, 2, 'McDonald\'s', 'mcdo.png', 'Cool Burger', '10 rue carasol', 4.20, 0.800000),
+	(3, 2, 'Burger King', 'burgerking.webp', 'Cool King', '5 Avenue Lycée', 4.10, 1.500000),
+	(4, 2, 'O\'Tacos', 'otacos.png', 'Cool Tacos', '22 rue du Maitre', 4.50, 2.200000),
+	(5, 1, 'Starbucks', 'starbucks.jpg', 'Cool Frappuccino', 'Avenue Lafayette', 4.60, 3.000000);
 
 -- Listage de la structure de table uberalex. restaurateur
 DROP TABLE IF EXISTS `restaurateur`;
@@ -151,7 +148,6 @@ CREATE TABLE IF NOT EXISTS `restaurateur` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table uberalex.restaurateur : ~2 rows (environ)
-DELETE FROM `restaurateur`;
 INSERT INTO `restaurateur` (`id`, `img`, `first_name`, `last_name`, `password`, `email`, `address`) VALUES
 	(1, NULL, 'alex.perezab470@gmail.com', 'Alexandre Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria_95100_ARGENTEUIL'),
 	(2, NULL, 'Tim', 'Vannson', '123', 'tim.v@outlook.fr', '10 rue carasol');
