@@ -55,6 +55,73 @@
         </div>
     </header>
 
+    <div id="cart-popup" class="cart-popup" style="display: none;">
+        <div id="multiple-restaurants" class="popup-content" style="display: none;">
+            <div class="restaurant">
+                <div class="restaurant-header">
+                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
+                    <div class="restaurant-details">
+                        <h3>McDonald's®</h3>
+                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
+                    </div>
+                    <div class="subtotal">19,65 €</div>
+                </div>
+            </div>
+            <div class="restaurant">
+                <div class="restaurant-header">
+                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
+                    <div class="restaurant-details">
+                        <h3>Steak 'N Shake</h3>
+                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
+                    </div>
+                    <div class="subtotal">18,25 €</div>
+                </div>
+            </div>
+            <div class="restaurant">
+                <div class="restaurant-header">
+                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
+                    <div class="restaurant-details">
+                        <h3>Chez Monac</h3>
+                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
+                    </div>
+                    <div class="subtotal">5,55 €</div>
+                </div>
+            </div>
+        </div>
+        <div id="single-restaurant" class="popup-content" style="display: none;">
+            <div class="single-header">
+                <img src="https://via.placeholder.com/50" alt="Restaurant logo">
+                <div class="single-details">
+                    <h3>McDonald's®</h3>
+                    <p>Centre Commercial Carrefour</p>
+                </div>
+            </div>
+            <ul class="item-list">
+                <li>
+                    <div class="item-details">
+                        <h4>BIG MAC™</h4>
+                        <p>BIG MAC™: BEST OF™ BIG MAC™<br>ACCOMPAGNEMENT: FRITE<br>BOISSON: COCA-COLA®</p>
+                    </div>
+                    <div class="item-price">11,40 €</div>
+                </li>
+                <li>
+                    <div class="item-details">
+                        <h4>P'TIT WRAP RANCH</h4>
+                    </div>
+                    <div class="item-price">3,50 €</div>
+                </li>
+                <li>
+                    <div class="item-details">
+                        <h4>4 CHICKEN McNUGGETS™</h4>
+                        <p>4 CHICKEN McNUGGETS™: PETITE FRITE<br>BOISSON: PETIT COCA-COLA®<br>DESSERT: P'TITE POMME<br>JOUET: JOUET<br>SAUCE: SAUCE À LA MOUTARDE</p>
+                    </div>
+                    <div class="item-price">4,75 €</div>
+                </li>
+            </ul>
+            <div class="single-subtotal">Sous-total: 19,65 €</div>
+        </div>
+    </div>
+
     <div id="sideMenu" class="sidenav">
         <% if (profile !=undefined) { %>
             <div>

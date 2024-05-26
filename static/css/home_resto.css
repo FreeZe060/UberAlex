@@ -68,7 +68,7 @@ header {
 
 #boutons {
     position: relative;
-    width: 200px; /* ajustez cette largeur selon vos besoins */
+    width: 200px;
 }
 
 .nav-links {
@@ -92,16 +92,6 @@ header {
     background-color: #f0f0f0;
     font-weight: bold;
 }
-
-/* .trait-noir {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px; 
-    background-color: black;
-    transition: height 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0;
-} */
 
 
 
@@ -188,7 +178,10 @@ section h2 {
     }
 
     .nav-links {
-        visibility: hidden;
+        visibility: visible;
+        display: flex;
+        justify-content: space-around;
+        opacity: 1;
     }
 
     .offset {
@@ -198,24 +191,21 @@ section h2 {
         visibility: hidden;
     }
 
-    #boutons {
-        position: relative;
-        width: 100%;
-        z-index: 999;
+    /* .stack {
+        position: sticky;
+        top: 0;
+        background-color: #fff; 
     }
-
-    .stacks {
-        z-index: 999;
+     */
+    #boutons {
+        width: 100%;
+        background-color: #fff;
     }
     
     .nav-links {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        display: flex;
-        justify-content: space-around; 
-        z-index: 999;
-        opacity: 1;
     }
     
     .nav-links li {
@@ -252,8 +242,8 @@ section h2 {
         background-color: #fff;
         margin: 5vh 0 0 0;
     }
-
 }
+
 
 .menu-item img {
     width: 150px;

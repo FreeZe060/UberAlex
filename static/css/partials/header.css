@@ -580,3 +580,124 @@ html {
 *::after {
     box-sizing: inherit;
 }
+
+
+
+
+.cart-popup {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 350px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.popup-content {
+    padding: 20px;
+}
+
+.restaurant {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.restaurant-header {
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.restaurant-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.restaurant-details h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.restaurant-details .address {
+    font-size: 12px;
+    color: #666;
+}
+
+.subtotal {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.single-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.single-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.single-details {
+    margin-left: 10px;
+}
+
+.single-details h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.single-details p {
+    font-size: 12px;
+    color: #666;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-details h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.item-details p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.single-subtotal {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
