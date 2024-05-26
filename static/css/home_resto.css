@@ -91,6 +91,7 @@ header {
 .nav-links a.selected {
     background-color: #f0f0f0;
     font-weight: bold;
+    width: 18vw;
 }
 
 
@@ -142,10 +143,10 @@ section h2 {
 .menu-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin: 20px 0;
     background-color: #f9f9f9;
     padding: 10px;
+    min-width: 310px;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -272,7 +273,7 @@ section h2 {
 }
 
 .quantity-btn {
-    background-color: #007BFF;
+    background-color: RGB(0, 198, 122);
     color: white;
     border: none;
     border-radius: 50%;
@@ -295,7 +296,7 @@ section h2 {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #007BFF;
+    background-color: #11c27e;
     color: white;
     display: flex;
     align-items: center;

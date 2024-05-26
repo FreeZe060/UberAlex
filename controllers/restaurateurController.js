@@ -5,8 +5,7 @@ const restaurateurModel = require('../models/restaurateurModel');
 // Routes
 
 router.get('/reg_restaurateur', (req, res) => {
-    const logUser = res.locals.logUser;
-    res.render('register_restaurateur', profile = logUser);
+    res.render('register_restaurateur');
 });
 
 router.post('/create_restaurateur', async (req, res) => {

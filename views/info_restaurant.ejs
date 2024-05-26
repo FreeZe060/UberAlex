@@ -24,7 +24,7 @@
                             <h1>
                                 <%= restaurant.name %>
                             </h1>
-                            <p>Frais de livraison : <%= parseFloat((restaurant.distance * 2.2 + 1.5).toFixed(2)) %>€</p>
+                            <p>Frais de livraison : <%= parseFloat((restaurant.distance * 1.8 + 1.5).toFixed(2)) %>€</p>
                             <p>
                                 <%= restaurant.address %>
                             </p>
@@ -56,21 +56,25 @@
                             <h2 class="title"><%= type %></h2>
                             <div class="flex-container">
                                 <% products.forEach(product => { %>
-                                    <div class="menu-item">
+                                    <div class="menu-item" productId="<%= product.id %>" style="position: relative;">
                                         <img src="../assets/img/produits/<%= product.img %>" alt="Menu Image">
                                         <p><%= product.name %> - <%= product.price %>€</p>
                                         <% if (profile != undefined){ %>
-                                            <div class="quantity-control">
-                                                <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
-                                                <div id="display" class="quantity-display">+</div>
-                                                <p style="display: none;"></p>
-                                                <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                            <div style="position: absolute; bottom: 0; right: 0;">
+                                                <li>
+                                                    <div class="quantity-control">
+                                                        <button id="minus" class="quantity-btn minus" disabled style="display: none;">-</button>
+                                                        <div id="display" class="quantity-display">+</div>
+                                                        <p style="display: none;"></p>
+                                                        <button id="plus" class="quantity-btn plus" style="display: none;">+</button>
+                                                        <form action="/user/add-to-cart" method="post">
+                                                            <input type="hidden" id="productQ" name="quantity" value="1">
+                                                            <input type="hidden" name="productId" value="<%= product.id %>">
+                                                            <button id="btn-envoi" class="btn-add-to-cart" type="submit" style="display: none;">Ajouté au panier</button>
+                                                        </form>
+                                                    </div>
+                                                </li>
                                             </div>
-                                            <form action="/user/add-to-cart" method="post">
-                                                <input type="hidden" id="productQ" name="quantity" value="1">
-                                                <input type="hidden" name="productId" value="<%= product.id %>">
-                                                <button id="envoi" class="btn-add-to-cart" type="submit" style="display: none;">Ajouté au panier</button>
-                                            </form>
                                         <% }; %>
                                     </div>
                                 <% }); %>

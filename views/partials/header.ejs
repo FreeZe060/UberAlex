@@ -22,15 +22,15 @@
                         <a href="/" class="header_link"> Home </a>
                     </li>
                     <li class="header_link-li">
-                        <a href="./#about" class="header_link"> Infos </a>
+                        <a class="header_link"> Infos </a>
                     </li>
                 </ul>
                 <div class="header__main-ham-menu-cont">
                     <% if (profile != undefined) { %>
-                        <li class="header_link-li">
-                            <a href="/user/cart" class="cart-link">
+                        <li id="cart-icon" class="header_link-li">
+                            <a class="cart-link"> <!-- href="/user/cart" -->
                                 <img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" />
-                                <p id="item_cart" class="item_qty" style="display: none;"></p>
+                                <p id="item_cart" class="item_qty" style="display: block;"><%= panier.reduce((total, item)=> total + item.quantity, 0) %></p>
                             </a>
                         </li>
                         
@@ -56,41 +56,9 @@
     </header>
 
     <div id="cart-popup" class="cart-popup" style="display: none;">
-        <div id="multiple-restaurants" class="popup-content" style="display: none;">
-            <div class="restaurant">
-                <div class="restaurant-header">
-                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
-                    <div class="restaurant-details">
-                        <h3>McDonald's®</h3>
-                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
-                    </div>
-                    <div class="subtotal">19,65 €</div>
-                </div>
-            </div>
-            <div class="restaurant">
-                <div class="restaurant-header">
-                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
-                    <div class="restaurant-details">
-                        <h3>Steak 'N Shake</h3>
-                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
-                    </div>
-                    <div class="subtotal">18,25 €</div>
-                </div>
-            </div>
-            <div class="restaurant">
-                <div class="restaurant-header">
-                    <img src="https://via.placeholder.com/50" alt="Restaurant logo">
-                    <div class="restaurant-details">
-                        <h3>Chez Monac</h3>
-                        <p class="address">Livrer à l'adresse 2400 Rte des Doli...</p>
-                    </div>
-                    <div class="subtotal">5,55 €</div>
-                </div>
-            </div>
-        </div>
-        <div id="single-restaurant" class="popup-content" style="display: none;">
+        <div id="single-restaurant" class="popup-content">
             <div class="single-header">
-                <img src="https://via.placeholder.com/50" alt="Restaurant logo">
+                <img src="" alt="Restaurant logo">
                 <div class="single-details">
                     <h3>McDonald's®</h3>
                     <p>Centre Commercial Carrefour</p>
@@ -119,6 +87,8 @@
                 </li>
             </ul>
             <div class="single-subtotal">Sous-total: 19,65 €</div>
+
+            <button type="button" class="">Voir le panier</button>
         </div>
     </div>
 
@@ -208,6 +178,7 @@
         <% } %>
 
     </div>
+    <script src="/static/js/cart.js" defer></script>
     <script src="/static/js/sidenav.js" defer></script>
     <script src="/static/js/info_resto.js" defer></script>
 

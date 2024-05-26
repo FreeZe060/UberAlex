@@ -17,14 +17,12 @@
 
 <body>
 
-    <section id="home" class="home-presentation" style="width: 100%; height: 5vh; max-height: 100%">
-        
-    </section>
 
-
-    <main id="main-content" tabindex="-1" class="al cl am aj ak sec-pad" style="background-color: RGB(243, 243, 243);">
-        <h3 class="heading heading-sec">
-            <span class="heading-sec__main">Panier:</span>
+    <main id="main-content" tabindex="-1" class="al cl am aj ak" style="padding: 20rem 0;background: linear-gradient(to right, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, .4)), url('../../assets/img/fond_minimaliste.jpg');     background-position: center;
+    background-size: x;
+    background-attachment: fixed;">
+        <h3 class="" style="background-color: RGB(0, 0, 0); justify-content: center; border-radius: 16px; display: flex; margin:auto">
+            <span class="title-span" style=" color: white;">Panier</span>
         </h3>
         <div class="ei al am fh fi fj fk fl fm">
             <div class="al am fn fo fp fq">
@@ -35,7 +33,7 @@
                         </div>
                         <div>
                             <div class="cl g6">
-                                <a class="al eo bc ci" href="/fr/checkout?mod=locationManager&amp;ps=1">
+                                <a class="al eo bc ci">
                                     <div class="g7 g8">
                                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none">
                                             <title>Delivery bag</title>
@@ -61,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="cl g6">
-                                <a class="al eo bc ci" href="/fr/checkout?mod=locationManager&amp;modctx=edit&amp;ps=1">
+                                <a class="al eo bc ci">
                                     <div class="g7 g8">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                             <title>Person</title>
@@ -157,7 +155,7 @@
                             Moyen de paiement
                         </h6>
                         <div class="cl g6">
-                            <a class="al eo bc ci" href="">
+                            <a class="al eo bc ci">
                                 <div class="g7 g8">
                                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -177,7 +175,7 @@
                             <div class="al cr">
                                 <div class="gx gu bs cl gy"></div>
                             </div>
-                            <a class="al eo bc ci" href="">
+                            <a class="al eo bc ci">
                                 <div class="g7 g8">
                                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -344,7 +342,7 @@
                                             <div class="bo bp bq br i5">Livraison</div>
                                         </div>
                                         <div class="bo ew bq g2 b1">
-                                            <% let taxe = parseFloat((restaurant.distance * 2.2 + 1.5).toFixed(2)) %>
+                                            <% let taxe = parseFloat((restaurant.distance * 1.8 + 1.5).toFixed(2)) %>
                                             <span class=""><%= taxe %>€</span>
                                         </div>
                                     </li>

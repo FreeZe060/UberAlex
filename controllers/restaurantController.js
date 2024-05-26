@@ -12,7 +12,7 @@ router.get('/id:id', async (req, res) => {
     const types = await productModel.getAllProductsTypesOfRestaurantId(restauID);
     const typesProducts = await productModel.getAllProductsOrderedByTypesOfRestaurantId(restauID);
 
-    res.render('info_restaurant', {profile: logUser, restaurant: restau, types, typesProducts});
+    res.render('info_restaurant', { profile: logUser, panier: res.locals.cart, restaurant: restau, types, typesProducts});
 });
 
 module.exports = router;

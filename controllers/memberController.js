@@ -70,7 +70,7 @@ router.get('/profile', async (req, res) => {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
         console.log(orders);
         console.log(res.locals.logUser);
-        res.render('info_profile', { profile: res.locals.logUser, orders});
+        res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders});
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
         res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');
@@ -79,6 +79,7 @@ router.get('/profile', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
     req.session.logUser = undefined;
+    req.session.panier = [];
     res.redirect('/');
 });
 
