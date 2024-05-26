@@ -56,40 +56,33 @@
     </header>
 
     <div id="cart-popup" class="cart-popup" style="display: none;">
-        <div id="single-restaurant" class="popup-content">
-            <div class="single-header">
-                <img src="" alt="Restaurant logo">
-                <div class="single-details">
-                    <h3>McDonald's®</h3>
-                    <p>Centre Commercial Carrefour</p>
+        <% if (cart.length != 0){ %>
+            <div id="single-restaurant" class="popup-content">
+                <div class="single-header">
+                    <img src="" alt="Restaurant logo">
+                    <div class="single-details">
+                        <h3><%=  %></h3>
+                        <p>Distance: </p>
+                    </div>
                 </div>
-            </div>
-            <ul class="item-list">
-                <li>
-                    <div class="item-details">
-                        <h4>BIG MAC™</h4>
-                        <p>BIG MAC™: BEST OF™ BIG MAC™<br>ACCOMPAGNEMENT: FRITE<br>BOISSON: COCA-COLA®</p>
-                    </div>
-                    <div class="item-price">11,40 €</div>
-                </li>
-                <li>
-                    <div class="item-details">
-                        <h4>P'TIT WRAP RANCH</h4>
-                    </div>
-                    <div class="item-price">3,50 €</div>
-                </li>
-                <li>
-                    <div class="item-details">
-                        <h4>4 CHICKEN McNUGGETS™</h4>
-                        <p>4 CHICKEN McNUGGETS™: PETITE FRITE<br>BOISSON: PETIT COCA-COLA®<br>DESSERT: P'TITE POMME<br>JOUET: JOUET<br>SAUCE: SAUCE À LA MOUTARDE</p>
-                    </div>
-                    <div class="item-price">4,75 €</div>
-                </li>
-            </ul>
-            <div class="single-subtotal">Sous-total: 19,65 €</div>
+                <ul class="item-list">
+                    <% let subtotal=0; %>
+                    <% cart.forEach(item=> { %>
+                        <% subtotal +=item.product.price * item.quantity; %>
+                        <li>
+                            <div class="item-details">
+                                <h4><%= item.product.name %></h4>
+                                <p><%= item.product.type %><br>Quantité:<%= item.quantity %> €</p>
+                            </div>
+                            <div class="item-price"><%= item.product.price * item.quantity %> €</div>
+                        </li>
+                    <% }); %>
+                </ul>
+                <div class="single-subtotal">Sous-total: <%= subtotal %> €</div>
 
-            <button type="button" class="">Voir le panier</button>
-        </div>
+                <a href="/user/cart" type="button" class="cart_popup-button">Voir le panier</a>
+            </div>
+        <% }; %>
     </div>
 
     <div id="sideMenu" class="sidenav">
@@ -178,7 +171,7 @@
         <% } %>
 
     </div>
-    <script src="/static/js/cart.js" defer></script>
+    <script src="/static/js/popup-cart.js" defer></script>
     <script src="/static/js/sidenav.js" defer></script>
     <script src="/static/js/info_resto.js" defer></script>
 

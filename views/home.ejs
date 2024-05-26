@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+        <script src="/static/js/search.js" defer></script>
     </head>
     
     <%- include('./partials/header.ejs') %>
@@ -43,20 +44,9 @@
                                 </div>
                             </div>
                             <div class="al aam hu">
-                                <!-- <ul>
-                                    <li>
-                                        <%= restaurant.name %>
-                                    </li>
-                                    <li>
-                                        <%= restaurant.address %>
-                                    </li>
-                                    <li class="rating">
-                                        <%= restaurant.rating %>
-                                    </li>
-                                </ul> -->
                                 <div class="nm bh aal h7 mk bc">
                                     <div class="bu">
-                                        <div class="bo lq du br nn bh bw bu eq"><%= restaurant.name %></div>
+                                        <div id="rest_name" class="bo lq du br nn bh bw bu eq"><%= restaurant.name %></div>
                                     </div>
                                     <div class="bo ij du em hb ha nr ns iim aal bc d7"><%= restaurant.rating %></div>
                                 </div>

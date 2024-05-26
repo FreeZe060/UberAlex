@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let topPosition = iconRect.bottom + window.scrollY;
 
         if (window.innerWidth > 600) {
-            cartPopup.style.top = `125px`;
+            cartPopup.style.top = `110px`;
             cartPopup.style.right = `30px`;
             cartPopup.style.transform = 'translate(0%, 0%)';
         } else {
