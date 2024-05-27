@@ -69,9 +69,7 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- Listage des données de la table uberalex.order : ~2 rows (environ)
 INSERT INTO `order` (`id`, `id_restaurant`, `id_member`, `date`, `status`) VALUES
 	(1, 1, 4, '2024-04-23 15:37:46', 'completed'),
-	(7, 1, 4, '2024-05-27 17:38:50', 'pending'),
-	(8, 1, 4, '2024-05-27 17:47:46', 'pending'),
-	(9, 2, 4, '2024-05-27 18:36:32', 'pending');
+	(8, 1, 4, '2024-05-27 17:47:46', 'pending');
 
 -- Listage de la structure de table uberalex. product
 DROP TABLE IF EXISTS `product`;
@@ -109,16 +107,12 @@ CREATE TABLE IF NOT EXISTS `relations_order_product` (
   CONSTRAINT `FK_relation_order_product_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.relations_order_product : ~5 rows (environ)
+-- Listage des données de la table uberalex.relations_order_product : ~4 rows (environ)
 INSERT INTO `relations_order_product` (`id_order`, `id_product`, `quantity`) VALUES
 	(1, 1, 2),
 	(1, 2, 1),
-	(7, 4, 1),
-	(7, 1, 1),
-	(7, 2, 1),
 	(8, 2, 6),
-	(8, 6, 2),
-	(9, 7, 1);
+	(8, 6, 2);
 
 -- Listage de la structure de table uberalex. restaurant
 DROP TABLE IF EXISTS `restaurant`;
