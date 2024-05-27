@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `member` (
 
 -- Listage des données de la table uberalex.member : ~3 rows (environ)
 INSERT INTO `member` (`id`, `img`, `first_name`, `last_name`, `password`, `email`, `address`, `balance`) VALUES
-	(1, NULL, 'Alexandre ', 'Perez', '123', 'alex.perezab470@gmail.com', '6 Avenue Maria, 95100, ARGENTEUIL', 0.00),
+	(1, NULL, 'Alexandre ', 'Perez', '123', 'alex.perez@gmail.com', '6 Avenue Maria, 95100, ARGENTEUIL', 4600.00),
 	(2, NULL, 'alex.perezac490@gmail.com', 'Xavier Perez', '123', 'alex.perezac490@gmail.com', '6 avenue maria, 95100, argenteuil', 0.00),
-	(4, 'rog.jpg', 'Tim', 'Vannson', '123', 'Tim_V@outlook.fr', '10 rue Foncet, 06000, Nice', 0.00);
+	(4, 'rog.jpg', 'Tim', 'Vannson', '123', 'Tim_V@outlook.fr', '10 rue Foncet, 06000, Nice', 5364.27);
 
 -- Listage de la structure de table uberalex. order
 DROP TABLE IF EXISTS `order`;
@@ -64,11 +64,14 @@ CREATE TABLE IF NOT EXISTS `order` (
   KEY `member_id` (`id_member`) USING BTREE,
   CONSTRAINT `order_ibfk_2` FOREIGN KEY (`id_restaurant`) REFERENCES `restaurant` (`id`),
   CONSTRAINT `order_ibfk_3` FOREIGN KEY (`id_member`) REFERENCES `member` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.order : ~1 rows (environ)
+-- Listage des données de la table uberalex.order : ~2 rows (environ)
 INSERT INTO `order` (`id`, `id_restaurant`, `id_member`, `date`, `status`) VALUES
-	(1, 1, 4, '2024-04-23 15:37:46', 'completed');
+	(1, 1, 4, '2024-04-23 15:37:46', 'completed'),
+	(7, 1, 4, '2024-05-27 17:38:50', 'pending'),
+	(8, 1, 4, '2024-05-27 17:47:46', 'pending'),
+	(9, 2, 4, '2024-05-27 18:36:32', 'pending');
 
 -- Listage de la structure de table uberalex. product
 DROP TABLE IF EXISTS `product`;
@@ -82,16 +85,17 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`),
   KEY `restaurant_id` (`id_restaurant`) USING BTREE,
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_restaurant`) REFERENCES `restaurant` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.product : ~6 rows (environ)
+-- Listage des données de la table uberalex.product : ~7 rows (environ)
 INSERT INTO `product` (`id`, `id_restaurant`, `name`, `img`, `price`, `type`) VALUES
 	(1, 1, '3 Tenders', 'tenders.jpg\r\n', 3.99, 'Petits Prix'),
 	(2, 1, 'Frite', 'frites_kfc.jpg', 2.99, 'Unités'),
 	(3, 1, '3 Crousti\' Fromage', 'croustifromage.png', 3.25, 'Petits Prix'),
 	(4, 1, 'Pepsi', 'pepsi.jpg', 2.99, 'Boissons'),
 	(5, 1, 'Cookie', 'cookie_kfc.jpg', 2.99, 'Desserts'),
-	(6, 1, 'Menu Colonel Original Bacon', 'menu-chickenBacon.jpg', 10.95, 'Menus');
+	(6, 1, 'Menu Colonel Original Bacon', 'menu-chickenBacon.jpg', 10.95, 'Menus'),
+	(7, 2, 'McFirst', 'mcfirst.webp', 9.90, 'Menus');
 
 -- Listage de la structure de table uberalex. relations_order_product
 DROP TABLE IF EXISTS `relations_order_product`;
@@ -105,10 +109,16 @@ CREATE TABLE IF NOT EXISTS `relations_order_product` (
   CONSTRAINT `FK_relation_order_product_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table uberalex.relations_order_product : ~2 rows (environ)
+-- Listage des données de la table uberalex.relations_order_product : ~5 rows (environ)
 INSERT INTO `relations_order_product` (`id_order`, `id_product`, `quantity`) VALUES
 	(1, 1, 2),
-	(1, 2, 1);
+	(1, 2, 1),
+	(7, 4, 1),
+	(7, 1, 1),
+	(7, 2, 1),
+	(8, 2, 6),
+	(8, 6, 2),
+	(9, 7, 1);
 
 -- Listage de la structure de table uberalex. restaurant
 DROP TABLE IF EXISTS `restaurant`;
