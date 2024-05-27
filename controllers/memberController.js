@@ -66,7 +66,6 @@ router.get('/profile', async (req, res) => {
     }
     try {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
-        console.log(orders);
 
         res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders});
     } catch (error) {

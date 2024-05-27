@@ -400,16 +400,18 @@
                 <div class="modal-close">
                     <span class="close" onclick="closeModal2()">&times;</span>
                 </div>
-                <h1>Payer avec votre solde</h1>
-                <div>
-                    <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %> €</span>.</p>
-                    <div class="div_info_separation"></div>
-                    <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %></span>€.</p>
-                    <div class="div_info_separation"></div>
-                    <p id="resteSolde">Votre nouvelle solde sera de <span> <%= (logUser.balance - (subtotal + taxe)).toFixed(2) %> €</span>.</p>
-                    <div class="div_info_separation"></div>
+                <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <h1>Payer avec votre solde</h1>
+                    <div>
+                        <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %> €</span>.</p>
+                        <div class="div_info_separation"></div>
+                        <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %></span>€.</p>
+                        <div class="div_info_separation"></div>
+                        <p id="resteSolde">Votre nouvelle solde sera de <span> <%= (logUser.balance - (subtotal + taxe)).toFixed(2) %> €</span>.</p>
+                        <div class="div_info_separation"></div>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="validerPaiement()">Valider le paiement</button>
                 </div>
-                <button type="button" class="btn-primary" onclick="validerPaiement()">Valider le paiement</button>
             </div>
         </div>
     </main>

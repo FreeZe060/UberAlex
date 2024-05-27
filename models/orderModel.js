@@ -27,7 +27,7 @@ class OrderModel {
 
         try {
             const query = `
-                SELECT o.id AS id_order, r.name AS rest_name, r.img AS rest_img, r.rating AS rest_rating, o.date, o.status, 
+                SELECT o.id AS id_order, r.name AS rest_name, r.id AS rest_id, r.img AS rest_img, r.rating AS rest_rating, o.date, o.status,
                     p.id AS id_product, p.name AS product_name, p.img AS product_img, rop.quantity, p.price AS product_price 
                 FROM \`order\` o 
                 JOIN \`restaurant\` r ON o.id_restaurant = r.id 
@@ -56,6 +56,7 @@ class OrderModel {
                         rest_name: row.rest_name,
                         rest_img: row.rest_img,
                         rest_rating: row.rest_rating,
+                        rest_id: row.rest_id,
                         date: row.date,
                         status: row.status,
                         total_price: product.product_price * product.quantity,
