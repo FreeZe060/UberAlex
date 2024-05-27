@@ -1,5 +1,5 @@
 function removeProduct(productId) {
-    fetch('./remove-from-cart', {
+    fetch('/user/remove-from-cart', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

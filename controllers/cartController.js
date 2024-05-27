@@ -25,8 +25,15 @@ router.post('/add-to-cart', async (req, res) => {
     }
 
     try {
-        const existProductIndex = req.session.cart.findIndex(item => item.product.id.toString() === productId);
         const product = await productModel.getProductByID(productId);
+
+        if (req.session.cart.length > 0 && req.session.cart[0].product.id_restaurant != product.id_restaurant){
+            req.session.cart = [{ product, quantity: parseInt(quantity) }]
+            console.log("USER id", req.session.logUser.id, ": Ajout au panier, un produit d'ID", productId, "d'un autre restaurant");
+            return res.redirect(req.headers.referer);
+        }
+
+        const existProductIndex = req.session.cart.findIndex(item => item.product.id.toString() === productId);
 
         if (existProductIndex !== -1) {
             req.session.cart[existProductIndex].quantity += parseInt(quantity);

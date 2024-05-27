@@ -635,6 +635,21 @@ html {
     border-radius: 8px;
 }
 
+.contact-info__popup {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    color: #43BFB3;
+    font-size: 15px;
+    padding: 2rem 4rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .15);
+    z-index: 4;
+    transition: top 0.5s ease-in-out;
+}
+
 .cont_quantity-popup{
     margin-top: 1rem;
     -webkit-box-align: center;
