@@ -709,6 +709,12 @@ html {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 
 .single-header img {

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartPopup.style.right = `30px`;
             cartPopup.style.transform = 'translate(0%, 0%)';
         } else {
-            cartPopup.style.top = '310px';
+            cartPopup.style.top = '250px';
             cartPopup.style.transform = 'translate(-50%, -50%)';
         }
         cartPopup.style.display = 'block';

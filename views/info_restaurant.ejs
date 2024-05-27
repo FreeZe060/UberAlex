@@ -58,7 +58,7 @@
                                 <% products.forEach(product => { %>
                                     <div class="menu-item" productId="<%= product.id %>" style="position: relative;">
                                         <img src="../assets/img/produits/<%= product.img %>" alt="Menu Image">
-                                        <p><%= product.name %> - <%= product.price %>€</p>
+                                        <p><%= product.name %> - <%= (product.price).toFixed(2) %>€</p>
                                         <% if (profile != undefined){ %>
                                             <div style="position: absolute; bottom: 0; right: 0;">
                                                 <li>
