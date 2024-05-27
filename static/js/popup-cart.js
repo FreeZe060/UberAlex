@@ -2,11 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartIcon = document.getElementById('cart-icon');
     const cartPopup = document.getElementById('cart-popup');
 
-    const showCartPopup = () => {
-        const iconRect = cartIcon.getBoundingClientRect();
-        let leftPosition = iconRect.left + window.scrollX;
-        let topPosition = iconRect.bottom + window.scrollY;
-
+    const updateCartPopupPosition = () => {
         if (window.innerWidth > 600) {
             cartPopup.style.top = `110px`;
             cartPopup.style.right = `30px`;
@@ -15,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cartPopup.style.top = '250px';
             cartPopup.style.transform = 'translate(-50%, -50%)';
         }
+    };
+
+    const showCartPopup = () => {
+        updateCartPopupPosition();
         cartPopup.style.display = 'block';
     };
 
@@ -35,4 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hideCartPopup();
         }
     });
+
+    window.addEventListener('resize', updateCartPopupPosition);
 });

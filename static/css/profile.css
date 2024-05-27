@@ -37,15 +37,14 @@
 }
 
 .profile-div{
-    max-height: 300px;
-    max-width: 300px;
-    min-height: 180px;
-    min-width: 180px;
+    max-height: 350px;
+    max-width: 350px;
+    min-height: 200px;
+    min-width: 200px;
     margin: auto;
     height: 30vw;
     width: 30vw;
     border-radius: 50%;
-    background-color: rgb(255, 188, 188);
 }
 
 .stack{

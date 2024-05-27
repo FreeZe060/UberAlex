@@ -68,7 +68,7 @@
                 <ul class="item-list">
                     <% let subtotal=0; %>
                     <% cart.forEach(item=> { %>
-                        <% subtotal +=item.product.price * item.quantity; %>
+                        <% subtotal += (item.product.price * item.quantity); %>
                         <li>
                             <div style="display: flex; flex-direction: row;">
                                 <div style="margin-right: 1rem;">
