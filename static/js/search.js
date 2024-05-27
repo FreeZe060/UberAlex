@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 divImg.style.display = 'block';
                 divDet.style.display = 'block';
                 restaurant.style.width = width+'px';
+                restaurant.style.margin = 1+'vh';
             } else {
                 divImg.style.display = 'none';
                 divDet.style.display = 'none';
                 restaurant.style.width = 0;
+                restaurant.style.margin = 0;
             }
         });
     });
