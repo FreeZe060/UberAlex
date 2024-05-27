@@ -402,10 +402,17 @@
                 <h1>Payer avec votre solde</h1>
                 <div>
                     <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %>€</span>.</p>
+                    <div class="div_info_separation"></div>
                     <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %>€</span>.</p>
-                    <p id="resteSolde"></p>
+                    <div class="div_info_separation"></div>
+                    <% let balance = logUser.balance.toFixed(2) %>
+                    <% let montant = (subtotal + taxe).toFixed(2) %>
+                    <p id="resteSolde"> <%= (balance - montant).toFixed(2) %>€</p>
+                    <div class="div_info_separation"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="validerPaiement()">Valider</button>
+                <div class="btn-group">
+                    <button type="button" class="btn-primary" onclick="validerPaiement()">Valider</button>
+                </div>
             </div>
         </div>
     </main>

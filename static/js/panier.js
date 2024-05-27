@@ -26,10 +26,10 @@ function continuerVersLePaiement() {
         alert('Vous devez sélectionner un moyen de paiement.');
     } else if (opCarte.checked) {
         var modal = document.getElementById('myModal');
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     } else if (opBalance.checked) {
         var modal2 = document.getElementById('myModal2');
-        modal2.style.display = 'block';
+        modal2.style.display = 'flex';
     }
 }
 
