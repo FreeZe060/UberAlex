@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var boutons = document.querySelectorAll("#boutons .nav-links a");
+    var boutons = document.querySelectorAll("#bouton .nav-links a");
     var traitNoir = document.createElement('div');
     var sections = document.querySelectorAll(".section");
     var isScrolling = false;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Gestion des clics sur les boutons
-    window.choisirOnglet = function(event, index) {
+    window.choisirOnglets = function(event, index) {
         event.preventDefault();
         isScrolling = true;
         updateSelection(index);

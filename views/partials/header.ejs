@@ -30,7 +30,7 @@
                         <li id="cart-icon" class="header_link-li">
                             <a class="cart-link"> <!-- href="/user/cart" -->
                                 <img src="/assets/img/panier.png" alt="ImgPanier" class="nav_img" />
-                                <p id="item_cart" class="item_qty" style="display: block;"><%= panier.reduce((total, item)=> total + item.quantity, 0) %></p>
+                                <p id="item_cart" class="item_qtys" style="display: block;"><%= panier.reduce((total, item)=> total + item.quantity, 0) %></p>
                             </a>
                         </li>
                         
@@ -41,8 +41,10 @@
                             </li>
                         <% } else { %>
                             <li class="header_link-li">
-                                <img alt="" src="../../assets/img/profiles/<%= profile.img %>"
-                                class="nav_img" style="border-radius: 50%;">
+                                <a href="/user/profile">
+                                    <img alt="" src="../../assets/img/profiles/<%= profile.img %>"
+                                    class="nav_img" style="border-radius: 50%;">
+                                </a>
                             </li>
                         <% } %>
                     <% } %>

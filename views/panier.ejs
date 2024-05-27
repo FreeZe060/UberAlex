@@ -149,56 +149,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="fr b0 eh fs ft">
-                    <div class="fu fv">
-                        <h6 data-baseweb="typo-headingxsmall" class="gz h0 b1 bk bm g1 g2">
-                            Moyen de paiement
-                        </h6>
-                        <div class="cl g6">
-                            <a class="al eo bc ci">
-                                <div class="g7 g8">
-                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M2.833 5.333h18.334v3.333H2.833V5.333zm0 5.833h18.334v7.5H2.833v-7.5z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="al am cl g6">
-                                    <div data-baseweb="typo-labelmedium" class="b1 bo dr bp ds">
-                                        Ajouter un moyen de paiement
-                                    </div>
-                                </div>
-                                <input type="radio" id="opCarte" name="group">
-                            </a>
-                        </div>
-                        <div class="cl g6">
-                            <div class="al cr">
-                                <div class="gx gu bs cl gy"></div>
+            <div class="fr b0 eh fs ft">
+                <div class="fu fv">
+                    <h6 data-baseweb="typo-headingxsmall" class="gz h0 b1 bk bm g1 g2">Moyen de paiement</h6>
+                    <div class="cl g6">
+                        <a class="al eo bc ci">
+                            <div class="g7 g8">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.833 5.333h18.334v3.333H2.833V5.333zm0 5.833h18.334v7.5H2.833v-7.5z"></path>
+                                </svg>
                             </div>
-                            <a class="al eo bc ci">
-                                <div class="g7 g8">
-                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M2.833 5.333h18.334v3.333H2.833V5.333zm0 5.833h18.334v7.5H2.833v-7.5z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="al am cl g6">
-                        
-                                    <span class="bo bp dr ds b1">Payer avec le porte-monnaie</span>
-                                    <div class="bo fd bq ds b1">
-                                        <span class="i5">Balance: <%= logUser.balance.toFixed(2) %>€</span>
-                                    </div>
-                                </div>
-                                <input type="radio" id="opBalance" name="group">
-                            </a>
+                            <div class="al am cl g6">
+                                <div data-baseweb="typo-labelmedium" class="b1 bo dr bp ds">Ajouter un moyen de paiement</div>
+                            </div>
+                            <input type="radio" id="opCarte" name="group">
+                        </a>
+                    </div>
+                    <div class="cl g6">
+                        <div class="al cr">
+                            <div class="gx gu bs cl gy"></div>
                         </div>
+                        <a class="al eo bc ci">
+                            <div class="g7 g8">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="h1 fc h2 h3">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.833 5.333h18.334v3.333H2.833V5.333zm0 5.833h18.334v7.5H2.833v-7.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="al am cl g6">
+                                <span class="bo bp dr ds b1">Payer avec le porte-monnaie</span>
+                                <div class="bo fd bq ds b1">
+                                    <span class="i5">Balance: <%= logUser.balance.toFixed(2) %>€</span>
+                                </div>
+                            </div>
+                            <input type="radio" id="opBalance" name="group">
+                        </a>
                     </div>
                 </div>
-                <button data-baseweb="button" data-test="place-order-btn"
-                    class="d3 aq bc d4 d5 d6 d7 d8 d9 da db dc dd de df dg dh di dj ci dk gl dm dn do dp dq bo ew dr br h4 h5 h6 h7 gz bi h8 h9 ck ha j7 hc bh af">
-                    Continuer vers le paiement
-                </button>
+            </div>
+            <button data-baseweb="button" data-test="place-order-btn" class="d3 aq bc d4 d5 d6 d7 d8 d9 da db dc dd de df dg dh di dj ci dk gl dm dn do dp dq bo ew dr br h4 h5 h6 h7 gz bi h8 h9 ck ha j7 hc bh af" onclick="continuerVersLePaiement()">
+                Continuer vers le paiement
+            </button>
             </div>
             <div class="al am fn hy fo">
                 <div class="fr b0 eh fs ft">
@@ -235,9 +225,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-close">
+                                <span class="close" onclick="closeModal()">&times;</span>
+                            </div>
+                            <h1>Ajouter une carte de crédit ou de débit</h1>
+                            <form id="paymentForm">
+                                <div class="form-group">
+                                    <label for="cardNumber">Numéro de carte</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expDate">Date d'expiration</label>
+                                        <input type="text" id="expDate" name="expDate" placeholder="MM / YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">Code de sécurité</label>
+                                        <input type="text" id="cvv" name="cvv" required>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn-primary" onclick="submitPayment()">Ajouter une carte</button>
+                                    <button type="button" class="btn-secondary" onclick="closeModal()">Annuler</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    
+                    
                     <hr class="gx i6 h0 gu" />
                     <div class="fu fv">
-
+                        
                         <ul data-baseweb="accordion" class="i7 dq do dz e0 bh">
                             <li class="i7 bh i8 hl i9 ia">
                                 <div tabindex="0" role="button" aria-expanded="true"
@@ -360,18 +382,32 @@
                             <div class="al am i4">
                                 <div class="bo er bq ds b1">
                                     <span class="bo er bq ds jb"><span class="bo er dr fe jb">Contrats sur les
-                                            services</span>
+                                        services</span>
                                         En cliquant sur le bouton pour passer votre commande, vous
                                         acceptez le
                                         <a href="" class="bo er bq ds jc">Contrat sur les services de livraison;</a></span>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="iy b9 at bh b0 iz"></div>
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-close">
+                    <span class="close" onclick="closeModal2()">&times;</span>
+                </div>
+                <h1>Payer avec votre solde</h1>
+                <div>
+                    <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %>€</span>.</p>
+                    <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %>€</span>.</p>
+                    <p id="resteSolde"></p>
+                </div>
+                <button type="button" class="btn-primary" onclick="validerPaiement()">Valider</button>
+            </div>
+        </div>
     </main>
     
 </body>

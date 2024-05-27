@@ -32,13 +32,13 @@
                                 <%= restaurant.distance %> km
                             </p>
                             <hr>
-                            <div class="stack">
-                                <div id="boutons">
-                                    <div class="trait-noir"></div>
+                            <div class="stacks">
+                                <div id="bouton">
+                                    <div class="trait-noirs"></div>
                                     <ul class="nav-links">
                                         <% types.forEach(function(type, index) { %>
                                             <li>
-                                                <a href="#section<%= index+1 %>" onclick="choisirOnglet(event, <%= index %>)" <%= index === 0 ? 'class="selected"' : '' %>><%= type %></a>
+                                                <a href="#section<%= index+1 %>" onclick="choisirOnglets(event, <%= index %>)" <%= index === 0 ? 'class="selected"' : '' %>><%= type %></a>
                                             </li>
                                         <% }); %>
                                     </ul>

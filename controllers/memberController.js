@@ -68,15 +68,25 @@ router.get('/profile', async (req, res) => {
     try {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
 
-        const restaurantID = res.locals.cart[0].product.id_restaurant;
-        const restau = await restaurantModel.getRestaurantById(restaurantID);
+        let restau = null;
+        if (res.locals.cart && res.locals.cart.length > 0 && res.locals.cart[0].product) {
+            const restaurantID = res.locals.cart[0].product.id_restaurant;
+            restau = await restaurantModel.getRestaurantById(restaurantID);
+        }
 
-        res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders, restau});
+        res.render('info_profile', { 
+            profile: res.locals.logUser, 
+            panier: res.locals.cart || [], 
+            orders, 
+            restau
+        });
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
         res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');
     }
 });
+
+
 
 router.get('/logout', async (req, res) => {
     req.session.logUser = undefined;

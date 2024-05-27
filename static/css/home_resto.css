@@ -66,7 +66,7 @@ header {
     border-top: 1px solid #ccc;
 }
 
-#boutons {
+#bouton {
     position: relative;
     width: 200px;
 }
@@ -198,7 +198,7 @@ section h2 {
         background-color: #fff; 
     }
      */
-    #boutons {
+    #bouton {
         width: 100%;
         background-color: #fff;
     }
@@ -227,7 +227,7 @@ section h2 {
         font-weight: bold;
     }
     
-    .trait-noir {
+    .trait-noirs {
         position: absolute;
         bottom: 0; 
         left: 0;
