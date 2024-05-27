@@ -445,6 +445,7 @@
 }
 
 .edit-button {
+    margin-left: 5rem;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -455,7 +456,6 @@
     background-color: transparent;
     border: none;
     padding: 0;
-    margin-left: 10px;
     cursor: pointer;
 }
 

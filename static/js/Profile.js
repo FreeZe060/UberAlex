@@ -45,12 +45,14 @@ function choisirOnglet(index) {
 function toggleEdit(section) {
     const display = document.getElementById(`${section}-display`);
     const edit = document.getElementById(`${section}-edit`);
+    const editButton = document.getElementById(`button_edit-${section}`);
     const saveButton = document.getElementById(`save-${section}`);
     
     const isEditing = edit.style.display === 'none';
     
     display.style.display = isEditing ? 'none' : 'inline';
     edit.style.display = isEditing ? 'block' : 'none';
+    editButton.style.display = isEditing ? 'none' : 'inline';
     saveButton.style.display = isEditing ? 'inline' : 'none';
 }
 
