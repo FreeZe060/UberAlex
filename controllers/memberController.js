@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
-const restaurantModel = require('../models/restaurantModel');
 
 // Routes
 
@@ -67,31 +66,53 @@ router.get('/profile', async (req, res) => {
     }
     try {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
+        console.log(orders);
 
-        let restau = null;
-        if (res.locals.cart && res.locals.cart.length > 0 && res.locals.cart[0].product) {
-            const restaurantID = res.locals.cart[0].product.id_restaurant;
-            restau = await restaurantModel.getRestaurantById(restaurantID);
-        }
-
-        res.render('info_profile', { 
-            profile: res.locals.logUser, 
-            panier: res.locals.cart || [], 
-            orders, 
-            restau
-        });
+        res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders});
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
         res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');
     }
 });
 
-
-
 router.get('/logout', async (req, res) => {
     req.session.logUser = undefined;
     req.session.panier = [];
     res.redirect('/');
+});
+
+//Paiement
+
+router.post('/payment-balance', async (req, res) => {
+    const { totalOrder, idRestaurant } = req.body;
+    const logUser = res.locals.logUser
+
+    if (!logUser) {
+        return res.status(401).json({ success: false, message: 'Utilisateur non authentifié' });
+    }
+    
+    const soldeUser = parseFloat(logUser.balance);
+
+    if (isNaN(totalOrder) || totalOrder <= 0) {
+        return res.status(400).json({ success: false, message: 'Montant de la commande invalide' });
+    }
+
+    if (soldeUser >= totalOrder) {
+        try {
+            const nouveauSolde = soldeUser - totalOrder;
+            await memberModel.updateUserBalance(logUser.id, nouveauSolde);
+            await orderModel.saveOrder(idRestaurant, logUser.id, 'pending', res.locals.cart);
+            req.session.logUser.balance = nouveauSolde;
+            req.session.cart = [];
+
+            res.json({ success: true });
+        } catch (error) {
+            console.error('Erreur lors de la validation du paiement :', error);
+            res.status(500).json({ success: false, message: 'Une erreur s\'est produite lors de la validation du paiement' });
+        }
+    } else {
+        res.status(400).json({ success: false, message: 'Votre solde n\'est pas suffisant.' });
+    }
 });
 
 module.exports = router;

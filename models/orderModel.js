@@ -5,14 +5,25 @@ class OrderModel {
         this.dbManager = new dbManager();
     }
 
+    async saveOrder(idRestaurant, idMember, status = 'completed', panier) {
+        try {
+            const queryOrder = 'INSERT INTO `order` (id_restaurant, id_member, date, status) VALUES (?, ?, NOW(), ?)';
+            const resultOrder = await this.dbManager.query(queryOrder, [idRestaurant, idMember, status]);
+
+            console.log(panier);
+
+            const orderId = resultOrder.insertId;
+
+            for (const item of panier){
+                var queryROP = 'INSERT INTO `relations_order_product` (id_order, id_product, quantity) VALUES (?, ?, ?)';
+                await this.dbManager.query(queryROP, [orderId , item.product.id, item.quantity]);
+            }
+        } catch (error) {
+            throw new Error('Erreur lors de l\'enregistrement de la commande : ' + error.message);
+        }
+    }
+
     async getAllOrdersByMemberId(memberId) {
-        // try {
-        //     const query = 'SELECT o.id AS id_order, r.name AS rest_name, r.img AS rest_img, o.date, o.status FROM `order` o JOIN `restaurant` r ON o.id_restaurant = r.id WHERE o.id_member = ?';
-        //     const orders = await this.dbManager.query(query, [memberId]);
-        //     return orders || [];
-        // } catch (error) {
-        //     throw new Error('Erreur lors de la récupération des commandes du membre : ' + error.message);
-        // }
 
         try {
             const query = `

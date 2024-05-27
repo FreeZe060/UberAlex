@@ -23,6 +23,16 @@ class MemberModel {
         }
     }
 
+    async updateUserBalance(userId, newBalance) {
+        try {
+            const query = 'UPDATE member SET balance = ? WHERE id = ?';
+            await this.dbManager.query(query, [newBalance, userId]);
+        } catch (error) {
+            throw new Error('Erreur lors de la mise à jour du solde de l\'utilisateur : ' + error.message);
+        }
+    }
+
+
     async searchUserByEmail(email) {
         try {
             const query = 'SELECT * FROM member WHERE email = ?';

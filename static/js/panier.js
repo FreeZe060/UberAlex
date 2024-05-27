@@ -38,7 +38,6 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-
 function closeModal2() {
     var modal2 = document.getElementById('myModal2');
     modal2.style.display = 'none';
@@ -59,16 +58,39 @@ function submitPayment() {
 }
 
 function validerPaiement() {
-    var montantCommande = 10;
-    var resteSolde = parseFloat(logUser.balance) - montantCommande;
+    var montantCommande = parseFloat(document.getElementById('montantCommande').textContent);
+    var idRestaurant = document.getElementById('restaurant').getAttribute("id_restaurant");
 
-    if (resteSolde >= 0) {
-        alert('Commande effectuée');
-        window.location.href = '/';
-    } else {
-        alert('Votre solde n\'est pas suffisant.');
-    }
+    fetch('/user/payment-balance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            totalOrder: montantCommande,
+            idRestaurant
+        })
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erreur lors de la validation du paiement.');
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                window.location.href = '/';
+            } else {
+                alert('Erreur lors de la validation du paiement : ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la validation du paiement:', error);
+            alert('Une erreur s\'est produite lors de la validation du paiement. Veuillez réessayer.');
+        });
 }
+
 
 function validateCardDetails(cardNumber, expDate, cvv, country) {
     if (cardNumber.length < 16 || expDate.length < 5 || cvv.length < 3 || country === '') {
@@ -92,11 +114,13 @@ window.onclick = function(event) {
 var span2 = document.getElementsByClassName('close')[1];
 span2.onclick = function() {
     closeModal2();
-} 
+}
 
-window.onclick = function(event) {
+window.addEventListener('click', function (event) {
     var modal2 = document.getElementById('myModal2');
-    if (event.target === modal2) {
+    var modalContent = document.querySelector('.modal-content');
+
+    if (event.target === modal2 && !modalContent.contains(event.target)) {
         closeModal2();
     }
-}
+});

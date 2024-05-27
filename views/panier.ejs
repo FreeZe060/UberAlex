@@ -204,7 +204,7 @@
                                         </div>
                                     </div>
                                     <div class="al am d4 i4">
-                                        <div data-baseweb="typo-labelmedium" class="b1 bo dr bp ds">
+                                        <div id_restaurant="<%= restaurant.id %>" id="restaurant" class="b1 bo dr bp ds">
                                             <%= restaurant.name %>
                                         </div>
                                         <p data-baseweb="typo-paragraphsmall" class="i5 bo bq fd ds">
@@ -394,18 +394,19 @@
             </div>
         </div>
         <div class="iy b9 at bh b0 iz"></div>
+
         <div id="myModal2" class="modal">
-            <div class="modal-content">
+            <div id="popup2" class="modal-content">
                 <div class="modal-close">
                     <span class="close" onclick="closeModal2()">&times;</span>
                 </div>
                 <h1>Payer avec votre solde</h1>
                 <div>
-                    <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %>€</span>.</p>
-                    <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %>€</span>.</p>
-                    <p id="resteSolde"></p>
+                    <p>Votre solde actuel est de <span id="soldeUser"><%= logUser.balance.toFixed(2) %> €</span>.</p>
+                    <p>Le montant de la commande est de <span id="montantCommande"><%= (subtotal + taxe).toFixed(2) %></span>€.</p>
+                    <p id="resteSolde">Votre nouvelle solde sera de <span> <%= (logUser.balance - (subtotal + taxe)).toFixed(2) %> €</span>.</p>
                 </div>
-                <button type="button" class="btn-primary" onclick="validerPaiement()">Valider</button>
+                <button type="button" class="btn-primary" onclick="validerPaiement()">Valider le paiement</button>
             </div>
         </div>
     </main>
