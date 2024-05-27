@@ -74,6 +74,24 @@ router.get('/profile', async (req, res) => {
     }
 });
 
+
+router.post('/profile/update', async (req, res) => {
+    const userId = req.session.logUser.id;
+    const updatedData = req.body;
+
+    try {
+        const updatedUser = await memberModel.updateMember(userId, updatedData);
+
+        req.session.logUser = updatedUser;
+
+        res.json({ success: true, profile: updatedUser });
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour du profil :', error);
+        res.json({ success: false, message: 'Une erreur s\'est produite lors de la mise à jour du profil' });
+    }
+});
+
+
 router.get('/logout', async (req, res) => {
     req.session.logUser = undefined;
     req.session.panier = [];

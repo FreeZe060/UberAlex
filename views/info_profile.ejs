@@ -39,21 +39,55 @@
         
         <section id="profile-sec" class="profile_contenu">
             <div id="contenu">
-                <div id="info" style="display: none;" class="div_info_perso">
+                <div id="info" class="div_info_perso">
                     <h2 class="info-title"><strong> Informations Personnelles : </strong></h2>
-                    <p class="info-item">Nom Prenom : <br>
-                        <span> <%= profile.last_name %> <%= profile.first_name %></span>
-                    </p>
+                    
+                    <div class="info-item">
+                        <div class="info-text">
+                            <p>Nom Prenom : </p>
+                            <span id="name-display"><%= profile.last_name %> <%= profile.first_name %></span>
+                            <span id="name-edit" style="display: none;">
+                                <input id="last-name" type="text" value="<%= profile.last_name %>">
+                                <input id="first-name" type="text" value="<%= profile.first_name %>">
+                                <button id="save-name" onclick="saveEdit('name')" style="display: none;">Save Name</button>
+                            </span>
+                        </div>
+                        <button class="edit-button" onclick="toggleEdit('name')">
+                            <img src="../assets/img/profiles/fleche.png" alt="">
+                        </button>
+                    </div>
                     <div class="div_info_separation"></div>
-                    <p class="info-item">Adresse : <br> 
-                        <span> <%= profile.address %> </span>
-                    </p>
+                    
+                    <div class="info-item">
+                        <div class="info-text">
+                            <p>Adresse : </p>
+                            <span id="address-display"><%= profile.address %></span>
+                            <span id="address-edit" style="display: none;">
+                                <input id="address" type="text" value="<%= profile.address %>">
+                                <button id="save-address" onclick="saveEdit('address')" style="display: none;">Save Address</button>
+                            </span>
+                        </div>
+                        <button class="edit-button" onclick="toggleEdit('address')">
+                            <img src="../assets/img/profiles/fleche.png" alt="">
+                        </button>
+                    </div>
                     <div class="div_info_separation"></div>
-                    <p class="info-item">Adresse email : <br>
-                        <span> <%= profile.email %> </span>
-                    </p>
+                    
+                    <div class="info-item">
+                        <div class="info-text">
+                            <p>Adresse email : </p>
+                            <span id="email-display"><%= profile.email %></span>
+                            <span id="email-edit" style="display: none;">
+                                <input id="email" type="text" value="<%= profile.email %>">
+                                <button id="save-email" onclick="saveEdit('email')" style="display: none;">Save Email</button>
+                            </span>
+                        </div>
+                        <button class="edit-button" onclick="toggleEdit('email')">
+                            <img src="../assets/img/profiles/fleche.png" alt="">
+                        </button>
+                    </div>
                     <div class="div_info_separation"></div>
-                </div>
+                </div>                      
                 <div id="commande" style="display: none;" class="div_commande_perso">
                     <h2 class="commande_title">Vos commandes</h2>
                     <% orders.forEach(function(order) { %>

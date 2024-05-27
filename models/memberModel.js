@@ -53,6 +53,48 @@ class MemberModel {
         }
     }
 
+    async updateMember(userId, updatedData) {
+        const fields = [];
+        const values = [];
+
+        if (updatedData.first_name) {
+            fields.push('first_name = ?');
+            values.push(updatedData.first_name);
+        }
+        if (updatedData.last_name) {
+            fields.push('last_name = ?');
+            values.push(updatedData.last_name);
+        }
+        if (updatedData.address) {
+            fields.push('address = ?');
+            values.push(updatedData.address);
+        }
+        if (updatedData.email) {
+            fields.push('email = ?');
+            values.push(updatedData.email);
+        }
+
+        if (fields.length === 0) {
+            throw new Error('Aucune donnée à mettre à jour');
+        }
+
+        values.push(userId);
+
+        const query = `UPDATE member SET ${fields.join(', ')} WHERE id = ?`;
+
+        try {
+            const result = await this.dbManager.query(query, values);
+            if (result.affectedRows > 0) {
+                const updatedUserQuery = 'SELECT * FROM member WHERE id = ?';
+                const updatedUser = await this.dbManager.query(updatedUserQuery, [userId]);
+                return updatedUser[0];
+            }
+            throw new Error('Erreur lors de la mise à jour du membre');
+        } catch (error) {
+            throw new Error('Erreur lors de la mise à jour du membre : ' + error.message);
+        }
+    }
+
     destroy() {
         this.dbManager.close();
     }
