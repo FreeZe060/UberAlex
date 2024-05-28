@@ -94,6 +94,18 @@
                         </div>
                     </div>
                     <div class="div_info_separation"></div>
+
+                    <div class="info-item">
+                        <div class="info-text">
+                            <p>Votre portefeuille : </p>
+                            <div>
+                                <span id="address-display"><%= profile.balance %> €</span>
+                                <span id="address-edit" style="display: none;">
+                                    <input id="address" type="text" value="<%= profile.address %>">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>                      
                 <div id="commande" style="display: none;" class="div_commande_perso">
                     <h2 class="commande_title">Vos commandes</h2>

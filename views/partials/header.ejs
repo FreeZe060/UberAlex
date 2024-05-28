@@ -108,8 +108,8 @@
                     <div class="spacer _16"></div>
 
                     <div>
-                        <div class="db ddc dd ec"><%= profile.first_name %>
-
+                        <div class="db ddc dd ec">
+                            <%= profile.first_name %> <%= profile.balance %>€
                         </div>
                         <a href="/user/profile"
                             class="db e4 dd e5 gf">Gérer le compte</a>
@@ -139,7 +139,7 @@
                     <div class="spacer _16"></div>
                     <div class="db ddc dd ec">Favoris</div>
                 </a>
-                <a data-testid="menu-wallet-button" href="https://wallet.uber.com/" target="_blank" rel="noopener"
+                <a data-testid="menu-wallet-button" href="/user/profile" target="_blank" rel="noopener"
                     class="l9 ah aq hg eo">
                     <div class="p6 fz es ah ca cn">
                         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="jjejd es et">

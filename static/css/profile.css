@@ -37,8 +37,8 @@
 }
 
 .profile-div{
-    max-height: 350px;
-    max-width: 350px;
+    max-height: 300px;
+    max-width: 300px;
     min-height: 200px;
     min-width: 200px;
     margin: auto;
@@ -140,7 +140,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 200px;
+    width: 400px;
 }
 
 .commande_details_items ul li {
@@ -176,6 +176,8 @@
     display: inline-block;
     width: 20px;
     height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     text-align: center;
     line-height: 20px;
     background-color: #ccc;
