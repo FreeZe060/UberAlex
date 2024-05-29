@@ -28,10 +28,9 @@ class ProductModel {
     async getAllProductsOrderedByTypesOfRestaurantId(restaurantId) {
         try {
             const query = `
-            SELECT type, JSON_ARRAYAGG(JSON_OBJECT('id', id, 'name', name, 'price', price, 'img', img)) AS products
+            SELECT type, id, name, price, img
             FROM product
             WHERE id_restaurant = ?
-            GROUP BY type
             ORDER BY
                 CASE
                     WHEN type = 'Menus' THEN 1
@@ -42,10 +41,18 @@ class ProductModel {
                     ELSE 6
                 END`;
             const result = await this.dbManager.query(query, [restaurantId]);
+
             const productsByType = {};
             result.forEach(row => {
-                productsByType[row.type] = JSON.parse(row.products);
+                const { type, id, name, price, img } = row;
+                const product = { id, name, price, img };
+
+                if (!productsByType[type]) {
+                    productsByType[type] = [];
+                }
+                productsByType[type].push(product);
             });
+
             return productsByType;
         } catch (error) {
             throw new Error('Erreur lors de la récupération des types de produits : ' + error.message);

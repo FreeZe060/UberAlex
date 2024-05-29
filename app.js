@@ -7,7 +7,7 @@ const DbManager = require('./config/dbManager');
 const routes = require('./routes/routes');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 /*Encodage de l'url*/
 
