@@ -2,9 +2,9 @@
   "name": "uberalex",
   "version": "1.0.0",
   "description": "UberAlex",
-  "main": "serv.js",
+  "main": "app.js",
   "scripts": {
-    "test": "!"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
