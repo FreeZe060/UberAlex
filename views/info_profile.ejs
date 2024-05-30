@@ -99,7 +99,7 @@
                         <div class="info-text">
                             <p>Votre portefeuille : </p>
                             <div>
-                                <span id="address-display"><%= profile.balance %> €</span>
+                                <span id="address-display"><%= profile.balance.toFixed(2) %> €</span>
                                 <span id="address-edit" style="display: none;">
                                     <input id="address" type="text" value="<%= profile.address %>">
                                 </span>
@@ -119,7 +119,7 @@
                                         <li>
                                             <div class="horizontal">
                                                 <h2 class="title_"><%= order.rest_name %></h2>
-                                                <p><%= order.products.reduce((total, product)=> total + product.quantity, 0) %> plats pour <%= order.total_price %>€</p>
+                                                <p><%= order.products.reduce((total, product)=> total + product.quantity, 0) %> plats pour <%= order.total_price.toFixed(2) %>€</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -131,7 +131,7 @@
                                                 <div class="horizontal">
                                                     <span class="item_qty"><%= product.quantity %></span>
                                                     <h2 class="title_menu"><%= product.product_name %></h2>
-                                                    <p><%= product.product_price %>€</p>
+                                                    <p><%= product.product_price.toFixed(2) %>€</p>
                                                 </div>
                                             </li>
                                         <% }); %>
