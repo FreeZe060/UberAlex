@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const restaurateurModel = require('../models/restaurateurModel');
+const inputSanitizer = require('../config/sanitizer');
 
 // Routes
 
@@ -11,11 +12,11 @@ router.get('/reg_restaurateur', (req, res) => {
 router.post('/create_restaurateur', async (req, res) => {
     try {
         const userData = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            password: req.body.password,
-            email: req.body.email,
-            address: req.body.address + "_" + req.body.postal + "_" + req.body.city
+            first_name: inputSanitizer(req.body.first_name),
+            last_name: inputSanitizer(req.body.last_name),
+            password: inputSanitizer(req.body.password),
+            email: inputSanitizer(req.body.email),
+            address: inputSanitizer(req.body.address) + ", " + inputSanitizer(req.body.postal) + ", " + inputSanitizer(req.body.city)
         };
 
         // Vérifiez si l'utilisateur existe déjà
@@ -41,8 +42,8 @@ router.post('/create_restaurateur', async (req, res) => {
 router.post('/login_restaurateur', async (req, res) => {
     try {
         const userData = {
-            email: req.body.email,
-            password: req.body.password
+            email: inputSanitizer(req.body.email),
+            password: inputSanitizer(req.body.password)
         };
 
         // Vérifiez les informations de connexion

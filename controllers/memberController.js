@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
+const inputSanitizer = require('../config/sanitizer');
+
 
 // Routes
 
@@ -13,11 +15,11 @@ router.get('/reg_member', (req, res) => {
 router.post('/create_member', async (req, res) => {
     try {
         const userData = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            password: req.body.password,
-            email: req.body.email,
-            address: req.body.address + ", " + req.body.postal + ", " + req.body.city
+            first_name: inputSanitizer(req.body.first_name),
+            last_name: inputSanitizer(req.body.last_name),
+            password: inputSanitizer(req.body.password),
+            email: inputSanitizer(req.body.email),
+            address: inputSanitizer(req.body.address) + ", " + inputSanitizer(req.body.postal) + ", " + inputSanitizer(req.body.city)
         };
 
         if (await memberModel.searchUserByEmail(userData.email)) {
@@ -41,8 +43,8 @@ router.post('/create_member', async (req, res) => {
 router.post('/login_member', async (req, res) => {
     try {
         const userData = {
-            email: req.body.email,
-            password: req.body.password
+            email: inputSanitizer(req.body.email),
+            password: inputSanitizer(req.body.password)
         };
 
         const User = await memberModel.authenticate(userData);
@@ -76,8 +78,8 @@ router.get('/profile', async (req, res) => {
 
 
 router.post('/profile/update', async (req, res) => {
-    const userId = req.session.logUser.id;
-    const updatedData = req.body;
+    const userId = inputSanitizer(req.session.logUser.id);
+    const updatedData = inputSanitizer(req.body);
 
     try {
         const updatedUser = await memberModel.updateMember(userId, updatedData);
@@ -101,7 +103,7 @@ router.get('/logout', async (req, res) => {
 //Paiement
 
 router.post('/payment-balance', async (req, res) => {
-    const { totalOrder, idRestaurant } = req.body;
+    const { totalOrder, idRestaurant } = inputSanitizer(req.body);
     const logUser = res.locals.logUser
 
     if (!logUser) {
