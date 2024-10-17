@@ -81,8 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var traitNoir = document.createElement('div');
     var sections = document.querySelectorAll(".section");
     var isScrolling = false;
-
-    // Fonction pour mettre à jour la sélection du bouton
+    
     function updateSelection(index) {
         for (var i = 0; i < boutons.length; i++) {
             boutons[i].classList.remove("selected");
@@ -101,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
         traitNoir.style.opacity = "1";
     }
 
-    // Initialiser la position du trait noir pour le premier élément sélectionné
     var boutonSelectionne = document.querySelector("#boutons .nav-links a.selected");
     if (boutonSelectionne) {
         var boutonSelectionneRect = boutonSelectionne.getBoundingClientRect();
@@ -135,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 
-    // Gestion des clics sur les boutons
     window.choisirOnglets = function(event, index) {
         event.preventDefault();
         isScrolling = true;
@@ -145,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function() {
         var targetElement = document.querySelector(targetId);
         targetElement.scrollIntoView({ behavior: 'smooth' });
 
-        // Attendre que le défilement soit terminé avant de permettre l'observation
         setTimeout(function() {
             isScrolling = false;
         }, 500);

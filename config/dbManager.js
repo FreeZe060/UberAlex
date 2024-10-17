@@ -3,10 +3,10 @@ const mysql = require('mysql');
 class DbManager {
     constructor() {
         this.dbConfig = {
-            host: 'sql7.freesqldatabase.com',
-            user: 'sql7710351',
-            password: 'lhn1GpxcwA',
-            database: 'sql7710351'
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'uberalex'
         };
         this.connection = mysql.createConnection(this.dbConfig);
     }

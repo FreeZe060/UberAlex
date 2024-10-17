@@ -19,13 +19,11 @@ router.post('/create_restaurateur', async (req, res) => {
             address: inputSanitizer(req.body.address) + ", " + inputSanitizer(req.body.postal) + ", " + inputSanitizer(req.body.city)
         };
 
-        // Vérifiez si l'utilisateur existe déjà
         if (await restaurateurModel.searchUserByEmail(userData.email)) {
             console.log("Inscription non autorisée car un restaurateur avec cet email existe déjà");
             return res.render('register_restaurateur', { error2: 'Un restaurateur avec cet email existe déjà' });
         }
 
-        // Création du nouvel utilisateur
         const newRestaurateur = await restaurateurModel.createRestaurateur(userData);
         console.log("Restaurateur inscrit avec succès:", newRestaurateur);
 
@@ -46,7 +44,6 @@ router.post('/login_restaurateur', async (req, res) => {
             password: inputSanitizer(req.body.password)
         };
 
-        // Vérifiez les informations de connexion
         const restaurateur = await restaurateurModel.authenticate(userData);
         if (restaurateur) {
             req.session.logUser = restaurateur;
