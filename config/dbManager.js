@@ -4,9 +4,9 @@ class DbManager {
     constructor() {
         this.dbConfig = {
             host: 'sql7.freesqldatabase.com',
-            user: 'sql7710351',
-            password: 'lhn1GpxcwA',
-            database: 'sql7710351'
+            user: 'sql7765235',
+            password: 'Q2LhDe8CWm',
+            database: 'sql7765235'
         };
         this.connection = mysql.createConnection(this.dbConfig);
     }

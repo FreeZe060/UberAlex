@@ -17,6 +17,7 @@
     "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
-    "sharp": "^0.33.3"
+    "sharp": "^0.33.3",
+    "uberalex": "file:"
   }
 }
