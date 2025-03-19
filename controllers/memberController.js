@@ -3,6 +3,7 @@ const router = express.Router();
 const memberModel = require('../models/memberModel');
 const orderModel = require('../models/orderModel');
 const inputSanitizer = require('../config/sanitizer');
+const FavoriteRestaurantModel = require('../models/favoriteRestaurantModel');
 
 
 // Routes
@@ -68,8 +69,8 @@ router.get('/profile', async (req, res) => {
     }
     try {
         const orders = await orderModel.getAllOrdersByMemberId(res.locals.logUser.id);
-
-        res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders});
+        const favorites = await FavoriteRestaurantModel.getFavoritesByMemberId(res.locals.logUser.id);
+        res.render('info_profile', { profile: res.locals.logUser, panier: res.locals.cart, orders, favorites });
     } catch (error) {
         console.error('Erreur lors de la récupération des commandes du membre :', error);
         res.status(500).send('Une erreur s\'est produite lors de la récupération des commandes du membre');

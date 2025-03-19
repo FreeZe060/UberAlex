@@ -88,6 +88,19 @@ class OrderModel {
             throw new Error('Erreur lors de la récupération des commandes du membre : ' + error.message);
         }
     }
+
+    async getOrdersByMemberAndRestaurant(memberId, restaurantId) {
+        try {
+            const query = `
+                SELECT * FROM orders
+                WHERE id_member = $1 AND id_restaurant = $2
+            `;
+            const result = await this.dbManager.query(query, [memberId, restaurantId]);
+            return result; // retourne un tableau (vide si aucune commande)
+        } catch (error) {
+            throw new Error('Erreur lors de la vérification des commandes : ' + error.message);
+        }
+    }
 }
 
 module.exports = new OrderModel();

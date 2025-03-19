@@ -504,6 +504,21 @@ div p#droprate {
     font-weight: normal;
 }
 
+.structure_button-fav {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
+.structure_button-fav svg {
+    fill: rgb(243, 243, 243);
+    transition: fill 0.3s ease;
+}
 
+/* Quand le bouton est en favoris, on force la couleur rouge pour tout le SVG */
+.structure_button-fav.favorited svg,
+.structure_button-fav.favorited svg path {
+    fill: red;
+}
 
