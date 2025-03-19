@@ -17,6 +17,8 @@
     "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
+    "pg": "^8.14.1",
+    "postgres": "^3.4.5",
     "sharp": "^0.33.3",
     "uberalex": "file:"
   }

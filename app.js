@@ -1,4 +1,3 @@
-//npm install express-session express path ejs body-parser fs sharp
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,8 +7,6 @@ const routes = require('./routes/routes');
 
 const app = express();
 const port = process.env.PORT || 8080;
-
-/*Encodage de l'url*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,12 +22,10 @@ app.use((req, res, next) => {
     next();
 });
 
-// Configuration de la base de données
 const dbManager = new DbManager();
 dbManager.connect();
-console.log(`Connecté à la base de données MySQL`);
+console.log(`Connecté à la base de données PostgreSQL Supabase`);
 
-// Autres configurations et middlewares
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/static', express.static(path.join(__dirname, 'static'), { 'Content-Type': 'text/css' }));
